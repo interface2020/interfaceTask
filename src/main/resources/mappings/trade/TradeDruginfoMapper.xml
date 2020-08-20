@@ -1,0 +1,2052 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.TradeDruginfoDao">
+	<resultMap type="com.trade.model.TradeDruginfo" id="BaseResultMap">
+		<result property="drugid" column="DRUGID" javaType="Object" />
+		<result property="productid" column="PRODUCTID" javaType="Object" />
+		<result property="drugnameid" column="DRUGNAMEID" javaType="Object" />
+		<result property="drugname" column="DRUGNAME" javaType="Object" />
+		<result property="druggoodsname" column="DRUGGOODSNAME" javaType="String" />
+		<result property="drugformid" column="DRUGFORMID" javaType="Object" />
+		<result property="drugform" column="DRUGFORM" javaType="Object" />
+		<result property="drugspecid" column="DRUGSPECID" javaType="Object" />
+		<result property="drugspec" column="DRUGSPEC" javaType="Object" />
+		<result property="drugfactor" column="DRUGFACTOR" javaType="String" />
+		<result property="drugunitid" column="DRUGUNITID" javaType="Object" />
+		<result property="drugunit" column="DRUGUNIT" javaType="Object" />
+		<result property="preparationunitid" column="PREPARATIONUNITID" javaType="Object" />
+		<result property="preparationunit" column="PREPARATIONUNIT" javaType="Object" />
+		<result property="drugmaterialid" column="DRUGMATERIALID" javaType="Object" />
+		<result property="drugmaterial" column="DRUGMATERIAL" javaType="Object" />
+		<result property="companyidTb" column="COMPANYID_TB" javaType="Object" />
+		<result property="companyidSc" column="COMPANYID_SC" javaType="Object" />
+		<result property="companynameSc" column="COMPANYNAME_SC" javaType="Object" />
+		<result property="qualitylevelsid" column="QUALITYLEVELSID" javaType="Object" />
+		<result property="regcardid" column="REGCARDID" javaType="String" />
+		<result property="sourceoffeed" column="SOURCEOFFEED" javaType="Object" />
+		<result property="typecharacteristics" column="TYPECHARACTERISTICS" javaType="Object" />
+		<result property="reservecondition" column="RESERVECONDITION" javaType="Object" />
+		<result property="drugvalidity" column="DRUGVALIDITY" javaType="Object" />
+		<result property="drugroute" column="DRUGROUTE" javaType="Object" />
+		<result property="isgmpnotice" column="ISGMPNOTICE" javaType="String" />
+		<result property="gmpid" column="GMPID" javaType="String" />
+		<result property="islisencenotice" column="ISLISENCENOTICE" javaType="String" />
+		<result property="lisencecode" column="LISENCECODE" javaType="Object" />
+		<result property="licensenumberdate" column="LICENSENUMBERDATE" javaType="Date" />
+		<result property="internationalcertification" column="INTERNATIONALCERTIFICATION" javaType="String" />
+		<result property="importcertificate" column="IMPORTCERTIFICATE" javaType="Object" />
+		<result property="regcode" column="REGCODE" javaType="Object" />
+		<result property="regdate" column="REGDATE" javaType="Date" />
+		<result property="productquality" column="PRODUCTQUALITY" javaType="Object" />
+		<result property="businessbribery" column="BUSINESSBRIBERY" javaType="Object" />
+		<result property="drugdistribution" column="DRUGDISTRIBUTION" javaType="Object" />
+		<result property="iselectroniccode" column="ISELECTRONICCODE" javaType="BigDecimal" />
+		<result property="electroniccode" column="ELECTRONICCODE" javaType="Object" />
+		<result property="electroniccodeunit" column="ELECTRONICCODEUNIT" javaType="Object" />
+		<result property="electroniccodeurl" column="ELECTRONICCODEURL" javaType="Object" />
+		<result property="drugqualitystandard" column="DRUGQUALITYSTANDARD" javaType="Object" />
+		<result property="surveyreportid" column="SURVEYREPORTID" javaType="Object" />
+		<result property="surveyreportdate" column="SURVEYREPORTDATE" javaType="Date" />
+		<result property="newdrugcode" column="NEWDRUGCODE" javaType="Object" />
+		<result property="drugstandardcode" column="DRUGSTANDARDCODE" javaType="Object" />
+		<result property="drugansprm" column="DRUGANSPRM" javaType="String" />
+		<result property="drugremark" column="DRUGREMARK" javaType="String" />
+		<result property="addtime" column="ADDTIME" javaType="Date" />
+		<result property="adduserid" column="ADDUSERID" javaType="Object" />
+		<result property="drugformdescription" column="DRUGFORMDESCRIPTION" javaType="Object" />
+		<result property="middlepack" column="MIDDLEPACK" javaType="String" />
+		<result property="bigpack" column="BIGPACK" javaType="String" />
+		<result property="drugorigin" column="DRUGORIGIN" javaType="String" />
+		<result property="catalogtype" column="CATALOGTYPE" javaType="Object" />
+		<result property="isusing" column="ISUSING" javaType="String" />
+		<result property="isurbmi" column="ISURBMI" javaType="String" />
+		<result property="isnrcms" column="ISNRCMS" javaType="String" />
+		<result property="isemergencymedicine" column="ISEMERGENCYMEDICINE" javaType="String" />
+		<result property="isclinicalsmall" column="ISCLINICALSMALL" javaType="String" />
+		<result property="companynameTb" column="COMPANYNAME_TB" javaType="Object" />
+		<result property="drugcode" column="DRUGCODE" javaType="Object" />
+		<result property="drugtype" column="DRUGTYPE" javaType="Object" />
+		<result property="drugenglishname" column="DRUGENGLISHNAME" javaType="Object" />
+		<result property="drugsource" column="DRUGSOURCE" javaType="Object" />
+		<result property="mincompanyname" column="MINCOMPANYNAME" javaType="Object" />
+		<result property="materialno" column="MATERIALNO" javaType="Object" />
+		<result property="mindrugreportresult" column="MINDRUGREPORTRESULT" javaType="Object" />
+		<result property="reportdate" column="REPORTDATE" javaType="Date" />
+		<result property="reportresult" column="REPORTRESULT" javaType="Object" />
+		<result property="isentrust" column="ISENTRUST" javaType="Object" />
+		<result property="entrustcode" column="ENTRUSTCODE" javaType="Object" />
+		<result property="entrustcompanyname" column="ENTRUSTCOMPANYNAME" javaType="Object" />
+		<result property="electronicsupervision" column="ELECTRONICSUPERVISION" javaType="Object" />
+		<result property="abroadcompanyname" column="ABROADCOMPANYNAME" javaType="Object" />
+		<result property="bidcompanyname" column="BIDCOMPANYNAME" javaType="Object" />
+		<result property="drugcapacity" column="DRUGCAPACITY" javaType="Object" />
+		<result property="medicalinsurancetype" column="MEDICALINSURANCETYPE" javaType="Object" />
+		<result property="medicalinsurancecode" column="MEDICALINSURANCECODE" javaType="Object" />
+		<result property="pricetype" column="PRICETYPE" javaType="Object" />
+		<result property="governmentpricetype" column="GOVERNMENTPRICETYPE" javaType="Object" />
+		<result property="governmentprice" column="GOVERNMENTPRICE" javaType="Object" />
+		<result property="isBasicDrug" column="IS_BASIC_DRUG" javaType="Object" />
+		<result property="minPackUnit" column="MIN_PACK_UNIT" javaType="String" />
+		<result property="minReportCode" column="MIN_REPORT_CODE" javaType="String" />
+		<result property="id" column="ID" javaType="String" />
+		<result property="regid" column="REGID" javaType="Object" />
+		<result property="enteredcomname" column="ENTEREDCOMNAME" javaType="Object" />
+		<result property="indication" column="INDICATION" javaType="String" />
+		<result property="isgmpvaild" column="ISGMPVAILD" javaType="String" />
+		<result property="entrustcompanyid" column="ENTRUSTCOMPANYID" javaType="Object" />
+		<result property="regtype" column="REGTYPE" javaType="String" />
+		<result property="regperformstandard" column="REGPERFORMSTANDARD" javaType="String" />
+		<result property="regperformstandardcode" column="REGPERFORMSTANDARDCODE" javaType="String" />
+		<result property="yields" column="YIELDS" javaType="String" />
+		<result property="isdruglabel" column="ISDRUGLABEL" javaType="BigDecimal" />
+		<result property="price" column="PRICE" javaType="BigDecimal" />
+		<result property="comprice" column="COMPRICE" javaType="BigDecimal" />
+		<result property="patenttype" column="PATENTTYPE" javaType="BigDecimal" />
+		<result property="pack" column="PACK" javaType="Object" />
+		<result property="isusingreason" column="ISUSINGREASON" javaType="Object" />
+		<result property="medicinemodelstandard" column="MEDICINEMODELSTANDARD" javaType="String" />
+		<result property="outlookcstandard" column="OUTLOOKCSTANDARD" javaType="String" />
+		<result property="goodsclassification" column="GOODSCLASSIFICATION" javaType="String" />
+		<result property="hasinstructions" column="HASINSTRUCTIONS" javaType="String" />
+		<result property="haspack" column="HASPACK" javaType="String" />
+		<result property="instructionsimg" column="INSTRUCTIONSIMG" javaType="String" />
+		<result property="entityimg" column="ENTITYIMG" javaType="String" />
+		<result property="iscountryfamous" column="ISCOUNTRYFAMOUS" javaType="String" />
+		<result property="isprovincefamous" column="ISPROVINCEFAMOUS" javaType="String" />
+		<result property="instructionsid" column="INSTRUCTIONSID" javaType="String" />
+		<result property="entityid" column="ENTITYID" javaType="String" />
+		<result property="isbargaining" column="ISBARGAINING" javaType="BigDecimal" />
+		<result property="maxretailprice" column="MAXRETAILPRICE" javaType="BigDecimal" />
+		<result property="farmgateprice" column="FARMGATEPRICE" javaType="BigDecimal" />
+		<result property="retailprice" column="RETAILPRICE" javaType="BigDecimal" />
+		<result property="nmpackprice" column="NMPACKPRICE" javaType="BigDecimal" />
+		<result property="isfzy" column="ISFZY" javaType="String" />
+		<result property="isdjy" column="ISDJY" javaType="String" />
+		<result property="isBasicDrugOld" column="IS_BASIC_DRUG_OLD" javaType="Object" />
+		<result property="ypid" column="YPID" javaType="String" />
+		<result property="lastUpdateTime" column="LASTUPDATETIME" javaType="Date" />
+		<result property="ispilot" column="ISPILOT" javaType="String" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.DRUGID,
+		t.PRODUCTID,
+		t.DRUGNAMEID,
+		t.DRUGNAME,
+		t.DRUGGOODSNAME,
+		t.DRUGFORMID,
+		t.DRUGFORM,
+		t.DRUGSPECID,
+		t.DRUGSPEC,
+		t.DRUGFACTOR,
+		t.DRUGUNITID,
+		t.DRUGUNIT,
+		t.PREPARATIONUNITID,
+		t.PREPARATIONUNIT,
+		t.DRUGMATERIALID,
+		t.DRUGMATERIAL,
+		t.COMPANYID_TB,
+		t.COMPANYID_SC,
+		t.COMPANYNAME_SC,
+		t.QUALITYLEVELSID,
+		t.REGCARDID,
+		t.SOURCEOFFEED,
+		t.TYPECHARACTERISTICS,
+		t.RESERVECONDITION,
+		t.DRUGVALIDITY,
+		t.DRUGROUTE,
+		t.ISGMPNOTICE,
+		t.GMPID,
+		t.ISLISENCENOTICE,
+		t.LISENCECODE,
+		t.LICENSENUMBERDATE,
+		t.INTERNATIONALCERTIFICATION,
+		t.IMPORTCERTIFICATE,
+		t.REGCODE,
+		t.REGDATE,
+		t.PRODUCTQUALITY,
+		t.BUSINESSBRIBERY,
+		t.DRUGDISTRIBUTION,
+		t.ISELECTRONICCODE,
+		t.ELECTRONICCODE,
+		t.ELECTRONICCODEUNIT,
+		t.ELECTRONICCODEURL,
+		t.DRUGQUALITYSTANDARD,
+		t.SURVEYREPORTID,
+		t.SURVEYREPORTDATE,
+		t.NEWDRUGCODE,
+		t.DRUGSTANDARDCODE,
+		t.DRUGANSPRM,
+		t.DRUGREMARK,
+		t.ADDTIME,
+		t.ADDUSERID,
+		t.DRUGFORMDESCRIPTION,
+		t.MIDDLEPACK,
+		t.BIGPACK,
+		t.DRUGORIGIN,
+		t.CATALOGTYPE,
+		t.ISUSING,
+		t.ISURBMI,
+		t.ISNRCMS,
+		t.ISEMERGENCYMEDICINE,
+		t.ISCLINICALSMALL,
+		t.COMPANYNAME_TB,
+		t.DRUGCODE,
+		t.DRUGTYPE,
+		t.DRUGENGLISHNAME,
+		t.DRUGSOURCE,
+		t.MINCOMPANYNAME,
+		t.MATERIALNO,
+		t.MINDRUGREPORTRESULT,
+		t.REPORTDATE,
+		t.REPORTRESULT,
+		t.ISENTRUST,
+		t.ENTRUSTCODE,
+		t.ENTRUSTCOMPANYNAME,
+		t.ELECTRONICSUPERVISION,
+		t.ABROADCOMPANYNAME,
+		t.BIDCOMPANYNAME,
+		t.DRUGCAPACITY,
+		t.MEDICALINSURANCETYPE,
+		t.MEDICALINSURANCECODE,
+		t.PRICETYPE,
+		t.GOVERNMENTPRICETYPE,
+		t.GOVERNMENTPRICE,
+		t.IS_BASIC_DRUG,
+		t.MIN_PACK_UNIT,
+		t.MIN_REPORT_CODE,
+		t.ID,
+		t.REGID,
+		t.ENTEREDCOMNAME,
+		t.INDICATION,
+		t.ISGMPVAILD,
+		t.ENTRUSTCOMPANYID,
+		t.REGTYPE,
+		t.REGPERFORMSTANDARD,
+		t.REGPERFORMSTANDARDCODE,
+		t.YIELDS,
+		t.ISDRUGLABEL,
+		t.PRICE,
+		t.COMPRICE,
+		t.PATENTTYPE,
+		t.PACK,
+		t.ISUSINGREASON,
+		t.MEDICINEMODELSTANDARD,
+		t.OUTLOOKCSTANDARD,
+		t.GOODSCLASSIFICATION,
+		t.HASINSTRUCTIONS,
+		t.HASPACK,
+		t.INSTRUCTIONSIMG,
+		t.ENTITYIMG,
+		t.ISCOUNTRYFAMOUS,
+		t.ISPROVINCEFAMOUS,
+		t.INSTRUCTIONSID,
+		t.ENTITYID,
+		t.ISBARGAINING,
+		t.MAXRETAILPRICE,
+		t.FARMGATEPRICE,
+		t.RETAILPRICE,
+		t.NMPACKPRICE,
+		t.ISFZY,
+		t.ISDJY,
+		t.IS_BASIC_DRUG_OLD,
+		t.YPID,
+		t.ISPILOT
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@com.OGNL@isNotEmpty(drugid)">
+				AND t.DRUGID = #{drugid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(productid)">
+				AND t.PRODUCTID = #{productid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugnameid)">
+				AND t.DRUGNAMEID = #{drugnameid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugname)">
+				AND t.DRUGNAME = #{drugname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(druggoodsname)">
+				AND t.DRUGGOODSNAME = #{druggoodsname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugformid)">
+				AND t.DRUGFORMID = #{drugformid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugform)">
+				AND t.DRUGFORM = #{drugform}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugspecid)">
+				AND t.DRUGSPECID = #{drugspecid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugspec)">
+				AND t.DRUGSPEC = #{drugspec}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugfactor)">
+				AND t.DRUGFACTOR = #{drugfactor}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugunitid)">
+				AND t.DRUGUNITID = #{drugunitid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugunit)">
+				AND t.DRUGUNIT = #{drugunit}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(preparationunitid)">
+				AND t.PREPARATIONUNITID = #{preparationunitid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(preparationunit)">
+				AND t.PREPARATIONUNIT = #{preparationunit}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugmaterialid)">
+				AND t.DRUGMATERIALID = #{drugmaterialid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugmaterial)">
+				AND t.DRUGMATERIAL = #{drugmaterial}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyidTb)">
+				AND t.COMPANYID_TB = #{companyidTb}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyidSc)">
+				AND t.COMPANYID_SC = #{companyidSc}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companynameSc)">
+				AND t.COMPANYNAME_SC = #{companynameSc}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(qualitylevelsid)">
+				AND t.QUALITYLEVELSID = #{qualitylevelsid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regcardid)">
+				AND t.REGCARDID = #{regcardid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(sourceoffeed)">
+				AND t.SOURCEOFFEED = #{sourceoffeed}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(typecharacteristics)">
+				AND t.TYPECHARACTERISTICS = #{typecharacteristics}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(reservecondition)">
+				AND t.RESERVECONDITION = #{reservecondition}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugvalidity)">
+				AND t.DRUGVALIDITY = #{drugvalidity}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugroute)">
+				AND t.DRUGROUTE = #{drugroute}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isgmpnotice)">
+				AND t.ISGMPNOTICE = #{isgmpnotice}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(gmpid)">
+				AND t.GMPID = #{gmpid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(islisencenotice)">
+				AND t.ISLISENCENOTICE = #{islisencenotice}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lisencecode)">
+				AND t.LISENCECODE = #{lisencecode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(licensenumberdate)">
+				AND t.LICENSENUMBERDATE = #{licensenumberdate}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(internationalcertification)">
+				AND t.INTERNATIONALCERTIFICATION = #{internationalcertification}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(importcertificate)">
+				AND t.IMPORTCERTIFICATE = #{importcertificate}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regcode)">
+				AND t.REGCODE = #{regcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regdate)">
+				AND t.REGDATE = #{regdate}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(productquality)">
+				AND t.PRODUCTQUALITY = #{productquality}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businessbribery)">
+				AND t.BUSINESSBRIBERY = #{businessbribery}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugdistribution)">
+				AND t.DRUGDISTRIBUTION = #{drugdistribution}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(iselectroniccode)">
+				AND t.ISELECTRONICCODE = #{iselectroniccode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(electroniccode)">
+				AND t.ELECTRONICCODE = #{electroniccode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(electroniccodeunit)">
+				AND t.ELECTRONICCODEUNIT = #{electroniccodeunit}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(electroniccodeurl)">
+				AND t.ELECTRONICCODEURL = #{electroniccodeurl}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugqualitystandard)">
+				AND t.DRUGQUALITYSTANDARD = #{drugqualitystandard}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(surveyreportid)">
+				AND t.SURVEYREPORTID = #{surveyreportid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(surveyreportdate)">
+				AND t.SURVEYREPORTDATE = #{surveyreportdate}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(newdrugcode)">
+				AND t.NEWDRUGCODE = #{newdrugcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugstandardcode)">
+				AND t.DRUGSTANDARDCODE = #{drugstandardcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugansprm)">
+				AND t.DRUGANSPRM = #{drugansprm}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugremark)">
+				AND t.DRUGREMARK = #{drugremark}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addtime)">
+				AND t.ADDTIME = #{addtime}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(adduserid)">
+				AND t.ADDUSERID = #{adduserid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugformdescription)">
+				AND t.DRUGFORMDESCRIPTION = #{drugformdescription}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(middlepack)">
+				AND t.MIDDLEPACK = #{middlepack}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(bigpack)">
+				AND t.BIGPACK = #{bigpack}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugorigin)">
+				AND t.DRUGORIGIN = #{drugorigin}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(catalogtype)">
+				AND t.CATALOGTYPE = #{catalogtype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusing)">
+				AND t.ISUSING = #{isusing}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isurbmi)">
+				AND t.ISURBMI = #{isurbmi}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isnrcms)">
+				AND t.ISNRCMS = #{isnrcms}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isemergencymedicine)">
+				AND t.ISEMERGENCYMEDICINE = #{isemergencymedicine}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isclinicalsmall)">
+				AND t.ISCLINICALSMALL = #{isclinicalsmall}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companynameTb)">
+				AND t.COMPANYNAME_TB = #{companynameTb}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugcode)">
+				AND t.DRUGCODE = #{drugcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugtype)">
+				AND t.DRUGTYPE = #{drugtype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugenglishname)">
+				AND t.DRUGENGLISHNAME = #{drugenglishname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugsource)">
+				AND t.DRUGSOURCE = #{drugsource}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mincompanyname)">
+				AND t.MINCOMPANYNAME = #{mincompanyname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(materialno)">
+				AND t.MATERIALNO = #{materialno}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mindrugreportresult)">
+				AND t.MINDRUGREPORTRESULT = #{mindrugreportresult}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(reportdate)">
+				AND t.REPORTDATE = #{reportdate}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(reportresult)">
+				AND t.REPORTRESULT = #{reportresult}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isentrust)">
+				AND t.ISENTRUST = #{isentrust}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(entrustcode)">
+				AND t.ENTRUSTCODE = #{entrustcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(entrustcompanyname)">
+				AND t.ENTRUSTCOMPANYNAME = #{entrustcompanyname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(electronicsupervision)">
+				AND t.ELECTRONICSUPERVISION = #{electronicsupervision}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(abroadcompanyname)">
+				AND t.ABROADCOMPANYNAME = #{abroadcompanyname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(bidcompanyname)">
+				AND t.BIDCOMPANYNAME = #{bidcompanyname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugcapacity)">
+				AND t.DRUGCAPACITY = #{drugcapacity}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(medicalinsurancetype)">
+				AND t.MEDICALINSURANCETYPE = #{medicalinsurancetype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(medicalinsurancecode)">
+				AND t.MEDICALINSURANCECODE = #{medicalinsurancecode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(pricetype)">
+				AND t.PRICETYPE = #{pricetype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(governmentpricetype)">
+				AND t.GOVERNMENTPRICETYPE = #{governmentpricetype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(governmentprice)">
+				AND t.GOVERNMENTPRICE = #{governmentprice}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isBasicDrug)">
+				AND t.IS_BASIC_DRUG = #{isBasicDrug}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(minPackUnit)">
+				AND t.MIN_PACK_UNIT = #{minPackUnit}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(minReportCode)">
+				AND t.MIN_REPORT_CODE = #{minReportCode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(id)">
+				AND t.ID = #{id}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regid)">
+				AND t.REGID = #{regid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(enteredcomname)">
+				AND t.ENTEREDCOMNAME = #{enteredcomname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(indication)">
+				AND t.INDICATION = #{indication}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isgmpvaild)">
+				AND t.ISGMPVAILD = #{isgmpvaild}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(entrustcompanyid)">
+				AND t.ENTRUSTCOMPANYID = #{entrustcompanyid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regtype)">
+				AND t.REGTYPE = #{regtype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regperformstandard)">
+				AND t.REGPERFORMSTANDARD = #{regperformstandard}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regperformstandardcode)">
+				AND t.REGPERFORMSTANDARDCODE = #{regperformstandardcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(yields)">
+				AND t.YIELDS = #{yields}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isdruglabel)">
+				AND t.ISDRUGLABEL = #{isdruglabel}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(price)">
+				AND t.PRICE = #{price}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(comprice)">
+				AND t.COMPRICE = #{comprice}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(patenttype)">
+				AND t.PATENTTYPE = #{patenttype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(pack)">
+				AND t.PACK = #{pack}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusingreason)">
+				AND t.ISUSINGREASON = #{isusingreason}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(medicinemodelstandard)">
+				AND t.MEDICINEMODELSTANDARD = #{medicinemodelstandard}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(outlookcstandard)">
+				AND t.OUTLOOKCSTANDARD = #{outlookcstandard}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(goodsclassification)">
+				AND t.GOODSCLASSIFICATION = #{goodsclassification}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hasinstructions)">
+				AND t.HASINSTRUCTIONS = #{hasinstructions}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(haspack)">
+				AND t.HASPACK = #{haspack}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(instructionsimg)">
+				AND t.INSTRUCTIONSIMG = #{instructionsimg}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(entityimg)">
+				AND t.ENTITYIMG = #{entityimg}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(iscountryfamous)">
+				AND t.ISCOUNTRYFAMOUS = #{iscountryfamous}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isprovincefamous)">
+				AND t.ISPROVINCEFAMOUS = #{isprovincefamous}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(instructionsid)">
+				AND t.INSTRUCTIONSID = #{instructionsid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(entityid)">
+				AND t.ENTITYID = #{entityid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isbargaining)">
+				AND t.ISBARGAINING = #{isbargaining}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(maxretailprice)">
+				AND t.MAXRETAILPRICE = #{maxretailprice}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(farmgateprice)">
+				AND t.FARMGATEPRICE = #{farmgateprice}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(retailprice)">
+				AND t.RETAILPRICE = #{retailprice}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(nmpackprice)">
+				AND t.NMPACKPRICE = #{nmpackprice}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isfzy)">
+				AND t.ISFZY = #{isfzy}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isdjy)">
+				AND t.ISDJY = #{isdjy}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isBasicDrugOld)">
+				AND t.IS_BASIC_DRUG_OLD = #{isBasicDrugOld}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(ypid)">
+				AND t.YPID = #{ypid}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.TradeDruginfo">
+		INSERT INTO TRADE_DRUGINFO(
+		DRUGID ,
+		PRODUCTID ,
+		DRUGNAMEID ,
+		DRUGNAME ,
+		DRUGGOODSNAME ,
+		DRUGFORMID ,
+		DRUGFORM ,
+		DRUGSPECID ,
+		DRUGSPEC ,
+		DRUGFACTOR ,
+		DRUGUNITID ,
+		DRUGUNIT ,
+		PREPARATIONUNITID ,
+		PREPARATIONUNIT ,
+		DRUGMATERIALID ,
+		DRUGMATERIAL ,
+		COMPANYID_TB ,
+		COMPANYID_SC ,
+		COMPANYNAME_SC ,
+		QUALITYLEVELSID ,
+		REGCARDID ,
+		SOURCEOFFEED ,
+		TYPECHARACTERISTICS ,
+		RESERVECONDITION ,
+		DRUGVALIDITY ,
+		DRUGROUTE ,
+		ISGMPNOTICE ,
+		GMPID ,
+		ISLISENCENOTICE ,
+		LISENCECODE ,
+		LICENSENUMBERDATE ,
+		INTERNATIONALCERTIFICATION ,
+		IMPORTCERTIFICATE ,
+		REGCODE ,
+		REGDATE ,
+		PRODUCTQUALITY ,
+		BUSINESSBRIBERY ,
+		DRUGDISTRIBUTION ,
+		ISELECTRONICCODE ,
+		ELECTRONICCODE ,
+		ELECTRONICCODEUNIT ,
+		ELECTRONICCODEURL ,
+		DRUGQUALITYSTANDARD ,
+		SURVEYREPORTID ,
+		SURVEYREPORTDATE ,
+		NEWDRUGCODE ,
+		DRUGSTANDARDCODE ,
+		DRUGANSPRM ,
+		DRUGREMARK ,
+		ADDTIME ,
+		ADDUSERID ,
+		DRUGFORMDESCRIPTION ,
+		MIDDLEPACK ,
+		BIGPACK ,
+		DRUGORIGIN ,
+		CATALOGTYPE ,
+		ISUSING ,
+		ISURBMI ,
+		ISNRCMS ,
+		ISEMERGENCYMEDICINE ,
+		ISCLINICALSMALL ,
+		COMPANYNAME_TB ,
+		DRUGCODE ,
+		DRUGTYPE ,
+		DRUGENGLISHNAME ,
+		DRUGSOURCE ,
+		MINCOMPANYNAME ,
+		MATERIALNO ,
+		MINDRUGREPORTRESULT ,
+		REPORTDATE ,
+		REPORTRESULT ,
+		ISENTRUST ,
+		ENTRUSTCODE ,
+		ENTRUSTCOMPANYNAME ,
+		ELECTRONICSUPERVISION ,
+		ABROADCOMPANYNAME ,
+		BIDCOMPANYNAME ,
+		DRUGCAPACITY ,
+		MEDICALINSURANCETYPE ,
+		MEDICALINSURANCECODE ,
+		PRICETYPE ,
+		GOVERNMENTPRICETYPE ,
+		GOVERNMENTPRICE ,
+		IS_BASIC_DRUG ,
+		MIN_PACK_UNIT ,
+		MIN_REPORT_CODE ,
+		ID ,
+		REGID ,
+		ENTEREDCOMNAME ,
+		INDICATION ,
+		ISGMPVAILD ,
+		ENTRUSTCOMPANYID ,
+		REGTYPE ,
+		REGPERFORMSTANDARD ,
+		REGPERFORMSTANDARDCODE ,
+		YIELDS ,
+		ISDRUGLABEL ,
+		PRICE ,
+		COMPRICE ,
+		PATENTTYPE ,
+		PACK ,
+		ISUSINGREASON ,
+		MEDICINEMODELSTANDARD ,
+		OUTLOOKCSTANDARD ,
+		GOODSCLASSIFICATION ,
+		HASINSTRUCTIONS ,
+		HASPACK ,
+		INSTRUCTIONSIMG ,
+		ENTITYIMG ,
+		ISCOUNTRYFAMOUS ,
+		ISPROVINCEFAMOUS ,
+		INSTRUCTIONSID ,
+		ENTITYID ,
+		ISBARGAINING ,
+		MAXRETAILPRICE ,
+		FARMGATEPRICE ,
+		RETAILPRICE ,
+		NMPACKPRICE ,
+		ISFZY ,
+		ISDJY ,
+		IS_BASIC_DRUG_OLD ,
+		YPID 
+		)
+		VALUES (
+		#{drugid} ,
+		#{productid} ,
+		#{drugnameid} ,
+		#{drugname} ,
+		#{druggoodsname} ,
+		#{drugformid} ,
+		#{drugform} ,
+		#{drugspecid} ,
+		#{drugspec} ,
+		#{drugfactor} ,
+		#{drugunitid} ,
+		#{drugunit} ,
+		#{preparationunitid} ,
+		#{preparationunit} ,
+		#{drugmaterialid} ,
+		#{drugmaterial} ,
+		#{companyidTb} ,
+		#{companyidSc} ,
+		#{companynameSc} ,
+		#{qualitylevelsid} ,
+		#{regcardid} ,
+		#{sourceoffeed} ,
+		#{typecharacteristics} ,
+		#{reservecondition} ,
+		#{drugvalidity} ,
+		#{drugroute} ,
+		#{isgmpnotice} ,
+		#{gmpid} ,
+		#{islisencenotice} ,
+		#{lisencecode} ,
+		#{licensenumberdate} ,
+		#{internationalcertification} ,
+		#{importcertificate} ,
+		#{regcode} ,
+		#{regdate} ,
+		#{productquality} ,
+		#{businessbribery} ,
+		#{drugdistribution} ,
+		#{iselectroniccode} ,
+		#{electroniccode} ,
+		#{electroniccodeunit} ,
+		#{electroniccodeurl} ,
+		#{drugqualitystandard} ,
+		#{surveyreportid} ,
+		#{surveyreportdate} ,
+		#{newdrugcode} ,
+		#{drugstandardcode} ,
+		#{drugansprm} ,
+		#{drugremark} ,
+		#{addtime} ,
+		#{adduserid} ,
+		#{drugformdescription} ,
+		#{middlepack} ,
+		#{bigpack} ,
+		#{drugorigin} ,
+		#{catalogtype} ,
+		#{isusing} ,
+		#{isurbmi} ,
+		#{isnrcms} ,
+		#{isemergencymedicine} ,
+		#{isclinicalsmall} ,
+		#{companynameTb} ,
+		#{drugcode} ,
+		#{drugtype} ,
+		#{drugenglishname} ,
+		#{drugsource} ,
+		#{mincompanyname} ,
+		#{materialno} ,
+		#{mindrugreportresult} ,
+		#{reportdate} ,
+		#{reportresult} ,
+		#{isentrust} ,
+		#{entrustcode} ,
+		#{entrustcompanyname} ,
+		#{electronicsupervision} ,
+		#{abroadcompanyname} ,
+		#{bidcompanyname} ,
+		#{drugcapacity} ,
+		#{medicalinsurancetype} ,
+		#{medicalinsurancecode} ,
+		#{pricetype} ,
+		#{governmentpricetype} ,
+		#{governmentprice} ,
+		#{isBasicDrug} ,
+		#{minPackUnit} ,
+		#{minReportCode} ,
+		#{id} ,
+		#{regid} ,
+		#{enteredcomname} ,
+		#{indication} ,
+		#{isgmpvaild} ,
+		#{entrustcompanyid} ,
+		#{regtype} ,
+		#{regperformstandard} ,
+		#{regperformstandardcode} ,
+		#{yields} ,
+		#{isdruglabel} ,
+		#{price} ,
+		#{comprice} ,
+		#{patenttype} ,
+		#{pack} ,
+		#{isusingreason} ,
+		#{medicinemodelstandard} ,
+		#{outlookcstandard} ,
+		#{goodsclassification} ,
+		#{hasinstructions} ,
+		#{haspack} ,
+		#{instructionsimg} ,
+		#{entityimg} ,
+		#{iscountryfamous} ,
+		#{isprovincefamous} ,
+		#{instructionsid} ,
+		#{entityid} ,
+		#{isbargaining} ,
+		#{maxretailprice} ,
+		#{farmgateprice} ,
+		#{retailprice} ,
+		#{nmpackprice} ,
+		#{isfzy} ,
+		#{isdjy} ,
+		#{isBasicDrugOld} ,
+		#{ypid} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO TRADE_DRUGINFO (
+		DRUGID ,
+		PRODUCTID ,
+		DRUGNAMEID ,
+		DRUGNAME ,
+		DRUGGOODSNAME ,
+		DRUGFORMID ,
+		DRUGFORM ,
+		DRUGSPECID ,
+		DRUGSPEC ,
+		DRUGFACTOR ,
+		DRUGUNITID ,
+		DRUGUNIT ,
+		PREPARATIONUNITID ,
+		PREPARATIONUNIT ,
+		DRUGMATERIALID ,
+		DRUGMATERIAL ,
+		COMPANYID_TB ,
+		COMPANYID_SC ,
+		COMPANYNAME_SC ,
+		QUALITYLEVELSID ,
+		REGCARDID ,
+		SOURCEOFFEED ,
+		TYPECHARACTERISTICS ,
+		RESERVECONDITION ,
+		DRUGVALIDITY ,
+		DRUGROUTE ,
+		ISGMPNOTICE ,
+		GMPID ,
+		ISLISENCENOTICE ,
+		LISENCECODE ,
+		LICENSENUMBERDATE ,
+		INTERNATIONALCERTIFICATION ,
+		IMPORTCERTIFICATE ,
+		REGCODE ,
+		REGDATE ,
+		PRODUCTQUALITY ,
+		BUSINESSBRIBERY ,
+		DRUGDISTRIBUTION ,
+		ISELECTRONICCODE ,
+		ELECTRONICCODE ,
+		ELECTRONICCODEUNIT ,
+		ELECTRONICCODEURL ,
+		DRUGQUALITYSTANDARD ,
+		SURVEYREPORTID ,
+		SURVEYREPORTDATE ,
+		NEWDRUGCODE ,
+		DRUGSTANDARDCODE ,
+		DRUGANSPRM ,
+		DRUGREMARK ,
+		ADDTIME ,
+		ADDUSERID ,
+		DRUGFORMDESCRIPTION ,
+		MIDDLEPACK ,
+		BIGPACK ,
+		DRUGORIGIN ,
+		CATALOGTYPE ,
+		ISUSING ,
+		ISURBMI ,
+		ISNRCMS ,
+		ISEMERGENCYMEDICINE ,
+		ISCLINICALSMALL ,
+		COMPANYNAME_TB ,
+		DRUGCODE ,
+		DRUGTYPE ,
+		DRUGENGLISHNAME ,
+		DRUGSOURCE ,
+		MINCOMPANYNAME ,
+		MATERIALNO ,
+		MINDRUGREPORTRESULT ,
+		REPORTDATE ,
+		REPORTRESULT ,
+		ISENTRUST ,
+		ENTRUSTCODE ,
+		ENTRUSTCOMPANYNAME ,
+		ELECTRONICSUPERVISION ,
+		ABROADCOMPANYNAME ,
+		BIDCOMPANYNAME ,
+		DRUGCAPACITY ,
+		MEDICALINSURANCETYPE ,
+		MEDICALINSURANCECODE ,
+		PRICETYPE ,
+		GOVERNMENTPRICETYPE ,
+		GOVERNMENTPRICE ,
+		IS_BASIC_DRUG ,
+		MIN_PACK_UNIT ,
+		MIN_REPORT_CODE ,
+		ID ,
+		REGID ,
+		ENTEREDCOMNAME ,
+		INDICATION ,
+		ISGMPVAILD ,
+		ENTRUSTCOMPANYID ,
+		REGTYPE ,
+		REGPERFORMSTANDARD ,
+		REGPERFORMSTANDARDCODE ,
+		YIELDS ,
+		ISDRUGLABEL ,
+		PRICE ,
+		COMPRICE ,
+		PATENTTYPE ,
+		PACK ,
+		ISUSINGREASON ,
+		MEDICINEMODELSTANDARD ,
+		OUTLOOKCSTANDARD ,
+		GOODSCLASSIFICATION ,
+		HASINSTRUCTIONS ,
+		HASPACK ,
+		INSTRUCTIONSIMG ,
+		ENTITYIMG ,
+		ISCOUNTRYFAMOUS ,
+		ISPROVINCEFAMOUS ,
+		INSTRUCTIONSID ,
+		ENTITYID ,
+		ISBARGAINING ,
+		MAXRETAILPRICE ,
+		FARMGATEPRICE ,
+		RETAILPRICE ,
+		NMPACKPRICE ,
+		ISFZY ,
+		ISDJY ,
+		IS_BASIC_DRUG_OLD ,
+		YPID 
+		) VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			#{item.drugid},
+			#{item.productid},
+			#{item.drugnameid},
+			#{item.drugname},
+			#{item.druggoodsname},
+			#{item.drugformid},
+			#{item.drugform},
+			#{item.drugspecid},
+			#{item.drugspec},
+			#{item.drugfactor},
+			#{item.drugunitid},
+			#{item.drugunit},
+			#{item.preparationunitid},
+			#{item.preparationunit},
+			#{item.drugmaterialid},
+			#{item.drugmaterial},
+			#{item.companyidTb},
+			#{item.companyidSc},
+			#{item.companynameSc},
+			#{item.qualitylevelsid},
+			#{item.regcardid},
+			#{item.sourceoffeed},
+			#{item.typecharacteristics},
+			#{item.reservecondition},
+			#{item.drugvalidity},
+			#{item.drugroute},
+			#{item.isgmpnotice},
+			#{item.gmpid},
+			#{item.islisencenotice},
+			#{item.lisencecode},
+			#{item.licensenumberdate},
+			#{item.internationalcertification},
+			#{item.importcertificate},
+			#{item.regcode},
+			#{item.regdate},
+			#{item.productquality},
+			#{item.businessbribery},
+			#{item.drugdistribution},
+			#{item.iselectroniccode},
+			#{item.electroniccode},
+			#{item.electroniccodeunit},
+			#{item.electroniccodeurl},
+			#{item.drugqualitystandard},
+			#{item.surveyreportid},
+			#{item.surveyreportdate},
+			#{item.newdrugcode},
+			#{item.drugstandardcode},
+			#{item.drugansprm},
+			#{item.drugremark},
+			#{item.addtime},
+			#{item.adduserid},
+			#{item.drugformdescription},
+			#{item.middlepack},
+			#{item.bigpack},
+			#{item.drugorigin},
+			#{item.catalogtype},
+			#{item.isusing},
+			#{item.isurbmi},
+			#{item.isnrcms},
+			#{item.isemergencymedicine},
+			#{item.isclinicalsmall},
+			#{item.companynameTb},
+			#{item.drugcode},
+			#{item.drugtype},
+			#{item.drugenglishname},
+			#{item.drugsource},
+			#{item.mincompanyname},
+			#{item.materialno},
+			#{item.mindrugreportresult},
+			#{item.reportdate},
+			#{item.reportresult},
+			#{item.isentrust},
+			#{item.entrustcode},
+			#{item.entrustcompanyname},
+			#{item.electronicsupervision},
+			#{item.abroadcompanyname},
+			#{item.bidcompanyname},
+			#{item.drugcapacity},
+			#{item.medicalinsurancetype},
+			#{item.medicalinsurancecode},
+			#{item.pricetype},
+			#{item.governmentpricetype},
+			#{item.governmentprice},
+			#{item.isBasicDrug},
+			#{item.minPackUnit},
+			#{item.minReportCode},
+			#{item.id},
+			#{item.regid},
+			#{item.enteredcomname},
+			#{item.indication},
+			#{item.isgmpvaild},
+			#{item.entrustcompanyid},
+			#{item.regtype},
+			#{item.regperformstandard},
+			#{item.regperformstandardcode},
+			#{item.yields},
+			#{item.isdruglabel},
+			#{item.price},
+			#{item.comprice},
+			#{item.patenttype},
+			#{item.pack},
+			#{item.isusingreason},
+			#{item.medicinemodelstandard},
+			#{item.outlookcstandard},
+			#{item.goodsclassification},
+			#{item.hasinstructions},
+			#{item.haspack},
+			#{item.instructionsimg},
+			#{item.entityimg},
+			#{item.iscountryfamous},
+			#{item.isprovincefamous},
+			#{item.instructionsid},
+			#{item.entityid},
+			#{item.isbargaining},
+			#{item.maxretailprice},
+			#{item.farmgateprice},
+			#{item.retailprice},
+			#{item.nmpackprice},
+			#{item.isfzy},
+			#{item.isdjy},
+			#{item.isBasicDrugOld},
+			#{item.ypid}
+			)
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM TRADE_DRUGINFO t
+		WHERE t.ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM TRADE_DRUGINFO t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM TRADE_DRUGINFO t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.TradeDruginfo">
+		UPDATE TRADE_DRUGINFO
+		<set>
+			DRUGID =
+			#{drugid},
+			PRODUCTID =
+			#{productid},
+			DRUGNAMEID =
+			#{drugnameid},
+			DRUGNAME =
+			#{drugname},
+			DRUGGOODSNAME =
+			#{druggoodsname},
+			DRUGFORMID =
+			#{drugformid},
+			DRUGFORM =
+			#{drugform},
+			DRUGSPECID =
+			#{drugspecid},
+			DRUGSPEC =
+			#{drugspec},
+			DRUGFACTOR =
+			#{drugfactor},
+			DRUGUNITID =
+			#{drugunitid},
+			DRUGUNIT =
+			#{drugunit},
+			PREPARATIONUNITID =
+			#{preparationunitid},
+			PREPARATIONUNIT =
+			#{preparationunit},
+			DRUGMATERIALID =
+			#{drugmaterialid},
+			DRUGMATERIAL =
+			#{drugmaterial},
+			COMPANYID_TB =
+			#{companyidTb},
+			COMPANYID_SC =
+			#{companyidSc},
+			COMPANYNAME_SC =
+			#{companynameSc},
+			QUALITYLEVELSID =
+			#{qualitylevelsid},
+			REGCARDID =
+			#{regcardid},
+			SOURCEOFFEED =
+			#{sourceoffeed},
+			TYPECHARACTERISTICS =
+			#{typecharacteristics},
+			RESERVECONDITION =
+			#{reservecondition},
+			DRUGVALIDITY =
+			#{drugvalidity},
+			DRUGROUTE =
+			#{drugroute},
+			ISGMPNOTICE =
+			#{isgmpnotice},
+			GMPID =
+			#{gmpid},
+			ISLISENCENOTICE =
+			#{islisencenotice},
+			LISENCECODE =
+			#{lisencecode},
+			LICENSENUMBERDATE =
+			#{licensenumberdate},
+			INTERNATIONALCERTIFICATION =
+			#{internationalcertification},
+			IMPORTCERTIFICATE =
+			#{importcertificate},
+			REGCODE =
+			#{regcode},
+			REGDATE =
+			#{regdate},
+			PRODUCTQUALITY =
+			#{productquality},
+			BUSINESSBRIBERY =
+			#{businessbribery},
+			DRUGDISTRIBUTION =
+			#{drugdistribution},
+			ISELECTRONICCODE =
+			#{iselectroniccode},
+			ELECTRONICCODE =
+			#{electroniccode},
+			ELECTRONICCODEUNIT =
+			#{electroniccodeunit},
+			ELECTRONICCODEURL =
+			#{electroniccodeurl},
+			DRUGQUALITYSTANDARD =
+			#{drugqualitystandard},
+			SURVEYREPORTID =
+			#{surveyreportid},
+			SURVEYREPORTDATE =
+			#{surveyreportdate},
+			NEWDRUGCODE =
+			#{newdrugcode},
+			DRUGSTANDARDCODE =
+			#{drugstandardcode},
+			DRUGANSPRM =
+			#{drugansprm},
+			DRUGREMARK =
+			#{drugremark},
+			ADDTIME =
+			#{addtime},
+			ADDUSERID =
+			#{adduserid},
+			DRUGFORMDESCRIPTION =
+			#{drugformdescription},
+			MIDDLEPACK =
+			#{middlepack},
+			BIGPACK =
+			#{bigpack},
+			DRUGORIGIN =
+			#{drugorigin},
+			CATALOGTYPE =
+			#{catalogtype},
+			ISUSING =
+			#{isusing},
+			ISURBMI =
+			#{isurbmi},
+			ISNRCMS =
+			#{isnrcms},
+			ISEMERGENCYMEDICINE =
+			#{isemergencymedicine},
+			ISCLINICALSMALL =
+			#{isclinicalsmall},
+			COMPANYNAME_TB =
+			#{companynameTb},
+			DRUGCODE =
+			#{drugcode},
+			DRUGTYPE =
+			#{drugtype},
+			DRUGENGLISHNAME =
+			#{drugenglishname},
+			DRUGSOURCE =
+			#{drugsource},
+			MINCOMPANYNAME =
+			#{mincompanyname},
+			MATERIALNO =
+			#{materialno},
+			MINDRUGREPORTRESULT =
+			#{mindrugreportresult},
+			REPORTDATE =
+			#{reportdate},
+			REPORTRESULT =
+			#{reportresult},
+			ISENTRUST =
+			#{isentrust},
+			ENTRUSTCODE =
+			#{entrustcode},
+			ENTRUSTCOMPANYNAME =
+			#{entrustcompanyname},
+			ELECTRONICSUPERVISION =
+			#{electronicsupervision},
+			ABROADCOMPANYNAME =
+			#{abroadcompanyname},
+			BIDCOMPANYNAME =
+			#{bidcompanyname},
+			DRUGCAPACITY =
+			#{drugcapacity},
+			MEDICALINSURANCETYPE =
+			#{medicalinsurancetype},
+			MEDICALINSURANCECODE =
+			#{medicalinsurancecode},
+			PRICETYPE =
+			#{pricetype},
+			GOVERNMENTPRICETYPE =
+			#{governmentpricetype},
+			GOVERNMENTPRICE =
+			#{governmentprice},
+			IS_BASIC_DRUG =
+			#{isBasicDrug},
+			MIN_PACK_UNIT =
+			#{minPackUnit},
+			MIN_REPORT_CODE =
+			#{minReportCode},
+			REGID =
+			#{regid},
+			ENTEREDCOMNAME =
+			#{enteredcomname},
+			INDICATION =
+			#{indication},
+			ISGMPVAILD =
+			#{isgmpvaild},
+			ENTRUSTCOMPANYID =
+			#{entrustcompanyid},
+			REGTYPE =
+			#{regtype},
+			REGPERFORMSTANDARD =
+			#{regperformstandard},
+			REGPERFORMSTANDARDCODE =
+			#{regperformstandardcode},
+			YIELDS =
+			#{yields},
+			ISDRUGLABEL =
+			#{isdruglabel},
+			PRICE =
+			#{price},
+			COMPRICE =
+			#{comprice},
+			PATENTTYPE =
+			#{patenttype},
+			PACK =
+			#{pack},
+			ISUSINGREASON =
+			#{isusingreason},
+			MEDICINEMODELSTANDARD =
+			#{medicinemodelstandard},
+			OUTLOOKCSTANDARD =
+			#{outlookcstandard},
+			GOODSCLASSIFICATION =
+			#{goodsclassification},
+			HASINSTRUCTIONS =
+			#{hasinstructions},
+			HASPACK =
+			#{haspack},
+			INSTRUCTIONSIMG =
+			#{instructionsimg},
+			ENTITYIMG =
+			#{entityimg},
+			ISCOUNTRYFAMOUS =
+			#{iscountryfamous},
+			ISPROVINCEFAMOUS =
+			#{isprovincefamous},
+			INSTRUCTIONSID =
+			#{instructionsid},
+			ENTITYID =
+			#{entityid},
+			ISBARGAINING =
+			#{isbargaining},
+			MAXRETAILPRICE =
+			#{maxretailprice},
+			FARMGATEPRICE =
+			#{farmgateprice},
+			RETAILPRICE =
+			#{retailprice},
+			NMPACKPRICE =
+			#{nmpackprice},
+			ISFZY =
+			#{isfzy},
+			ISDJY =
+			#{isdjy},
+			IS_BASIC_DRUG_OLD =
+			#{isBasicDrugOld},
+			YPID =
+			#{ypid},
+		</set>
+		WHERE ID =
+		#{id}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.TradeDruginfo">
+		UPDATE TRADE_DRUGINFO
+		<set>
+			<if test="@com.OGNL@isNotEmpty(drugid)">
+				DRUGID =
+				#{drugid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(productid)">
+				PRODUCTID =
+				#{productid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugnameid)">
+				DRUGNAMEID =
+				#{drugnameid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugname)">
+				DRUGNAME =
+				#{drugname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(druggoodsname)">
+				DRUGGOODSNAME =
+				#{druggoodsname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugformid)">
+				DRUGFORMID =
+				#{drugformid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugform)">
+				DRUGFORM =
+				#{drugform},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugspecid)">
+				DRUGSPECID =
+				#{drugspecid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugspec)">
+				DRUGSPEC =
+				#{drugspec},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugfactor)">
+				DRUGFACTOR =
+				#{drugfactor},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugunitid)">
+				DRUGUNITID =
+				#{drugunitid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugunit)">
+				DRUGUNIT =
+				#{drugunit},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(preparationunitid)">
+				PREPARATIONUNITID =
+				#{preparationunitid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(preparationunit)">
+				PREPARATIONUNIT =
+				#{preparationunit},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugmaterialid)">
+				DRUGMATERIALID =
+				#{drugmaterialid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugmaterial)">
+				DRUGMATERIAL =
+				#{drugmaterial},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyidTb)">
+				COMPANYID_TB =
+				#{companyidTb},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyidSc)">
+				COMPANYID_SC =
+				#{companyidSc},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companynameSc)">
+				COMPANYNAME_SC =
+				#{companynameSc},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(qualitylevelsid)">
+				QUALITYLEVELSID =
+				#{qualitylevelsid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regcardid)">
+				REGCARDID =
+				#{regcardid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(sourceoffeed)">
+				SOURCEOFFEED =
+				#{sourceoffeed},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(typecharacteristics)">
+				TYPECHARACTERISTICS =
+				#{typecharacteristics},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(reservecondition)">
+				RESERVECONDITION =
+				#{reservecondition},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugvalidity)">
+				DRUGVALIDITY =
+				#{drugvalidity},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugroute)">
+				DRUGROUTE =
+				#{drugroute},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isgmpnotice)">
+				ISGMPNOTICE =
+				#{isgmpnotice},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(gmpid)">
+				GMPID =
+				#{gmpid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(islisencenotice)">
+				ISLISENCENOTICE =
+				#{islisencenotice},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lisencecode)">
+				LISENCECODE =
+				#{lisencecode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(licensenumberdate)">
+				LICENSENUMBERDATE =
+				#{licensenumberdate},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(internationalcertification)">
+				INTERNATIONALCERTIFICATION =
+				#{internationalcertification},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(importcertificate)">
+				IMPORTCERTIFICATE =
+				#{importcertificate},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regcode)">
+				REGCODE =
+				#{regcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regdate)">
+				REGDATE =
+				#{regdate},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(productquality)">
+				PRODUCTQUALITY =
+				#{productquality},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businessbribery)">
+				BUSINESSBRIBERY =
+				#{businessbribery},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugdistribution)">
+				DRUGDISTRIBUTION =
+				#{drugdistribution},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(iselectroniccode)">
+				ISELECTRONICCODE =
+				#{iselectroniccode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(electroniccode)">
+				ELECTRONICCODE =
+				#{electroniccode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(electroniccodeunit)">
+				ELECTRONICCODEUNIT =
+				#{electroniccodeunit},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(electroniccodeurl)">
+				ELECTRONICCODEURL =
+				#{electroniccodeurl},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugqualitystandard)">
+				DRUGQUALITYSTANDARD =
+				#{drugqualitystandard},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(surveyreportid)">
+				SURVEYREPORTID =
+				#{surveyreportid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(surveyreportdate)">
+				SURVEYREPORTDATE =
+				#{surveyreportdate},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(newdrugcode)">
+				NEWDRUGCODE =
+				#{newdrugcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugstandardcode)">
+				DRUGSTANDARDCODE =
+				#{drugstandardcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugansprm)">
+				DRUGANSPRM =
+				#{drugansprm},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugremark)">
+				DRUGREMARK =
+				#{drugremark},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addtime)">
+				ADDTIME =
+				#{addtime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(adduserid)">
+				ADDUSERID =
+				#{adduserid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugformdescription)">
+				DRUGFORMDESCRIPTION =
+				#{drugformdescription},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(middlepack)">
+				MIDDLEPACK =
+				#{middlepack},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(bigpack)">
+				BIGPACK =
+				#{bigpack},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugorigin)">
+				DRUGORIGIN =
+				#{drugorigin},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(catalogtype)">
+				CATALOGTYPE =
+				#{catalogtype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusing)">
+				ISUSING =
+				#{isusing},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isurbmi)">
+				ISURBMI =
+				#{isurbmi},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isnrcms)">
+				ISNRCMS =
+				#{isnrcms},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isemergencymedicine)">
+				ISEMERGENCYMEDICINE =
+				#{isemergencymedicine},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isclinicalsmall)">
+				ISCLINICALSMALL =
+				#{isclinicalsmall},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companynameTb)">
+				COMPANYNAME_TB =
+				#{companynameTb},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugcode)">
+				DRUGCODE =
+				#{drugcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugtype)">
+				DRUGTYPE =
+				#{drugtype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugenglishname)">
+				DRUGENGLISHNAME =
+				#{drugenglishname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugsource)">
+				DRUGSOURCE =
+				#{drugsource},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mincompanyname)">
+				MINCOMPANYNAME =
+				#{mincompanyname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(materialno)">
+				MATERIALNO =
+				#{materialno},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mindrugreportresult)">
+				MINDRUGREPORTRESULT =
+				#{mindrugreportresult},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(reportdate)">
+				REPORTDATE =
+				#{reportdate},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(reportresult)">
+				REPORTRESULT =
+				#{reportresult},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isentrust)">
+				ISENTRUST =
+				#{isentrust},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(entrustcode)">
+				ENTRUSTCODE =
+				#{entrustcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(entrustcompanyname)">
+				ENTRUSTCOMPANYNAME =
+				#{entrustcompanyname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(electronicsupervision)">
+				ELECTRONICSUPERVISION =
+				#{electronicsupervision},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(abroadcompanyname)">
+				ABROADCOMPANYNAME =
+				#{abroadcompanyname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(bidcompanyname)">
+				BIDCOMPANYNAME =
+				#{bidcompanyname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugcapacity)">
+				DRUGCAPACITY =
+				#{drugcapacity},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(medicalinsurancetype)">
+				MEDICALINSURANCETYPE =
+				#{medicalinsurancetype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(medicalinsurancecode)">
+				MEDICALINSURANCECODE =
+				#{medicalinsurancecode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(pricetype)">
+				PRICETYPE =
+				#{pricetype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(governmentpricetype)">
+				GOVERNMENTPRICETYPE =
+				#{governmentpricetype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(governmentprice)">
+				GOVERNMENTPRICE =
+				#{governmentprice},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isBasicDrug)">
+				IS_BASIC_DRUG =
+				#{isBasicDrug},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(minPackUnit)">
+				MIN_PACK_UNIT =
+				#{minPackUnit},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(minReportCode)">
+				MIN_REPORT_CODE =
+				#{minReportCode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regid)">
+				REGID =
+				#{regid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(enteredcomname)">
+				ENTEREDCOMNAME =
+				#{enteredcomname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(indication)">
+				INDICATION =
+				#{indication},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isgmpvaild)">
+				ISGMPVAILD =
+				#{isgmpvaild},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(entrustcompanyid)">
+				ENTRUSTCOMPANYID =
+				#{entrustcompanyid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regtype)">
+				REGTYPE =
+				#{regtype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regperformstandard)">
+				REGPERFORMSTANDARD =
+				#{regperformstandard},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regperformstandardcode)">
+				REGPERFORMSTANDARDCODE =
+				#{regperformstandardcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(yields)">
+				YIELDS =
+				#{yields},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isdruglabel)">
+				ISDRUGLABEL =
+				#{isdruglabel},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(price)">
+				PRICE =
+				#{price},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(comprice)">
+				COMPRICE =
+				#{comprice},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(patenttype)">
+				PATENTTYPE =
+				#{patenttype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(pack)">
+				PACK =
+				#{pack},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusingreason)">
+				ISUSINGREASON =
+				#{isusingreason},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(medicinemodelstandard)">
+				MEDICINEMODELSTANDARD =
+				#{medicinemodelstandard},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(outlookcstandard)">
+				OUTLOOKCSTANDARD =
+				#{outlookcstandard},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(goodsclassification)">
+				GOODSCLASSIFICATION =
+				#{goodsclassification},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hasinstructions)">
+				HASINSTRUCTIONS =
+				#{hasinstructions},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(haspack)">
+				HASPACK =
+				#{haspack},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(instructionsimg)">
+				INSTRUCTIONSIMG =
+				#{instructionsimg},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(entityimg)">
+				ENTITYIMG =
+				#{entityimg},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(iscountryfamous)">
+				ISCOUNTRYFAMOUS =
+				#{iscountryfamous},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isprovincefamous)">
+				ISPROVINCEFAMOUS =
+				#{isprovincefamous},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(instructionsid)">
+				INSTRUCTIONSID =
+				#{instructionsid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(entityid)">
+				ENTITYID =
+				#{entityid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isbargaining)">
+				ISBARGAINING =
+				#{isbargaining},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(maxretailprice)">
+				MAXRETAILPRICE =
+				#{maxretailprice},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(farmgateprice)">
+				FARMGATEPRICE =
+				#{farmgateprice},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(retailprice)">
+				RETAILPRICE =
+				#{retailprice},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(nmpackprice)">
+				NMPACKPRICE =
+				#{nmpackprice},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isfzy)">
+				ISFZY =
+				#{isfzy},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isdjy)">
+				ISDJY =
+				#{isdjy},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isBasicDrugOld)">
+				IS_BASIC_DRUG_OLD =
+				#{isBasicDrugOld},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(ypid)">
+				YPID =
+				#{ypid},
+			</if>
+		</set>
+		WHERE ID =
+		#{id}
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		TRADE_DRUGINFO WHERE ID = #{value}
+	</delete>
+
+	<select id="getBaseGoodsList" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		t.DRUGID,
+		t.PRODUCTID,
+		t.DRUGNAMEID,
+		t.DRUGNAME,
+		t.DRUGGOODSNAME,
+		t.DRUGFORMID,
+		t.DRUGFORM,
+		t.DRUGSPECID,
+		t.DRUGSPEC,
+		t.DRUGFACTOR,
+		t.DRUGUNITID,
+		t.DRUGUNIT,
+		t.PREPARATIONUNITID,
+		t.PREPARATIONUNIT,
+		t.DRUGMATERIALID,
+		t.DRUGMATERIAL,
+		t.COMPANYID_TB,
+		t.COMPANYID_SC,
+		t.COMPANYNAME_SC,
+		t.QUALITYLEVELSID,
+		t.REGCARDID,
+		t.SOURCEOFFEED,
+		t.TYPECHARACTERISTICS,
+		t.RESERVECONDITION,
+		t.DRUGVALIDITY,
+		t.DRUGROUTE,
+		t.ISGMPNOTICE,
+		t.GMPID,
+		t.ISLISENCENOTICE,
+		t.LISENCECODE,
+		t.LICENSENUMBERDATE,
+		t.INTERNATIONALCERTIFICATION,
+		t.IMPORTCERTIFICATE,
+		t.REGCODE,
+		t.REGDATE,
+		t.PRODUCTQUALITY,
+		t.BUSINESSBRIBERY,
+		t.DRUGDISTRIBUTION,
+		t.ISELECTRONICCODE,
+		t.ELECTRONICCODE,
+		t.ELECTRONICCODEUNIT,
+		t.ELECTRONICCODEURL,
+		t.DRUGQUALITYSTANDARD,
+		t.SURVEYREPORTID,
+		t.SURVEYREPORTDATE,
+		t.NEWDRUGCODE,
+		t.DRUGSTANDARDCODE,
+		t.DRUGANSPRM,
+		t.DRUGREMARK,
+		t.ADDTIME,
+		t.ADDUSERID,
+		t.DRUGFORMDESCRIPTION,
+		t.MIDDLEPACK,
+		t.BIGPACK,
+		t.DRUGORIGIN,
+		d.sortname CATALOGTYPE,
+		t.ISUSING,
+		t.ISURBMI,
+		t.ISNRCMS,
+		t.ISEMERGENCYMEDICINE,
+		t.ISCLINICALSMALL,
+		t.COMPANYNAME_TB,
+		t.DRUGCODE,
+		t.DRUGTYPE,
+		t.DRUGENGLISHNAME,
+		t.DRUGSOURCE,
+		t.MINCOMPANYNAME,
+		t.MATERIALNO,
+		t.MINDRUGREPORTRESULT,
+		t.REPORTDATE,
+		t.REPORTRESULT,
+		t.ISENTRUST,
+		t.ENTRUSTCODE,
+		t.ENTRUSTCOMPANYNAME,
+		t.ELECTRONICSUPERVISION,
+		t.ABROADCOMPANYNAME,
+		t.BIDCOMPANYNAME,
+		t.DRUGCAPACITY,
+		t.MEDICALINSURANCETYPE,
+		t.MEDICALINSURANCECODE,
+		t.PRICETYPE,
+		t.GOVERNMENTPRICETYPE,
+		t.GOVERNMENTPRICE,
+		t.IS_BASIC_DRUG,
+		t.MIN_PACK_UNIT,
+		t.MIN_REPORT_CODE,
+		t.ID,
+		t.REGID,
+		t.ENTEREDCOMNAME,
+		t.INDICATION,
+		t.ISGMPVAILD,
+		t.ENTRUSTCOMPANYID,
+		t.REGTYPE,
+		t.REGPERFORMSTANDARD,
+		t.REGPERFORMSTANDARDCODE,
+		t.YIELDS,
+		t.ISDRUGLABEL,
+		t.PRICE,
+		t.COMPRICE,
+		t.PATENTTYPE,
+		t.PACK,
+		t.ISUSINGREASON,
+		t.MEDICINEMODELSTANDARD,
+		t.OUTLOOKCSTANDARD,
+		t.GOODSCLASSIFICATION,
+		t.HASINSTRUCTIONS,
+		t.HASPACK,
+		t.INSTRUCTIONSIMG,
+		t.ENTITYIMG,
+		t.ISCOUNTRYFAMOUS,
+		t.ISPROVINCEFAMOUS,
+		t.INSTRUCTIONSID,
+		t.ENTITYID,
+		t.ISBARGAINING,
+		t.MAXRETAILPRICE,
+		t.FARMGATEPRICE,
+		t.RETAILPRICE,
+		t.NMPACKPRICE,
+		t.ISFZY,
+		t.ISDJY,
+		t.IS_BASIC_DRUG_OLD,
+		t.YPID,
+		t.ISPILOT,
+		C.LASTUPDATETIME
+		FROM TRADE_DRUGINFO T
+		LEFT JOIN (
+		SELECT L.DATAID,MAX(L.CHANGETIME) LASTUPDATETIME FROM SYS_CGCHANGELOG L
+		WHERE L.CHANGETYPE='BASE_DRUGINFO'
+		GROUP BY L.DATAID) C ON T.ID=C.DATAID
+		LEFT JOIN BASE_SORT d ON d.ID = t.CATALOGTYPE
+		<where>
+			<if test="@com.OGNL@isNotEmpty(procurecatalogId)">
+				AND t.DRUGID in(
+				<foreach collection="procurecatalogId" item="item" index="index"
+						 separator=",">
+					#{item}
+				</foreach>)
+			</if>
+			<if test="@com.OGNL@isNotEmpty(startTime)">
+				AND c.LASTUPDATETIME &gt;= TO_DATE(#{startTime}, 'yyyy-mm-dd hh24:mi:ss')
+			</if>
+			<if test="@com.OGNL@isNotEmpty(endTime)">
+				AND c.LASTUPDATETIME &lt;= TO_DATE(#{endTime}, 'yyyy-mm-dd hh24:mi:ss')
+			</if>
+		</where>
+		ORDER BY C.LASTUPDATETIME , T.DRUGID DESC
+	</select>
+</mapper>

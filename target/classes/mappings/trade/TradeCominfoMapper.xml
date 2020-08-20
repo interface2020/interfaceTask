@@ -1,0 +1,1506 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.TradeCominfoDao">
+	<resultMap type="com.trade.model.TradeCominfo" id="BaseResultMap">
+		<result property="companyid" column="COMPANYID" javaType="Object" />
+		<result property="companyname" column="COMPANYNAME" javaType="Object" />
+		<result property="compshortname" column="COMPSHORTNAME" javaType="Object" />
+		<result property="companytype" column="COMPANYTYPE" javaType="String" />
+		<result property="areaid" column="AREAID" javaType="String" />
+		<result property="regaddress" column="REGADDRESS" javaType="Object" />
+		<result property="addressid" column="ADDRESSID" javaType="String" />
+		<result property="address" column="ADDRESS" javaType="Object" />
+		<result property="zipcode" column="ZIPCODE" javaType="String" />
+		<result property="companytel" column="COMPANYTEL" javaType="String" />
+		<result property="fax" column="FAX" javaType="String" />
+		<result property="fixfund" column="FIXFUND" javaType="BigDecimal" />
+		<result property="lawer" column="LAWER" javaType="String" />
+		<result property="laweridcard" column="LAWERIDCARD" javaType="String" />
+		<result property="laweremail" column="LAWEREMAIL" javaType="String" />
+		<result property="lawermobilephone" column="LAWERMOBILEPHONE" javaType="String" />
+		<result property="mandatary" column="MANDATARY" javaType="String" />
+		<result property="mandataryidcard" column="MANDATARYIDCARD" javaType="String" />
+		<result property="mobilephone" column="MOBILEPHONE" javaType="String" />
+		<result property="email" column="EMAIL" javaType="String" />
+		<result property="introduction" column="INTRODUCTION" javaType="String" />
+		<result property="lastyearincome" column="LASTYEARINCOME" javaType="BigDecimal" />
+		<result property="chemicalsrank" column="CHEMICALSRANK" javaType="BigDecimal" />
+		<result property="chinesedrugsranks" column="CHINESEDRUGSRANKS" javaType="BigDecimal" />
+		<result property="biologicalproductranks" column="BIOLOGICALPRODUCTRANKS" javaType="BigDecimal" />
+		<result property="warrantcode" column="WARRANTCODE" javaType="String" />
+		<result property="warrandate" column="WARRANDATE" javaType="Date" />
+		<result property="businesslicence" column="BUSINESSLICENCE" javaType="String" />
+		<result property="businessdate" column="BUSINESSDATE" javaType="Date" />
+		<result property="companycode" column="COMPANYCODE" javaType="String" />
+		<result property="codedate" column="CODEDATE" javaType="Date" />
+		<result property="isadequatesupply" column="ISADEQUATESUPPLY" javaType="BigDecimal" />
+		<result property="isdistribution" column="ISDISTRIBUTION" javaType="BigDecimal" />
+		<result property="iscrime" column="ISCRIME" javaType="BigDecimal" />
+		<result property="companyregisterid" column="COMPANYREGISTERID" javaType="Object" />
+		<result property="adduserid" column="ADDUSERID" javaType="Object" />
+		<result property="addtime" column="ADDTIME" javaType="Date" />
+		<result property="distribution" column="DISTRIBUTION" javaType="String" />
+		<result property="disareaid" column="DISAREAID" javaType="String" />
+		<result property="lawerjob" column="LAWERJOB" javaType="String" />
+		<result property="lawercall" column="LAWERCALL" javaType="String" />
+		<result property="regcardcount" column="REGCARDCOUNT" javaType="BigDecimal" />
+		<result property="drugcount" column="DRUGCOUNT" javaType="BigDecimal" />
+		<result property="tptalassets" column="TPTALASSETS" javaType="BigDecimal" />
+		<result property="fixedassets" column="FIXEDASSETS" javaType="BigDecimal" />
+		<result property="gspcode" column="GSPCODE" javaType="String" />
+		<result property="gspendtime" column="GSPENDTIME" javaType="Date" />
+		<result property="issecularlicence" column="ISSECULARLICENCE" javaType="String" />
+		<result property="isjly" column="ISJLY" javaType="String" />
+		<result property="isbusinesslicence" column="ISBUSINESSLICENCE" javaType="String" />
+		<result property="id" column="ID" javaType="String" />
+		<result property="creditcode" column="CREDITCODE" javaType="Object" />
+		<result property="reportdate" column="REPORTDATE" javaType="Date" />
+		<result property="lastyeartotal" column="LASTYEARTOTAL" javaType="BigDecimal" />
+		<result property="isnwkt" column="ISNWKT" javaType="Object" />
+		<result property="ispft" column="ISPFT" javaType="Object" />
+		<result property="companyemergencytel" column="COMPANYEMERGENCYTEL" javaType="Object" />
+		<result property="varietynumber" column="VARIETYNUMBER" javaType="Object" />
+		<result property="productgauge" column="PRODUCTGAUGE" javaType="Object" />
+		<result property="winvarietynumber" column="WINVARIETYNUMBER" javaType="Object" />
+		<result property="winproductgauge" column="WINPRODUCTGAUGE" javaType="Object" />
+		<result property="warehousearea" column="WAREHOUSEAREA" javaType="Object" />
+		<result property="iswon" column="ISWON" javaType="Object" />
+		<result property="pickingsystem" column="PICKINGSYSTEM" javaType="Object" />
+		<result property="computersystem" column="COMPUTERSYSTEM" javaType="Object" />
+		<result property="inventorysystem" column="INVENTORYSYSTEM" javaType="Object" />
+		<result property="platformdocking" column="PLATFORMDOCKING" javaType="Object" />
+		<result property="lastyearbusinessincome" column="LASTYEARBUSINESSINCOME" javaType="BigDecimal" />
+		<result property="violationstatement" column="VIOLATIONSTATEMENT" javaType="Object" />
+		<result property="comcriticaltel" column="COMCRITICALTEL" javaType="String" />
+		<result property="mandatarycriticaltel" column="MANDATARYCRITICALTEL" javaType="String" />
+		<result property="isusing" column="ISUSING" javaType="BigDecimal" />
+		<result property="companycategory" column="COMPANYCATEGORY" javaType="Object" />
+		<result property="businessscope" column="BUSINESSSCOPE" javaType="String" />
+		<result property="iscreditcode" column="ISCREDITCODE" javaType="BigDecimal" />
+		<result property="trcid" column="TRCID" javaType="String" />
+		<result property="businesslicenseid" column="BUSINESSLICENSEID" javaType="String" />
+		<result property="isusingreason" column="ISUSINGREASON" javaType="Object" />
+		<result property="ischangename" column="ISCHANGENAME" javaType="String" />
+		<result property="beforename" column="BEFORENAME" javaType="String" />
+		<result property="isgeneralagreement" column="ISGENERALAGREEMENT" javaType="String" />
+		<result property="companyidold" column="COMPANYIDOLD" javaType="String" />
+		<result property="companyidSc" column="COMPANYID_SC" javaType="String" />
+		<result property="companynameSc" column="COMPANYNAME_SC" javaType="String" />
+		<result property="businesslicenceimg" column="BUSINESSLICENCEIMG" javaType="String" />
+		<result property="warrantimg" column="WARRANTIMG" javaType="String" />
+		<result property="authorizationimg" column="AUTHORIZATIONIMG" javaType="String" />
+		<result property="gspimg" column="GSPIMG" javaType="String" />
+		<result property="otherinformation" column="OTHERINFORMATION" javaType="String" />
+		<result property="isfiveone" column="ISFIVEONE" javaType="BigDecimal" />
+		<result property="fivecode" column="FIVECODE" javaType="Object" />
+		<result property="isscdis" column="ISSCDIS" javaType="String" />
+		<result property="nssbh" column="NSSBH" javaType="String" />
+		<result property="isyq" column="ISYQ" javaType="String" />
+		<result property="lastUpdateTime" column="LASTUPDATETIME" javaType="Date" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.COMPANYID,
+		t.COMPANYNAME,
+		t.COMPSHORTNAME,
+		t.COMPANYTYPE,
+		t.AREAID,
+		t.REGADDRESS,
+		t.ADDRESSID,
+		t.ADDRESS,
+		t.ZIPCODE,
+		t.COMPANYTEL,
+		t.FAX,
+		t.FIXFUND,
+		t.LAWER,
+		t.LAWERIDCARD,
+		t.LAWEREMAIL,
+		t.LAWERMOBILEPHONE,
+		t.MANDATARY,
+		t.MANDATARYIDCARD,
+		t.MOBILEPHONE,
+		t.EMAIL,
+		t.INTRODUCTION,
+		t.LASTYEARINCOME,
+		t.CHEMICALSRANK,
+		t.CHINESEDRUGSRANKS,
+		t.BIOLOGICALPRODUCTRANKS,
+		t.WARRANTCODE,
+		t.WARRANDATE,
+		t.BUSINESSLICENCE,
+		t.BUSINESSDATE,
+		t.COMPANYCODE,
+		t.CODEDATE,
+		t.ISADEQUATESUPPLY,
+		t.ISDISTRIBUTION,
+		t.ISCRIME,
+		t.COMPANYREGISTERID,
+		t.ADDUSERID,
+		t.ADDTIME,
+		t.DISTRIBUTION,
+		t.DISAREAID,
+		t.LAWERJOB,
+		t.LAWERCALL,
+		t.REGCARDCOUNT,
+		t.DRUGCOUNT,
+		t.TPTALASSETS,
+		t.FIXEDASSETS,
+		t.GSPCODE,
+		t.GSPENDTIME,
+		t.ISSECULARLICENCE,
+		t.ISJLY,
+		t.ISBUSINESSLICENCE,
+		t.ID,
+		t.CREDITCODE,
+		t.REPORTDATE,
+		t.LASTYEARTOTAL,
+		t.ISNWKT,
+		t.ISPFT,
+		t.COMPANYEMERGENCYTEL,
+		t.VARIETYNUMBER,
+		t.PRODUCTGAUGE,
+		t.WINVARIETYNUMBER,
+		t.WINPRODUCTGAUGE,
+		t.WAREHOUSEAREA,
+		t.ISWON,
+		t.PICKINGSYSTEM,
+		t.COMPUTERSYSTEM,
+		t.INVENTORYSYSTEM,
+		t.PLATFORMDOCKING,
+		t.LASTYEARBUSINESSINCOME,
+		t.VIOLATIONSTATEMENT,
+		t.COMCRITICALTEL,
+		t.MANDATARYCRITICALTEL,
+		t.ISUSING,
+		t.COMPANYCATEGORY,
+		t.BUSINESSSCOPE,
+		t.ISCREDITCODE,
+		t.TRCID,
+		t.BUSINESSLICENSEID,
+		t.ISUSINGREASON,
+		t.ISCHANGENAME,
+		t.BEFORENAME,
+		t.ISGENERALAGREEMENT,
+		t.COMPANYIDOLD,
+		t.COMPANYID_SC,
+		t.COMPANYNAME_SC,
+		t.BUSINESSLICENCEIMG,
+		t.WARRANTIMG,
+		t.AUTHORIZATIONIMG,
+		t.GSPIMG,
+		t.OTHERINFORMATION,
+		t.ISFIVEONE,
+		t.FIVECODE,
+		t.ISSCDIS,
+		t.NSSBH,
+		t.ISYQ
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@com.OGNL@isNotEmpty(companyid)">
+				AND t.COMPANYID = #{companyid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyname)">
+				AND t.COMPANYNAME = #{companyname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(compshortname)">
+				AND t.COMPSHORTNAME = #{compshortname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companytype)">
+				AND t.COMPANYTYPE = #{companytype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(areaid)">
+				AND t.AREAID = #{areaid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regaddress)">
+				AND t.REGADDRESS = #{regaddress}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addressid)">
+				AND t.ADDRESSID = #{addressid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(address)">
+				AND t.ADDRESS = #{address}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(zipcode)">
+				AND t.ZIPCODE = #{zipcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companytel)">
+				AND t.COMPANYTEL = #{companytel}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(fax)">
+				AND t.FAX = #{fax}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(fixfund)">
+				AND t.FIXFUND = #{fixfund}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lawer)">
+				AND t.LAWER = #{lawer}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(laweridcard)">
+				AND t.LAWERIDCARD = #{laweridcard}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(laweremail)">
+				AND t.LAWEREMAIL = #{laweremail}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lawermobilephone)">
+				AND t.LAWERMOBILEPHONE = #{lawermobilephone}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mandatary)">
+				AND t.MANDATARY = #{mandatary}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mandataryidcard)">
+				AND t.MANDATARYIDCARD = #{mandataryidcard}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mobilephone)">
+				AND t.MOBILEPHONE = #{mobilephone}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(email)">
+				AND t.EMAIL = #{email}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(introduction)">
+				AND t.INTRODUCTION = #{introduction}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lastyearincome)">
+				AND t.LASTYEARINCOME = #{lastyearincome}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(chemicalsrank)">
+				AND t.CHEMICALSRANK = #{chemicalsrank}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(chinesedrugsranks)">
+				AND t.CHINESEDRUGSRANKS = #{chinesedrugsranks}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(biologicalproductranks)">
+				AND t.BIOLOGICALPRODUCTRANKS = #{biologicalproductranks}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(warrantcode)">
+				AND t.WARRANTCODE = #{warrantcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(warrandate)">
+				AND t.WARRANDATE = #{warrandate}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businesslicence)">
+				AND t.BUSINESSLICENCE = #{businesslicence}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businessdate)">
+				AND t.BUSINESSDATE = #{businessdate}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companycode)">
+				AND t.COMPANYCODE = #{companycode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(codedate)">
+				AND t.CODEDATE = #{codedate}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isadequatesupply)">
+				AND t.ISADEQUATESUPPLY = #{isadequatesupply}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isdistribution)">
+				AND t.ISDISTRIBUTION = #{isdistribution}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(iscrime)">
+				AND t.ISCRIME = #{iscrime}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyregisterid)">
+				AND t.COMPANYREGISTERID = #{companyregisterid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(adduserid)">
+				AND t.ADDUSERID = #{adduserid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addtime)">
+				AND t.ADDTIME = #{addtime}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(distribution)">
+				AND t.DISTRIBUTION = #{distribution}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(disareaid)">
+				AND t.DISAREAID = #{disareaid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lawerjob)">
+				AND t.LAWERJOB = #{lawerjob}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lawercall)">
+				AND t.LAWERCALL = #{lawercall}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regcardcount)">
+				AND t.REGCARDCOUNT = #{regcardcount}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugcount)">
+				AND t.DRUGCOUNT = #{drugcount}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(tptalassets)">
+				AND t.TPTALASSETS = #{tptalassets}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(fixedassets)">
+				AND t.FIXEDASSETS = #{fixedassets}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(gspcode)">
+				AND t.GSPCODE = #{gspcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(gspendtime)">
+				AND t.GSPENDTIME = #{gspendtime}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(issecularlicence)">
+				AND t.ISSECULARLICENCE = #{issecularlicence}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isjly)">
+				AND t.ISJLY = #{isjly}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isbusinesslicence)">
+				AND t.ISBUSINESSLICENCE = #{isbusinesslicence}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(id)">
+				AND t.ID = #{id}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(creditcode)">
+				AND t.CREDITCODE = #{creditcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(reportdate)">
+				AND t.REPORTDATE = #{reportdate}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lastyeartotal)">
+				AND t.LASTYEARTOTAL = #{lastyeartotal}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isnwkt)">
+				AND t.ISNWKT = #{isnwkt}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(ispft)">
+				AND t.ISPFT = #{ispft}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyemergencytel)">
+				AND t.COMPANYEMERGENCYTEL = #{companyemergencytel}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(varietynumber)">
+				AND t.VARIETYNUMBER = #{varietynumber}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(productgauge)">
+				AND t.PRODUCTGAUGE = #{productgauge}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(winvarietynumber)">
+				AND t.WINVARIETYNUMBER = #{winvarietynumber}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(winproductgauge)">
+				AND t.WINPRODUCTGAUGE = #{winproductgauge}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(warehousearea)">
+				AND t.WAREHOUSEAREA = #{warehousearea}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(iswon)">
+				AND t.ISWON = #{iswon}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(pickingsystem)">
+				AND t.PICKINGSYSTEM = #{pickingsystem}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(computersystem)">
+				AND t.COMPUTERSYSTEM = #{computersystem}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(inventorysystem)">
+				AND t.INVENTORYSYSTEM = #{inventorysystem}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(platformdocking)">
+				AND t.PLATFORMDOCKING = #{platformdocking}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lastyearbusinessincome)">
+				AND t.LASTYEARBUSINESSINCOME = #{lastyearbusinessincome}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(violationstatement)">
+				AND t.VIOLATIONSTATEMENT = #{violationstatement}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(comcriticaltel)">
+				AND t.COMCRITICALTEL = #{comcriticaltel}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mandatarycriticaltel)">
+				AND t.MANDATARYCRITICALTEL = #{mandatarycriticaltel}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusing)">
+				AND t.ISUSING = #{isusing}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companycategory)">
+				AND t.COMPANYCATEGORY = #{companycategory}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businessscope)">
+				AND t.BUSINESSSCOPE = #{businessscope}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(iscreditcode)">
+				AND t.ISCREDITCODE = #{iscreditcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(trcid)">
+				AND t.TRCID = #{trcid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businesslicenseid)">
+				AND t.BUSINESSLICENSEID = #{businesslicenseid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusingreason)">
+				AND t.ISUSINGREASON = #{isusingreason}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(ischangename)">
+				AND t.ISCHANGENAME = #{ischangename}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(beforename)">
+				AND t.BEFORENAME = #{beforename}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isgeneralagreement)">
+				AND t.ISGENERALAGREEMENT = #{isgeneralagreement}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyidold)">
+				AND t.COMPANYIDOLD = #{companyidold}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyidSc)">
+				AND t.COMPANYID_SC = #{companyidSc}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companynameSc)">
+				AND t.COMPANYNAME_SC = #{companynameSc}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businesslicenceimg)">
+				AND t.BUSINESSLICENCEIMG = #{businesslicenceimg}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(warrantimg)">
+				AND t.WARRANTIMG = #{warrantimg}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(authorizationimg)">
+				AND t.AUTHORIZATIONIMG = #{authorizationimg}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(gspimg)">
+				AND t.GSPIMG = #{gspimg}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(otherinformation)">
+				AND t.OTHERINFORMATION = #{otherinformation}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isfiveone)">
+				AND t.ISFIVEONE = #{isfiveone}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(fivecode)">
+				AND t.FIVECODE = #{fivecode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isscdis)">
+				AND t.ISSCDIS = #{isscdis}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(nssbh)">
+				AND t.NSSBH = #{nssbh}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isyq)">
+				AND t.ISYQ = #{isyq}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.TradeCominfo">
+		INSERT INTO TRADE_COMINFO(
+		COMPANYID ,
+		COMPANYNAME ,
+		COMPSHORTNAME ,
+		COMPANYTYPE ,
+		AREAID ,
+		REGADDRESS ,
+		ADDRESSID ,
+		ADDRESS ,
+		ZIPCODE ,
+		COMPANYTEL ,
+		FAX ,
+		FIXFUND ,
+		LAWER ,
+		LAWERIDCARD ,
+		LAWEREMAIL ,
+		LAWERMOBILEPHONE ,
+		MANDATARY ,
+		MANDATARYIDCARD ,
+		MOBILEPHONE ,
+		EMAIL ,
+		INTRODUCTION ,
+		LASTYEARINCOME ,
+		CHEMICALSRANK ,
+		CHINESEDRUGSRANKS ,
+		BIOLOGICALPRODUCTRANKS ,
+		WARRANTCODE ,
+		WARRANDATE ,
+		BUSINESSLICENCE ,
+		BUSINESSDATE ,
+		COMPANYCODE ,
+		CODEDATE ,
+		ISADEQUATESUPPLY ,
+		ISDISTRIBUTION ,
+		ISCRIME ,
+		COMPANYREGISTERID ,
+		ADDUSERID ,
+		ADDTIME ,
+		DISTRIBUTION ,
+		DISAREAID ,
+		LAWERJOB ,
+		LAWERCALL ,
+		REGCARDCOUNT ,
+		DRUGCOUNT ,
+		TPTALASSETS ,
+		FIXEDASSETS ,
+		GSPCODE ,
+		GSPENDTIME ,
+		ISSECULARLICENCE ,
+		ISJLY ,
+		ISBUSINESSLICENCE ,
+		ID ,
+		CREDITCODE ,
+		REPORTDATE ,
+		LASTYEARTOTAL ,
+		ISNWKT ,
+		ISPFT ,
+		COMPANYEMERGENCYTEL ,
+		VARIETYNUMBER ,
+		PRODUCTGAUGE ,
+		WINVARIETYNUMBER ,
+		WINPRODUCTGAUGE ,
+		WAREHOUSEAREA ,
+		ISWON ,
+		PICKINGSYSTEM ,
+		COMPUTERSYSTEM ,
+		INVENTORYSYSTEM ,
+		PLATFORMDOCKING ,
+		LASTYEARBUSINESSINCOME ,
+		VIOLATIONSTATEMENT ,
+		COMCRITICALTEL ,
+		MANDATARYCRITICALTEL ,
+		ISUSING ,
+		COMPANYCATEGORY ,
+		BUSINESSSCOPE ,
+		ISCREDITCODE ,
+		TRCID ,
+		BUSINESSLICENSEID ,
+		ISUSINGREASON ,
+		ISCHANGENAME ,
+		BEFORENAME ,
+		ISGENERALAGREEMENT ,
+		COMPANYIDOLD ,
+		COMPANYID_SC ,
+		COMPANYNAME_SC ,
+		BUSINESSLICENCEIMG ,
+		WARRANTIMG ,
+		AUTHORIZATIONIMG ,
+		GSPIMG ,
+		OTHERINFORMATION ,
+		ISFIVEONE ,
+		FIVECODE ,
+		ISSCDIS ,
+		NSSBH ,
+		ISYQ 
+		)
+		VALUES (
+		#{companyid} ,
+		#{companyname} ,
+		#{compshortname} ,
+		#{companytype} ,
+		#{areaid} ,
+		#{regaddress} ,
+		#{addressid} ,
+		#{address} ,
+		#{zipcode} ,
+		#{companytel} ,
+		#{fax} ,
+		#{fixfund} ,
+		#{lawer} ,
+		#{laweridcard} ,
+		#{laweremail} ,
+		#{lawermobilephone} ,
+		#{mandatary} ,
+		#{mandataryidcard} ,
+		#{mobilephone} ,
+		#{email} ,
+		#{introduction} ,
+		#{lastyearincome} ,
+		#{chemicalsrank} ,
+		#{chinesedrugsranks} ,
+		#{biologicalproductranks} ,
+		#{warrantcode} ,
+		#{warrandate} ,
+		#{businesslicence} ,
+		#{businessdate} ,
+		#{companycode} ,
+		#{codedate} ,
+		#{isadequatesupply} ,
+		#{isdistribution} ,
+		#{iscrime} ,
+		#{companyregisterid} ,
+		#{adduserid} ,
+		#{addtime} ,
+		#{distribution} ,
+		#{disareaid} ,
+		#{lawerjob} ,
+		#{lawercall} ,
+		#{regcardcount} ,
+		#{drugcount} ,
+		#{tptalassets} ,
+		#{fixedassets} ,
+		#{gspcode} ,
+		#{gspendtime} ,
+		#{issecularlicence} ,
+		#{isjly} ,
+		#{isbusinesslicence} ,
+		#{id} ,
+		#{creditcode} ,
+		#{reportdate} ,
+		#{lastyeartotal} ,
+		#{isnwkt} ,
+		#{ispft} ,
+		#{companyemergencytel} ,
+		#{varietynumber} ,
+		#{productgauge} ,
+		#{winvarietynumber} ,
+		#{winproductgauge} ,
+		#{warehousearea} ,
+		#{iswon} ,
+		#{pickingsystem} ,
+		#{computersystem} ,
+		#{inventorysystem} ,
+		#{platformdocking} ,
+		#{lastyearbusinessincome} ,
+		#{violationstatement} ,
+		#{comcriticaltel} ,
+		#{mandatarycriticaltel} ,
+		#{isusing} ,
+		#{companycategory} ,
+		#{businessscope} ,
+		#{iscreditcode} ,
+		#{trcid} ,
+		#{businesslicenseid} ,
+		#{isusingreason} ,
+		#{ischangename} ,
+		#{beforename} ,
+		#{isgeneralagreement} ,
+		#{companyidold} ,
+		#{companyidSc} ,
+		#{companynameSc} ,
+		#{businesslicenceimg} ,
+		#{warrantimg} ,
+		#{authorizationimg} ,
+		#{gspimg} ,
+		#{otherinformation} ,
+		#{isfiveone} ,
+		#{fivecode} ,
+		#{isscdis} ,
+		#{nssbh} ,
+		#{isyq} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO TRADE_COMINFO (
+		COMPANYID ,
+		COMPANYNAME ,
+		COMPSHORTNAME ,
+		COMPANYTYPE ,
+		AREAID ,
+		REGADDRESS ,
+		ADDRESSID ,
+		ADDRESS ,
+		ZIPCODE ,
+		COMPANYTEL ,
+		FAX ,
+		FIXFUND ,
+		LAWER ,
+		LAWERIDCARD ,
+		LAWEREMAIL ,
+		LAWERMOBILEPHONE ,
+		MANDATARY ,
+		MANDATARYIDCARD ,
+		MOBILEPHONE ,
+		EMAIL ,
+		INTRODUCTION ,
+		LASTYEARINCOME ,
+		CHEMICALSRANK ,
+		CHINESEDRUGSRANKS ,
+		BIOLOGICALPRODUCTRANKS ,
+		WARRANTCODE ,
+		WARRANDATE ,
+		BUSINESSLICENCE ,
+		BUSINESSDATE ,
+		COMPANYCODE ,
+		CODEDATE ,
+		ISADEQUATESUPPLY ,
+		ISDISTRIBUTION ,
+		ISCRIME ,
+		COMPANYREGISTERID ,
+		ADDUSERID ,
+		ADDTIME ,
+		DISTRIBUTION ,
+		DISAREAID ,
+		LAWERJOB ,
+		LAWERCALL ,
+		REGCARDCOUNT ,
+		DRUGCOUNT ,
+		TPTALASSETS ,
+		FIXEDASSETS ,
+		GSPCODE ,
+		GSPENDTIME ,
+		ISSECULARLICENCE ,
+		ISJLY ,
+		ISBUSINESSLICENCE ,
+		ID ,
+		CREDITCODE ,
+		REPORTDATE ,
+		LASTYEARTOTAL ,
+		ISNWKT ,
+		ISPFT ,
+		COMPANYEMERGENCYTEL ,
+		VARIETYNUMBER ,
+		PRODUCTGAUGE ,
+		WINVARIETYNUMBER ,
+		WINPRODUCTGAUGE ,
+		WAREHOUSEAREA ,
+		ISWON ,
+		PICKINGSYSTEM ,
+		COMPUTERSYSTEM ,
+		INVENTORYSYSTEM ,
+		PLATFORMDOCKING ,
+		LASTYEARBUSINESSINCOME ,
+		VIOLATIONSTATEMENT ,
+		COMCRITICALTEL ,
+		MANDATARYCRITICALTEL ,
+		ISUSING ,
+		COMPANYCATEGORY ,
+		BUSINESSSCOPE ,
+		ISCREDITCODE ,
+		TRCID ,
+		BUSINESSLICENSEID ,
+		ISUSINGREASON ,
+		ISCHANGENAME ,
+		BEFORENAME ,
+		ISGENERALAGREEMENT ,
+		COMPANYIDOLD ,
+		COMPANYID_SC ,
+		COMPANYNAME_SC ,
+		BUSINESSLICENCEIMG ,
+		WARRANTIMG ,
+		AUTHORIZATIONIMG ,
+		GSPIMG ,
+		OTHERINFORMATION ,
+		ISFIVEONE ,
+		FIVECODE ,
+		ISSCDIS ,
+		NSSBH ,
+		ISYQ 
+		) VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			#{item.companyid},
+			#{item.companyname},
+			#{item.compshortname},
+			#{item.companytype},
+			#{item.areaid},
+			#{item.regaddress},
+			#{item.addressid},
+			#{item.address},
+			#{item.zipcode},
+			#{item.companytel},
+			#{item.fax},
+			#{item.fixfund},
+			#{item.lawer},
+			#{item.laweridcard},
+			#{item.laweremail},
+			#{item.lawermobilephone},
+			#{item.mandatary},
+			#{item.mandataryidcard},
+			#{item.mobilephone},
+			#{item.email},
+			#{item.introduction},
+			#{item.lastyearincome},
+			#{item.chemicalsrank},
+			#{item.chinesedrugsranks},
+			#{item.biologicalproductranks},
+			#{item.warrantcode},
+			#{item.warrandate},
+			#{item.businesslicence},
+			#{item.businessdate},
+			#{item.companycode},
+			#{item.codedate},
+			#{item.isadequatesupply},
+			#{item.isdistribution},
+			#{item.iscrime},
+			#{item.companyregisterid},
+			#{item.adduserid},
+			#{item.addtime},
+			#{item.distribution},
+			#{item.disareaid},
+			#{item.lawerjob},
+			#{item.lawercall},
+			#{item.regcardcount},
+			#{item.drugcount},
+			#{item.tptalassets},
+			#{item.fixedassets},
+			#{item.gspcode},
+			#{item.gspendtime},
+			#{item.issecularlicence},
+			#{item.isjly},
+			#{item.isbusinesslicence},
+			#{item.id},
+			#{item.creditcode},
+			#{item.reportdate},
+			#{item.lastyeartotal},
+			#{item.isnwkt},
+			#{item.ispft},
+			#{item.companyemergencytel},
+			#{item.varietynumber},
+			#{item.productgauge},
+			#{item.winvarietynumber},
+			#{item.winproductgauge},
+			#{item.warehousearea},
+			#{item.iswon},
+			#{item.pickingsystem},
+			#{item.computersystem},
+			#{item.inventorysystem},
+			#{item.platformdocking},
+			#{item.lastyearbusinessincome},
+			#{item.violationstatement},
+			#{item.comcriticaltel},
+			#{item.mandatarycriticaltel},
+			#{item.isusing},
+			#{item.companycategory},
+			#{item.businessscope},
+			#{item.iscreditcode},
+			#{item.trcid},
+			#{item.businesslicenseid},
+			#{item.isusingreason},
+			#{item.ischangename},
+			#{item.beforename},
+			#{item.isgeneralagreement},
+			#{item.companyidold},
+			#{item.companyidSc},
+			#{item.companynameSc},
+			#{item.businesslicenceimg},
+			#{item.warrantimg},
+			#{item.authorizationimg},
+			#{item.gspimg},
+			#{item.otherinformation},
+			#{item.isfiveone},
+			#{item.fivecode},
+			#{item.isscdis},
+			#{item.nssbh},
+			#{item.isyq}
+			)
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM TRADE_COMINFO t
+		WHERE t.ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM TRADE_COMINFO t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM TRADE_COMINFO t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.TradeCominfo">
+		UPDATE TRADE_COMINFO
+		<set>
+			COMPANYID =
+			#{companyid},
+			COMPANYNAME =
+			#{companyname},
+			COMPSHORTNAME =
+			#{compshortname},
+			COMPANYTYPE =
+			#{companytype},
+			AREAID =
+			#{areaid},
+			REGADDRESS =
+			#{regaddress},
+			ADDRESSID =
+			#{addressid},
+			ADDRESS =
+			#{address},
+			ZIPCODE =
+			#{zipcode},
+			COMPANYTEL =
+			#{companytel},
+			FAX =
+			#{fax},
+			FIXFUND =
+			#{fixfund},
+			LAWER =
+			#{lawer},
+			LAWERIDCARD =
+			#{laweridcard},
+			LAWEREMAIL =
+			#{laweremail},
+			LAWERMOBILEPHONE =
+			#{lawermobilephone},
+			MANDATARY =
+			#{mandatary},
+			MANDATARYIDCARD =
+			#{mandataryidcard},
+			MOBILEPHONE =
+			#{mobilephone},
+			EMAIL =
+			#{email},
+			INTRODUCTION =
+			#{introduction},
+			LASTYEARINCOME =
+			#{lastyearincome},
+			CHEMICALSRANK =
+			#{chemicalsrank},
+			CHINESEDRUGSRANKS =
+			#{chinesedrugsranks},
+			BIOLOGICALPRODUCTRANKS =
+			#{biologicalproductranks},
+			WARRANTCODE =
+			#{warrantcode},
+			WARRANDATE =
+			#{warrandate},
+			BUSINESSLICENCE =
+			#{businesslicence},
+			BUSINESSDATE =
+			#{businessdate},
+			COMPANYCODE =
+			#{companycode},
+			CODEDATE =
+			#{codedate},
+			ISADEQUATESUPPLY =
+			#{isadequatesupply},
+			ISDISTRIBUTION =
+			#{isdistribution},
+			ISCRIME =
+			#{iscrime},
+			COMPANYREGISTERID =
+			#{companyregisterid},
+			ADDUSERID =
+			#{adduserid},
+			ADDTIME =
+			#{addtime},
+			DISTRIBUTION =
+			#{distribution},
+			DISAREAID =
+			#{disareaid},
+			LAWERJOB =
+			#{lawerjob},
+			LAWERCALL =
+			#{lawercall},
+			REGCARDCOUNT =
+			#{regcardcount},
+			DRUGCOUNT =
+			#{drugcount},
+			TPTALASSETS =
+			#{tptalassets},
+			FIXEDASSETS =
+			#{fixedassets},
+			GSPCODE =
+			#{gspcode},
+			GSPENDTIME =
+			#{gspendtime},
+			ISSECULARLICENCE =
+			#{issecularlicence},
+			ISJLY =
+			#{isjly},
+			ISBUSINESSLICENCE =
+			#{isbusinesslicence},
+			CREDITCODE =
+			#{creditcode},
+			REPORTDATE =
+			#{reportdate},
+			LASTYEARTOTAL =
+			#{lastyeartotal},
+			ISNWKT =
+			#{isnwkt},
+			ISPFT =
+			#{ispft},
+			COMPANYEMERGENCYTEL =
+			#{companyemergencytel},
+			VARIETYNUMBER =
+			#{varietynumber},
+			PRODUCTGAUGE =
+			#{productgauge},
+			WINVARIETYNUMBER =
+			#{winvarietynumber},
+			WINPRODUCTGAUGE =
+			#{winproductgauge},
+			WAREHOUSEAREA =
+			#{warehousearea},
+			ISWON =
+			#{iswon},
+			PICKINGSYSTEM =
+			#{pickingsystem},
+			COMPUTERSYSTEM =
+			#{computersystem},
+			INVENTORYSYSTEM =
+			#{inventorysystem},
+			PLATFORMDOCKING =
+			#{platformdocking},
+			LASTYEARBUSINESSINCOME =
+			#{lastyearbusinessincome},
+			VIOLATIONSTATEMENT =
+			#{violationstatement},
+			COMCRITICALTEL =
+			#{comcriticaltel},
+			MANDATARYCRITICALTEL =
+			#{mandatarycriticaltel},
+			ISUSING =
+			#{isusing},
+			COMPANYCATEGORY =
+			#{companycategory},
+			BUSINESSSCOPE =
+			#{businessscope},
+			ISCREDITCODE =
+			#{iscreditcode},
+			TRCID =
+			#{trcid},
+			BUSINESSLICENSEID =
+			#{businesslicenseid},
+			ISUSINGREASON =
+			#{isusingreason},
+			ISCHANGENAME =
+			#{ischangename},
+			BEFORENAME =
+			#{beforename},
+			ISGENERALAGREEMENT =
+			#{isgeneralagreement},
+			COMPANYIDOLD =
+			#{companyidold},
+			COMPANYID_SC =
+			#{companyidSc},
+			COMPANYNAME_SC =
+			#{companynameSc},
+			BUSINESSLICENCEIMG =
+			#{businesslicenceimg},
+			WARRANTIMG =
+			#{warrantimg},
+			AUTHORIZATIONIMG =
+			#{authorizationimg},
+			GSPIMG =
+			#{gspimg},
+			OTHERINFORMATION =
+			#{otherinformation},
+			ISFIVEONE =
+			#{isfiveone},
+			FIVECODE =
+			#{fivecode},
+			ISSCDIS =
+			#{isscdis},
+			NSSBH =
+			#{nssbh},
+			ISYQ =
+			#{isyq},
+		</set>
+		WHERE ID =
+		#{id}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.TradeCominfo">
+		UPDATE TRADE_COMINFO
+		<set>
+			<if test="@com.OGNL@isNotEmpty(companyid)">
+				COMPANYID =
+				#{companyid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyname)">
+				COMPANYNAME =
+				#{companyname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(compshortname)">
+				COMPSHORTNAME =
+				#{compshortname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companytype)">
+				COMPANYTYPE =
+				#{companytype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(areaid)">
+				AREAID =
+				#{areaid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regaddress)">
+				REGADDRESS =
+				#{regaddress},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addressid)">
+				ADDRESSID =
+				#{addressid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(address)">
+				ADDRESS =
+				#{address},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(zipcode)">
+				ZIPCODE =
+				#{zipcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companytel)">
+				COMPANYTEL =
+				#{companytel},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(fax)">
+				FAX =
+				#{fax},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(fixfund)">
+				FIXFUND =
+				#{fixfund},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lawer)">
+				LAWER =
+				#{lawer},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(laweridcard)">
+				LAWERIDCARD =
+				#{laweridcard},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(laweremail)">
+				LAWEREMAIL =
+				#{laweremail},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lawermobilephone)">
+				LAWERMOBILEPHONE =
+				#{lawermobilephone},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mandatary)">
+				MANDATARY =
+				#{mandatary},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mandataryidcard)">
+				MANDATARYIDCARD =
+				#{mandataryidcard},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mobilephone)">
+				MOBILEPHONE =
+				#{mobilephone},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(email)">
+				EMAIL =
+				#{email},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(introduction)">
+				INTRODUCTION =
+				#{introduction},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lastyearincome)">
+				LASTYEARINCOME =
+				#{lastyearincome},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(chemicalsrank)">
+				CHEMICALSRANK =
+				#{chemicalsrank},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(chinesedrugsranks)">
+				CHINESEDRUGSRANKS =
+				#{chinesedrugsranks},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(biologicalproductranks)">
+				BIOLOGICALPRODUCTRANKS =
+				#{biologicalproductranks},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(warrantcode)">
+				WARRANTCODE =
+				#{warrantcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(warrandate)">
+				WARRANDATE =
+				#{warrandate},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businesslicence)">
+				BUSINESSLICENCE =
+				#{businesslicence},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businessdate)">
+				BUSINESSDATE =
+				#{businessdate},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companycode)">
+				COMPANYCODE =
+				#{companycode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(codedate)">
+				CODEDATE =
+				#{codedate},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isadequatesupply)">
+				ISADEQUATESUPPLY =
+				#{isadequatesupply},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isdistribution)">
+				ISDISTRIBUTION =
+				#{isdistribution},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(iscrime)">
+				ISCRIME =
+				#{iscrime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyregisterid)">
+				COMPANYREGISTERID =
+				#{companyregisterid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(adduserid)">
+				ADDUSERID =
+				#{adduserid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addtime)">
+				ADDTIME =
+				#{addtime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(distribution)">
+				DISTRIBUTION =
+				#{distribution},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(disareaid)">
+				DISAREAID =
+				#{disareaid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lawerjob)">
+				LAWERJOB =
+				#{lawerjob},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lawercall)">
+				LAWERCALL =
+				#{lawercall},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(regcardcount)">
+				REGCARDCOUNT =
+				#{regcardcount},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(drugcount)">
+				DRUGCOUNT =
+				#{drugcount},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(tptalassets)">
+				TPTALASSETS =
+				#{tptalassets},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(fixedassets)">
+				FIXEDASSETS =
+				#{fixedassets},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(gspcode)">
+				GSPCODE =
+				#{gspcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(gspendtime)">
+				GSPENDTIME =
+				#{gspendtime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(issecularlicence)">
+				ISSECULARLICENCE =
+				#{issecularlicence},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isjly)">
+				ISJLY =
+				#{isjly},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isbusinesslicence)">
+				ISBUSINESSLICENCE =
+				#{isbusinesslicence},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(creditcode)">
+				CREDITCODE =
+				#{creditcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(reportdate)">
+				REPORTDATE =
+				#{reportdate},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lastyeartotal)">
+				LASTYEARTOTAL =
+				#{lastyeartotal},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isnwkt)">
+				ISNWKT =
+				#{isnwkt},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(ispft)">
+				ISPFT =
+				#{ispft},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyemergencytel)">
+				COMPANYEMERGENCYTEL =
+				#{companyemergencytel},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(varietynumber)">
+				VARIETYNUMBER =
+				#{varietynumber},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(productgauge)">
+				PRODUCTGAUGE =
+				#{productgauge},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(winvarietynumber)">
+				WINVARIETYNUMBER =
+				#{winvarietynumber},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(winproductgauge)">
+				WINPRODUCTGAUGE =
+				#{winproductgauge},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(warehousearea)">
+				WAREHOUSEAREA =
+				#{warehousearea},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(iswon)">
+				ISWON =
+				#{iswon},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(pickingsystem)">
+				PICKINGSYSTEM =
+				#{pickingsystem},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(computersystem)">
+				COMPUTERSYSTEM =
+				#{computersystem},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(inventorysystem)">
+				INVENTORYSYSTEM =
+				#{inventorysystem},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(platformdocking)">
+				PLATFORMDOCKING =
+				#{platformdocking},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lastyearbusinessincome)">
+				LASTYEARBUSINESSINCOME =
+				#{lastyearbusinessincome},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(violationstatement)">
+				VIOLATIONSTATEMENT =
+				#{violationstatement},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(comcriticaltel)">
+				COMCRITICALTEL =
+				#{comcriticaltel},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mandatarycriticaltel)">
+				MANDATARYCRITICALTEL =
+				#{mandatarycriticaltel},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusing)">
+				ISUSING =
+				#{isusing},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companycategory)">
+				COMPANYCATEGORY =
+				#{companycategory},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businessscope)">
+				BUSINESSSCOPE =
+				#{businessscope},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(iscreditcode)">
+				ISCREDITCODE =
+				#{iscreditcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(trcid)">
+				TRCID =
+				#{trcid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businesslicenseid)">
+				BUSINESSLICENSEID =
+				#{businesslicenseid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusingreason)">
+				ISUSINGREASON =
+				#{isusingreason},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(ischangename)">
+				ISCHANGENAME =
+				#{ischangename},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(beforename)">
+				BEFORENAME =
+				#{beforename},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isgeneralagreement)">
+				ISGENERALAGREEMENT =
+				#{isgeneralagreement},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyidold)">
+				COMPANYIDOLD =
+				#{companyidold},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companyidSc)">
+				COMPANYID_SC =
+				#{companyidSc},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(companynameSc)">
+				COMPANYNAME_SC =
+				#{companynameSc},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(businesslicenceimg)">
+				BUSINESSLICENCEIMG =
+				#{businesslicenceimg},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(warrantimg)">
+				WARRANTIMG =
+				#{warrantimg},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(authorizationimg)">
+				AUTHORIZATIONIMG =
+				#{authorizationimg},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(gspimg)">
+				GSPIMG =
+				#{gspimg},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(otherinformation)">
+				OTHERINFORMATION =
+				#{otherinformation},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isfiveone)">
+				ISFIVEONE =
+				#{isfiveone},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(fivecode)">
+				FIVECODE =
+				#{fivecode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isscdis)">
+				ISSCDIS =
+				#{isscdis},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(nssbh)">
+				NSSBH =
+				#{nssbh},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isyq)">
+				ISYQ =
+				#{isyq},
+			</if>
+		</set>
+		WHERE ID =
+		#{id}
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		TRADE_COMINFO WHERE ID = #{value}
+	</delete>
+
+	<select id="getBaseCompanyList" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns"/>,C.LASTUPDATETIME
+		FROM TRADE_COMINFO T
+		LEFT JOIN (
+		SELECT L.DATAID,MAX(L.CHANGETIME) LASTUPDATETIME FROM SYS_CGCHANGELOG L
+		WHERE L.CHANGETYPE='BASE_COMPANY'
+		GROUP BY L.DATAID) C ON T.ID=C.DATAID
+		<where>
+			<if test="@com.OGNL@isNotEmpty(companyid)">
+				AND t.COMPANYID in(
+				<foreach collection="companyid" item="item" index="index"
+						 separator=",">
+					#{item}
+				</foreach>)
+			</if>
+			<if test="@com.OGNL@isNotEmpty(startTime)">
+				AND c.LASTUPDATETIME &gt;= TO_DATE(#{startTime}, 'yyyy-mm-dd hh24:mi:ss')
+			</if>
+			<if test="@com.OGNL@isNotEmpty(endTime)">
+				AND c.LASTUPDATETIME &lt;= TO_DATE(#{endTime}, 'yyyy-mm-dd hh24:mi:ss')
+			</if>
+		</where>
+		ORDER BY C.LASTUPDATETIME  ASC, T.COMPANYID
+	</select>
+</mapper>

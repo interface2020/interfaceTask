@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.BaseHospitalDao">
+	<resultMap type="com.trade.model.BaseHospital" id="BaseResultMap">
+		<result property="id" column="ID" javaType="String" />
+		<result property="hospitalcode" column="HOSPITALCODE" javaType="String" />
+		<result property="hospitalname" column="HOSPITALNAME" javaType="String" />
+		<result property="areaid" column="AREAID" javaType="String" />
+		<result property="orgcode" column="ORGCODE" javaType="String" />
+		<result property="hospitaltype" column="HOSPITALTYPE" javaType="Object" />
+		<result property="hoslevel" column="HOSLEVEL" javaType="Object" />
+		<result property="hosorder" column="HOSORDER" javaType="Object" />
+		<result property="hostunit" column="HOSTUNIT" javaType="Object" />
+		<result property="affiliation" column="AFFILIATION" javaType="Object" />
+		<result property="economicstype" column="ECONOMICSTYPE" javaType="Object" />
+		<result property="creationtime" column="CREATIONTIME" javaType="Date" />
+		<result property="hosaddress" column="HOSADDRESS" javaType="String" />
+		<result property="legalperson" column="LEGALPERSON" javaType="String" />
+		<result property="contactperson" column="CONTACTPERSON" javaType="String" />
+		<result property="contacttel" column="CONTACTTEL" javaType="String" />
+		<result property="mobile" column="MOBILE" javaType="String" />
+		<result property="email" column="EMAIL" javaType="String" />
+		<result property="addtime" column="ADDTIME" javaType="Date" />
+		<result property="orgareaid" column="ORGAREAID" javaType="String" />
+		<result property="hostype" column="HOSTYPE" javaType="String" />
+		<result property="bzcws" column="BZCWS" javaType="BigDecimal" />
+		<result property="sycws" column="SYCWS" javaType="BigDecimal" />
+		<result property="wsjsrys" column="WSJSRYS" javaType="BigDecimal" />
+		<result property="ishzylddyy" column="ISHZYLDDYY" javaType="BigDecimal" />
+		<result property="isybddyy" column="ISYBDDYY" javaType="BigDecimal" />
+		<result property="islgbddyy" column="ISLGBDDYY" javaType="BigDecimal" />
+		<result property="isdemc" column="ISDEMC" javaType="BigDecimal" />
+		<result property="isxszsfz" column="ISXSZSFZ" javaType="BigDecimal" />
+		<result property="xszsfzycount" column="XSZSFZYCOUNT" javaType="BigDecimal" />
+		<result property="qzsqwsfwzcount" column="QZSQWSFWZCOUNT" javaType="BigDecimal" />
+		<result property="djyuserid" column="DJYUSERID" javaType="String" />
+		<result property="jyuserid" column="JYUSERID" javaType="String" />
+		<result property="fjyuserid" column="FJYUSERID" javaType="String" />
+		<result property="isusing" column="ISUSING" javaType="BigDecimal" />
+		<result property="ischeck" column="ISCHECK" javaType="BigDecimal" />
+		<result property="isusingreason" column="ISUSINGREASON" javaType="Object" />
+		<result property="hospitalcategory" column="HOSPITALCATEGORY" javaType="Object" />
+		<result property="orgcodevalue" column="ORGCODEVALUE" javaType="String" />
+		<result property="basicdrugsystem" column="BASICDRUGSYSTEM" javaType="String" />
+		<result property="basicdrugsystemuserid" column="BASICDRUGSYSTEMUSERID" javaType="String" />
+		<result property="unbasicdrugsystem" column="UNBASICDRUGSYSTEM" javaType="String" />
+		<result property="unbasicdrugsystemuserid" column="UNBASICDRUGSYSTEMUSERID" javaType="String" />
+		<result property="lowdrugsystem" column="LOWDRUGSYSTEM" javaType="String" />
+		<result property="lowdrugsystemuserid" column="LOWDRUGSYSTEMUSERID" javaType="String" />
+		<result property="hospitalclass" column="HOSPITALCLASS" javaType="Object" />
+		<result property="checkstatus" column="CHECKSTATUS" javaType="String" />
+		<result property="citycheckreason" column="CITYCHECKREASON" javaType="String" />
+		<result property="towncheckreason" column="TOWNCHECKREASON" javaType="String" />
+		<result property="pharmacycount" column="PHARMACYCOUNT" javaType="BigDecimal" />
+		<result property="isremote" column="ISREMOTE" javaType="String" />
+		<result property="nssbh" column="NSSBH" javaType="String" />
+		<result property="areaName" column="AREANAME" javaType="String" />
+		<result property="lastUpdateTime" column="LASTUPDATETIME" javaType="Date" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.ID,
+		t.HOSPITALCODE,
+		t.HOSPITALNAME,
+		t.AREAID,
+		t.ORGCODE,
+		t.HOSPITALTYPE,
+		t.HOSLEVEL,
+		t.HOSORDER,
+		t.HOSTUNIT,
+		t.AFFILIATION,
+		t.ECONOMICSTYPE,
+		t.CREATIONTIME,
+		t.HOSADDRESS,
+		t.LEGALPERSON,
+		t.CONTACTPERSON,
+		t.CONTACTTEL,
+		t.MOBILE,
+		t.EMAIL,
+		t.ADDTIME,
+		t.ORGAREAID,
+		t.HOSTYPE,
+		t.BZCWS,
+		t.SYCWS,
+		t.WSJSRYS,
+		t.ISHZYLDDYY,
+		t.ISYBDDYY,
+		t.ISLGBDDYY,
+		t.ISDEMC,
+		t.ISXSZSFZ,
+		t.XSZSFZYCOUNT,
+		t.QZSQWSFWZCOUNT,
+		t.DJYUSERID,
+		t.JYUSERID,
+		t.FJYUSERID,
+		t.ISUSING,
+		t.ISCHECK,
+		t.ISUSINGREASON,
+		t.HOSPITALCATEGORY,
+		t.ORGCODEVALUE,
+		t.BASICDRUGSYSTEM,
+		t.BASICDRUGSYSTEMUSERID,
+		t.UNBASICDRUGSYSTEM,
+		t.UNBASICDRUGSYSTEMUSERID,
+		t.LOWDRUGSYSTEM,
+		t.LOWDRUGSYSTEMUSERID,
+		t.HOSPITALCLASS,
+		t.CHECKSTATUS,
+		t.CITYCHECKREASON,
+		t.TOWNCHECKREASON,
+		t.PHARMACYCOUNT,
+		t.ISREMOTE,
+		t.NSSBH
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@com.OGNL@isNotEmpty(id)">
+				AND t.ID = #{id}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitalcode)">
+				AND t.HOSPITALCODE = #{hospitalcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitalname)">
+				AND t.HOSPITALNAME = #{hospitalname}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(areaid)">
+				AND t.AREAID = #{areaid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(orgcode)">
+				AND t.ORGCODE = #{orgcode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitaltype)">
+				AND t.HOSPITALTYPE = #{hospitaltype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hoslevel)">
+				AND t.HOSLEVEL = #{hoslevel}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hosorder)">
+				AND t.HOSORDER = #{hosorder}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hostunit)">
+				AND t.HOSTUNIT = #{hostunit}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(affiliation)">
+				AND t.AFFILIATION = #{affiliation}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(economicstype)">
+				AND t.ECONOMICSTYPE = #{economicstype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(creationtime)">
+				AND t.CREATIONTIME = #{creationtime}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hosaddress)">
+				AND t.HOSADDRESS = #{hosaddress}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(legalperson)">
+				AND t.LEGALPERSON = #{legalperson}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(contactperson)">
+				AND t.CONTACTPERSON = #{contactperson}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(contacttel)">
+				AND t.CONTACTTEL = #{contacttel}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mobile)">
+				AND t.MOBILE = #{mobile}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(email)">
+				AND t.EMAIL = #{email}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addtime)">
+				AND t.ADDTIME = #{addtime}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(orgareaid)">
+				AND t.ORGAREAID = #{orgareaid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hostype)">
+				AND t.HOSTYPE = #{hostype}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(bzcws)">
+				AND t.BZCWS = #{bzcws}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(sycws)">
+				AND t.SYCWS = #{sycws}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(wsjsrys)">
+				AND t.WSJSRYS = #{wsjsrys}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(ishzylddyy)">
+				AND t.ISHZYLDDYY = #{ishzylddyy}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isybddyy)">
+				AND t.ISYBDDYY = #{isybddyy}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(islgbddyy)">
+				AND t.ISLGBDDYY = #{islgbddyy}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isdemc)">
+				AND t.ISDEMC = #{isdemc}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isxszsfz)">
+				AND t.ISXSZSFZ = #{isxszsfz}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(xszsfzycount)">
+				AND t.XSZSFZYCOUNT = #{xszsfzycount}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(qzsqwsfwzcount)">
+				AND t.QZSQWSFWZCOUNT = #{qzsqwsfwzcount}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(djyuserid)">
+				AND t.DJYUSERID = #{djyuserid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(jyuserid)">
+				AND t.JYUSERID = #{jyuserid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(fjyuserid)">
+				AND t.FJYUSERID = #{fjyuserid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusing)">
+				AND t.ISUSING = #{isusing}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(ischeck)">
+				AND t.ISCHECK = #{ischeck}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusingreason)">
+				AND t.ISUSINGREASON = #{isusingreason}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitalcategory)">
+				AND t.HOSPITALCATEGORY = #{hospitalcategory}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(orgcodevalue)">
+				AND t.ORGCODEVALUE = #{orgcodevalue}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(basicdrugsystem)">
+				AND t.BASICDRUGSYSTEM = #{basicdrugsystem}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(basicdrugsystemuserid)">
+				AND t.BASICDRUGSYSTEMUSERID = #{basicdrugsystemuserid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(unbasicdrugsystem)">
+				AND t.UNBASICDRUGSYSTEM = #{unbasicdrugsystem}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(unbasicdrugsystemuserid)">
+				AND t.UNBASICDRUGSYSTEMUSERID = #{unbasicdrugsystemuserid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lowdrugsystem)">
+				AND t.LOWDRUGSYSTEM = #{lowdrugsystem}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lowdrugsystemuserid)">
+				AND t.LOWDRUGSYSTEMUSERID = #{lowdrugsystemuserid}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitalclass)">
+				AND t.HOSPITALCLASS = #{hospitalclass}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(checkstatus)">
+				AND t.CHECKSTATUS = #{checkstatus}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(citycheckreason)">
+				AND t.CITYCHECKREASON = #{citycheckreason}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(towncheckreason)">
+				AND t.TOWNCHECKREASON = #{towncheckreason}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(pharmacycount)">
+				AND t.PHARMACYCOUNT = #{pharmacycount}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isremote)">
+				AND t.ISREMOTE = #{isremote}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(nssbh)">
+				AND t.NSSBH = #{nssbh}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.BaseHospital">
+		INSERT INTO BASE_HOSPITAL(
+		ID ,
+		HOSPITALCODE ,
+		HOSPITALNAME ,
+		AREAID ,
+		ORGCODE ,
+		HOSPITALTYPE ,
+		HOSLEVEL ,
+		HOSORDER ,
+		HOSTUNIT ,
+		AFFILIATION ,
+		ECONOMICSTYPE ,
+		CREATIONTIME ,
+		HOSADDRESS ,
+		LEGALPERSON ,
+		CONTACTPERSON ,
+		CONTACTTEL ,
+		MOBILE ,
+		EMAIL ,
+		ADDTIME ,
+		ORGAREAID ,
+		HOSTYPE ,
+		BZCWS ,
+		SYCWS ,
+		WSJSRYS ,
+		ISHZYLDDYY ,
+		ISYBDDYY ,
+		ISLGBDDYY ,
+		ISDEMC ,
+		ISXSZSFZ ,
+		XSZSFZYCOUNT ,
+		QZSQWSFWZCOUNT ,
+		DJYUSERID ,
+		JYUSERID ,
+		FJYUSERID ,
+		ISUSING ,
+		ISCHECK ,
+		ISUSINGREASON ,
+		HOSPITALCATEGORY ,
+		ORGCODEVALUE ,
+		BASICDRUGSYSTEM ,
+		BASICDRUGSYSTEMUSERID ,
+		UNBASICDRUGSYSTEM ,
+		UNBASICDRUGSYSTEMUSERID ,
+		LOWDRUGSYSTEM ,
+		LOWDRUGSYSTEMUSERID ,
+		HOSPITALCLASS ,
+		CHECKSTATUS ,
+		CITYCHECKREASON ,
+		TOWNCHECKREASON ,
+		PHARMACYCOUNT ,
+		ISREMOTE ,
+		NSSBH 
+		)
+		VALUES (
+		#{id} ,
+		#{hospitalcode} ,
+		#{hospitalname} ,
+		#{areaid} ,
+		#{orgcode} ,
+		#{hospitaltype} ,
+		#{hoslevel} ,
+		#{hosorder} ,
+		#{hostunit} ,
+		#{affiliation} ,
+		#{economicstype} ,
+		#{creationtime} ,
+		#{hosaddress} ,
+		#{legalperson} ,
+		#{contactperson} ,
+		#{contacttel} ,
+		#{mobile} ,
+		#{email} ,
+		#{addtime} ,
+		#{orgareaid} ,
+		#{hostype} ,
+		#{bzcws} ,
+		#{sycws} ,
+		#{wsjsrys} ,
+		#{ishzylddyy} ,
+		#{isybddyy} ,
+		#{islgbddyy} ,
+		#{isdemc} ,
+		#{isxszsfz} ,
+		#{xszsfzycount} ,
+		#{qzsqwsfwzcount} ,
+		#{djyuserid} ,
+		#{jyuserid} ,
+		#{fjyuserid} ,
+		#{isusing} ,
+		#{ischeck} ,
+		#{isusingreason} ,
+		#{hospitalcategory} ,
+		#{orgcodevalue} ,
+		#{basicdrugsystem} ,
+		#{basicdrugsystemuserid} ,
+		#{unbasicdrugsystem} ,
+		#{unbasicdrugsystemuserid} ,
+		#{lowdrugsystem} ,
+		#{lowdrugsystemuserid} ,
+		#{hospitalclass} ,
+		#{checkstatus} ,
+		#{citycheckreason} ,
+		#{towncheckreason} ,
+		#{pharmacycount} ,
+		#{isremote} ,
+		#{nssbh} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO BASE_HOSPITAL (
+		ID ,
+		HOSPITALCODE ,
+		HOSPITALNAME ,
+		AREAID ,
+		ORGCODE ,
+		HOSPITALTYPE ,
+		HOSLEVEL ,
+		HOSORDER ,
+		HOSTUNIT ,
+		AFFILIATION ,
+		ECONOMICSTYPE ,
+		CREATIONTIME ,
+		HOSADDRESS ,
+		LEGALPERSON ,
+		CONTACTPERSON ,
+		CONTACTTEL ,
+		MOBILE ,
+		EMAIL ,
+		ADDTIME ,
+		ORGAREAID ,
+		HOSTYPE ,
+		BZCWS ,
+		SYCWS ,
+		WSJSRYS ,
+		ISHZYLDDYY ,
+		ISYBDDYY ,
+		ISLGBDDYY ,
+		ISDEMC ,
+		ISXSZSFZ ,
+		XSZSFZYCOUNT ,
+		QZSQWSFWZCOUNT ,
+		DJYUSERID ,
+		JYUSERID ,
+		FJYUSERID ,
+		ISUSING ,
+		ISCHECK ,
+		ISUSINGREASON ,
+		HOSPITALCATEGORY ,
+		ORGCODEVALUE ,
+		BASICDRUGSYSTEM ,
+		BASICDRUGSYSTEMUSERID ,
+		UNBASICDRUGSYSTEM ,
+		UNBASICDRUGSYSTEMUSERID ,
+		LOWDRUGSYSTEM ,
+		LOWDRUGSYSTEMUSERID ,
+		HOSPITALCLASS ,
+		CHECKSTATUS ,
+		CITYCHECKREASON ,
+		TOWNCHECKREASON ,
+		PHARMACYCOUNT ,
+		ISREMOTE ,
+		NSSBH 
+		) VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			#{item.id},
+			#{item.hospitalcode},
+			#{item.hospitalname},
+			#{item.areaid},
+			#{item.orgcode},
+			#{item.hospitaltype},
+			#{item.hoslevel},
+			#{item.hosorder},
+			#{item.hostunit},
+			#{item.affiliation},
+			#{item.economicstype},
+			#{item.creationtime},
+			#{item.hosaddress},
+			#{item.legalperson},
+			#{item.contactperson},
+			#{item.contacttel},
+			#{item.mobile},
+			#{item.email},
+			#{item.addtime},
+			#{item.orgareaid},
+			#{item.hostype},
+			#{item.bzcws},
+			#{item.sycws},
+			#{item.wsjsrys},
+			#{item.ishzylddyy},
+			#{item.isybddyy},
+			#{item.islgbddyy},
+			#{item.isdemc},
+			#{item.isxszsfz},
+			#{item.xszsfzycount},
+			#{item.qzsqwsfwzcount},
+			#{item.djyuserid},
+			#{item.jyuserid},
+			#{item.fjyuserid},
+			#{item.isusing},
+			#{item.ischeck},
+			#{item.isusingreason},
+			#{item.hospitalcategory},
+			#{item.orgcodevalue},
+			#{item.basicdrugsystem},
+			#{item.basicdrugsystemuserid},
+			#{item.unbasicdrugsystem},
+			#{item.unbasicdrugsystemuserid},
+			#{item.lowdrugsystem},
+			#{item.lowdrugsystemuserid},
+			#{item.hospitalclass},
+			#{item.checkstatus},
+			#{item.citycheckreason},
+			#{item.towncheckreason},
+			#{item.pharmacycount},
+			#{item.isremote},
+			#{item.nssbh}
+			)
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM BASE_HOSPITAL t
+		WHERE t.ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM BASE_HOSPITAL t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM BASE_HOSPITAL t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.BaseHospital">
+		UPDATE BASE_HOSPITAL
+		<set>
+			HOSPITALCODE =
+			#{hospitalcode},
+			HOSPITALNAME =
+			#{hospitalname},
+			AREAID =
+			#{areaid},
+			ORGCODE =
+			#{orgcode},
+			HOSPITALTYPE =
+			#{hospitaltype},
+			HOSLEVEL =
+			#{hoslevel},
+			HOSORDER =
+			#{hosorder},
+			HOSTUNIT =
+			#{hostunit},
+			AFFILIATION =
+			#{affiliation},
+			ECONOMICSTYPE =
+			#{economicstype},
+			CREATIONTIME =
+			#{creationtime},
+			HOSADDRESS =
+			#{hosaddress},
+			LEGALPERSON =
+			#{legalperson},
+			CONTACTPERSON =
+			#{contactperson},
+			CONTACTTEL =
+			#{contacttel},
+			MOBILE =
+			#{mobile},
+			EMAIL =
+			#{email},
+			ADDTIME =
+			#{addtime},
+			ORGAREAID =
+			#{orgareaid},
+			HOSTYPE =
+			#{hostype},
+			BZCWS =
+			#{bzcws},
+			SYCWS =
+			#{sycws},
+			WSJSRYS =
+			#{wsjsrys},
+			ISHZYLDDYY =
+			#{ishzylddyy},
+			ISYBDDYY =
+			#{isybddyy},
+			ISLGBDDYY =
+			#{islgbddyy},
+			ISDEMC =
+			#{isdemc},
+			ISXSZSFZ =
+			#{isxszsfz},
+			XSZSFZYCOUNT =
+			#{xszsfzycount},
+			QZSQWSFWZCOUNT =
+			#{qzsqwsfwzcount},
+			DJYUSERID =
+			#{djyuserid},
+			JYUSERID =
+			#{jyuserid},
+			FJYUSERID =
+			#{fjyuserid},
+			ISUSING =
+			#{isusing},
+			ISCHECK =
+			#{ischeck},
+			ISUSINGREASON =
+			#{isusingreason},
+			HOSPITALCATEGORY =
+			#{hospitalcategory},
+			ORGCODEVALUE =
+			#{orgcodevalue},
+			BASICDRUGSYSTEM =
+			#{basicdrugsystem},
+			BASICDRUGSYSTEMUSERID =
+			#{basicdrugsystemuserid},
+			UNBASICDRUGSYSTEM =
+			#{unbasicdrugsystem},
+			UNBASICDRUGSYSTEMUSERID =
+			#{unbasicdrugsystemuserid},
+			LOWDRUGSYSTEM =
+			#{lowdrugsystem},
+			LOWDRUGSYSTEMUSERID =
+			#{lowdrugsystemuserid},
+			HOSPITALCLASS =
+			#{hospitalclass},
+			CHECKSTATUS =
+			#{checkstatus},
+			CITYCHECKREASON =
+			#{citycheckreason},
+			TOWNCHECKREASON =
+			#{towncheckreason},
+			PHARMACYCOUNT =
+			#{pharmacycount},
+			ISREMOTE =
+			#{isremote},
+			NSSBH =
+			#{nssbh},
+		</set>
+		WHERE ID =
+		#{id}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.BaseHospital">
+		UPDATE BASE_HOSPITAL
+		<set>
+			<if test="@com.OGNL@isNotEmpty(hospitalcode)">
+				HOSPITALCODE =
+				#{hospitalcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitalname)">
+				HOSPITALNAME =
+				#{hospitalname},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(areaid)">
+				AREAID =
+				#{areaid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(orgcode)">
+				ORGCODE =
+				#{orgcode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitaltype)">
+				HOSPITALTYPE =
+				#{hospitaltype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hoslevel)">
+				HOSLEVEL =
+				#{hoslevel},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hosorder)">
+				HOSORDER =
+				#{hosorder},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hostunit)">
+				HOSTUNIT =
+				#{hostunit},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(affiliation)">
+				AFFILIATION =
+				#{affiliation},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(economicstype)">
+				ECONOMICSTYPE =
+				#{economicstype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(creationtime)">
+				CREATIONTIME =
+				#{creationtime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hosaddress)">
+				HOSADDRESS =
+				#{hosaddress},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(legalperson)">
+				LEGALPERSON =
+				#{legalperson},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(contactperson)">
+				CONTACTPERSON =
+				#{contactperson},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(contacttel)">
+				CONTACTTEL =
+				#{contacttel},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(mobile)">
+				MOBILE =
+				#{mobile},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(email)">
+				EMAIL =
+				#{email},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addtime)">
+				ADDTIME =
+				#{addtime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(orgareaid)">
+				ORGAREAID =
+				#{orgareaid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hostype)">
+				HOSTYPE =
+				#{hostype},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(bzcws)">
+				BZCWS =
+				#{bzcws},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(sycws)">
+				SYCWS =
+				#{sycws},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(wsjsrys)">
+				WSJSRYS =
+				#{wsjsrys},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(ishzylddyy)">
+				ISHZYLDDYY =
+				#{ishzylddyy},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isybddyy)">
+				ISYBDDYY =
+				#{isybddyy},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(islgbddyy)">
+				ISLGBDDYY =
+				#{islgbddyy},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isdemc)">
+				ISDEMC =
+				#{isdemc},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isxszsfz)">
+				ISXSZSFZ =
+				#{isxszsfz},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(xszsfzycount)">
+				XSZSFZYCOUNT =
+				#{xszsfzycount},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(qzsqwsfwzcount)">
+				QZSQWSFWZCOUNT =
+				#{qzsqwsfwzcount},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(djyuserid)">
+				DJYUSERID =
+				#{djyuserid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(jyuserid)">
+				JYUSERID =
+				#{jyuserid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(fjyuserid)">
+				FJYUSERID =
+				#{fjyuserid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusing)">
+				ISUSING =
+				#{isusing},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(ischeck)">
+				ISCHECK =
+				#{ischeck},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusingreason)">
+				ISUSINGREASON =
+				#{isusingreason},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitalcategory)">
+				HOSPITALCATEGORY =
+				#{hospitalcategory},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(orgcodevalue)">
+				ORGCODEVALUE =
+				#{orgcodevalue},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(basicdrugsystem)">
+				BASICDRUGSYSTEM =
+				#{basicdrugsystem},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(basicdrugsystemuserid)">
+				BASICDRUGSYSTEMUSERID =
+				#{basicdrugsystemuserid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(unbasicdrugsystem)">
+				UNBASICDRUGSYSTEM =
+				#{unbasicdrugsystem},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(unbasicdrugsystemuserid)">
+				UNBASICDRUGSYSTEMUSERID =
+				#{unbasicdrugsystemuserid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lowdrugsystem)">
+				LOWDRUGSYSTEM =
+				#{lowdrugsystem},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lowdrugsystemuserid)">
+				LOWDRUGSYSTEMUSERID =
+				#{lowdrugsystemuserid},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitalclass)">
+				HOSPITALCLASS =
+				#{hospitalclass},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(checkstatus)">
+				CHECKSTATUS =
+				#{checkstatus},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(citycheckreason)">
+				CITYCHECKREASON =
+				#{citycheckreason},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(towncheckreason)">
+				TOWNCHECKREASON =
+				#{towncheckreason},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(pharmacycount)">
+				PHARMACYCOUNT =
+				#{pharmacycount},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isremote)">
+				ISREMOTE =
+				#{isremote},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(nssbh)">
+				NSSBH =
+				#{nssbh},
+			</if>
+		</set>
+		WHERE ID =
+		#{id}
+	</update>
+
+
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		BASE_HOSPITAL WHERE ID = #{value}
+	</delete>
+
+	<select id="getBaseHospitalListInfo" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		t.ID,
+		t.HOSPITALCODE,
+		t.HOSPITALNAME,
+		t.AREAID,
+		t.ISUSING,
+		t.ADDTIME,
+		d.DICVALUE HOSPITALTYPE,
+		C.LASTUPDATETIME,
+		a.AREANAME
+		FROM TRADE_HOS T
+		LEFT JOIN (
+		SELECT L.DATAID,MAX(L.CHANGETIME) LASTUPDATETIME FROM SYS_CGCHANGELOG L
+		WHERE L.CHANGETYPE='BASE_HOSPITAL'
+		GROUP BY L.DATAID) C ON T.ID=C.DATAID
+		LEFT JOIN DIC_HOSPITAL_ALLCLASS d on t.HOSPITALCATEGORY=d.ID
+		LEFT JOIN SYS_AREA a on t.AREAID=a.AREAID
+		<where>
+			<if test="@com.OGNL@isNotEmpty(hospitalId)">
+				AND t.HOSPITALCODE in(
+				<foreach collection="hospitalId" item="item" index="index"
+						 separator=",">
+					#{item}
+				</foreach>)
+			</if>
+			<if test="@com.OGNL@isNotEmpty(startTime)">
+				AND c.LASTUPDATETIME &gt;= TO_DATE(#{startTime}, 'yyyy-mm-dd hh24:mi:ss')
+			</if>
+			<if test="@com.OGNL@isNotEmpty(endTime)">
+				AND c.LASTUPDATETIME &lt;= TO_DATE(#{endTime}, 'yyyy-mm-dd hh24:mi:ss')
+			</if>
+		</where>
+		ORDER BY C.LASTUPDATETIME  ASC, T.HOSPITALCODE
+	</select>
+</mapper>
