@@ -15,28 +15,29 @@ public class QuartzConfig implements ApplicationContextAware {
 
     private static ApplicationContext appCtx;
 
-    public static SchedulerFactoryBean schedulerFactoryBean = null;
+    private static SchedulerFactoryBean schedulerFactoryBean = null;
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        if (this.appCtx == null) {
-            this.appCtx = applicationContext;
+        if (appCtx == null) {
+            appCtx = applicationContext;
         }
     }
 
     @Bean
     public static void init()throws Exception{
-        schedulerFactoryBean = (SchedulerFactoryBean) appCtx.getBean(SchedulerFactoryBean.class);
+        schedulerFactoryBean = appCtx.getBean(SchedulerFactoryBean.class);
         schedulerFactoryBean.setOverwriteExistingJobs(true);
         ScheduleJob job=new ScheduleJob();
         job.setJobGroup("synTasks"); // 任务组
         job.setJobName("syn");// 任务名称
         job.setJobStatus("1"); // 任务发布状态
         job.setIsConcurrent("1"); // 运行状态
-        job.setCronExpression("*/2 * * * * ?");
-        job.setBeanClass("com.jobs.SimpleJob");// 一个以所给名字注册的bean的实例
+        job.setCronExpression("0 38 10 * * ?");
+        job.setBeanClass("com.jobs.BaseCompanyJob");// 一个以所给名字注册的bean的实例
         addOrUpdateJob(job);
     }
+
     public static void addOrUpdateJob(ScheduleJob job) throws Exception {
         if (job == null || !ScheduleJob.STATUS_RUNNING.equals(job.getJobStatus())) {
             return;
@@ -66,6 +67,24 @@ public class QuartzConfig implements ApplicationContextAware {
         Class<?> class1 = Class.forName(classname);
         return (BaseJob) class1.newInstance();
     }
+    //获取applicationContext
+    public static ApplicationContext getApplicationContext() {
+        return appCtx;
+    }
 
+    //通过name获取 Bean.
+    public static Object getBean(String name){
+        return getApplicationContext().getBean(name);
+    }
+
+    //通过class获取Bean.
+    public static <T> T getBean(Class<T> clazz){
+        return getApplicationContext().getBean(clazz);
+    }
+
+    //通过name,以及Clazz返回指定的Bean
+    public static <T> T getBean(String name,Class<T> clazz){
+        return getApplicationContext().getBean(name, clazz);
+    }
 
 }
