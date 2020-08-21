@@ -29,7 +29,7 @@ public class SimpleJob implements BaseJob {
     }
 
     public void  syncDatas(Pagination page, String url, int times) throws Exception{
-
+        System.out.println("================");
     }
 
 }
