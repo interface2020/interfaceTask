@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.BaseHospitalProvinceDao">
+	<resultMap type="com.trade.model.BaseHospitalProvince" id="BaseResultMap">
+		<result property="hospitalId" column="HOSPITAL_ID" javaType="String" />
+		<result property="hospitalCode" column="HOSPITAL_CODE" javaType="String" />
+		<result property="hospitalName" column="HOSPITAL_NAME" javaType="String" />
+		<result property="hospitalType" column="HOSPITAL_TYPE" javaType="String" />
+		<result property="areaId" column="AREA_ID" javaType="String" />
+		<result property="areaName" column="AREA_NAME" javaType="String" />
+		<result property="isUsing" column="IS_USING" javaType="String" />
+		<result property="addTime" column="ADD_TIME" javaType="Date" />
+		<result property="lastUpdateTime" column="LAST_UPDATE_TIME" javaType="Date" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.HOSPITAL_ID,
+		t.HOSPITAL_CODE,
+		t.HOSPITAL_NAME,
+		t.HOSPITAL_TYPE,
+		t.AREA_ID,
+		t.AREA_NAME,
+		t.IS_USING,
+		t.ADD_TIME,
+		t.LAST_UPDATE_TIME
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@OGNL@isNotEmpty(hospitalId)">
+				AND t.HOSPITAL_ID = #{hospitalId}
+			</if>
+			<if test="@OGNL@isNotEmpty(hospitalCode)">
+				AND t.HOSPITAL_CODE = #{hospitalCode}
+			</if>
+			<if test="@OGNL@isNotEmpty(hospitalName)">
+				AND t.HOSPITAL_NAME = #{hospitalName}
+			</if>
+			<if test="@OGNL@isNotEmpty(hospitalType)">
+				AND t.HOSPITAL_TYPE = #{hospitalType}
+			</if>
+			<if test="@OGNL@isNotEmpty(areaId)">
+				AND t.AREA_ID = #{areaId}
+			</if>
+			<if test="@OGNL@isNotEmpty(areaName)">
+				AND t.AREA_NAME = #{areaName}
+			</if>
+			<if test="@OGNL@isNotEmpty(isUsing)">
+				AND t.IS_USING = #{isUsing}
+			</if>
+			<if test="@OGNL@isNotEmpty(addTime)">
+				AND t.ADD_TIME = #{addTime}
+			</if>
+			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+				AND t.LAST_UPDATE_TIME = #{lastUpdateTime}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.BaseHospitalProvince">
+		INSERT INTO BASE_HOSPITAL_PROVINCE(
+		HOSPITAL_ID ,
+		HOSPITAL_CODE ,
+		HOSPITAL_NAME ,
+		HOSPITAL_TYPE ,
+		AREA_ID ,
+		AREA_NAME ,
+		IS_USING ,
+		ADD_TIME ,
+		LAST_UPDATE_TIME 
+		)
+		VALUES (
+		#{hospitalId} ,
+		#{hospitalCode} ,
+		#{hospitalName} ,
+		#{hospitalType} ,
+		#{areaId} ,
+		#{areaName} ,
+		#{isUsing} ,
+		#{addTime} ,
+		#{lastUpdateTime} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO BASE_HOSPITAL_PROVINCE (
+		HOSPITAL_ID ,
+		HOSPITAL_CODE ,
+		HOSPITAL_NAME ,
+		HOSPITAL_TYPE ,
+		AREA_ID ,
+		AREA_NAME ,
+		IS_USING ,
+		ADD_TIME ,
+		LAST_UPDATE_TIME 
+		)
+		<foreach collection="list" item="item" index="index"
+					  separator=" UNION ALL ">
+			SELECT
+			#{item.hospitalId},
+			#{item.hospitalCode},
+			#{item.hospitalName},
+			#{item.hospitalType},
+			#{item.areaId},
+			#{item.areaName},
+			#{item.isUsing},
+			#{item.addTime},
+			#{item.lastUpdateTime}
+			FROM DUAL
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM BASE_HOSPITAL_PROVINCE t
+		WHERE t.HOSPITAL_ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM BASE_HOSPITAL_PROVINCE t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM BASE_HOSPITAL_PROVINCE t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.BaseHospitalProvince">
+		UPDATE BASE_HOSPITAL_PROVINCE
+		<set>
+			HOSPITAL_CODE =
+			#{hospitalCode},
+			HOSPITAL_NAME =
+			#{hospitalName},
+			HOSPITAL_TYPE =
+			#{hospitalType},
+			AREA_ID =
+			#{areaId},
+			AREA_NAME =
+			#{areaName},
+			IS_USING =
+			#{isUsing},
+			ADD_TIME =
+			#{addTime},
+			LAST_UPDATE_TIME =
+			#{lastUpdateTime},
+		</set>
+		WHERE HOSPITAL_ID =
+		#{hospitalId}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.BaseHospitalProvince">
+		UPDATE BASE_HOSPITAL_PROVINCE
+		<set>
+			<if test="@OGNL@isNotEmpty(hospitalCode)">
+				HOSPITAL_CODE =
+				#{hospitalCode},
+			</if>
+			<if test="@OGNL@isNotEmpty(hospitalName)">
+				HOSPITAL_NAME =
+				#{hospitalName},
+			</if>
+			<if test="@OGNL@isNotEmpty(hospitalType)">
+				HOSPITAL_TYPE =
+				#{hospitalType},
+			</if>
+			<if test="@OGNL@isNotEmpty(areaId)">
+				AREA_ID =
+				#{areaId},
+			</if>
+			<if test="@OGNL@isNotEmpty(areaName)">
+				AREA_NAME =
+				#{areaName},
+			</if>
+			<if test="@OGNL@isNotEmpty(isUsing)">
+				IS_USING =
+				#{isUsing},
+			</if>
+			<if test="@OGNL@isNotEmpty(addTime)">
+				ADD_TIME =
+				#{addTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+				LAST_UPDATE_TIME =
+				#{lastUpdateTime},
+			</if>
+		</set>
+		WHERE HOSPITAL_ID =
+		#{hospitalId}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE BASE_HOSPITAL_PROVINCE t
+		<set>
+			<if test="@OGNL@isNotEmpty(model.hospitalCode)">
+				HOSPITAL_CODE =
+				#{model.hospitalCode},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.hospitalName)">
+				HOSPITAL_NAME =
+				#{model.hospitalName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.hospitalType)">
+				HOSPITAL_TYPE =
+				#{model.hospitalType},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.areaId)">
+				AREA_ID =
+				#{model.areaId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.areaName)">
+				AREA_NAME =
+				#{model.areaName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.isUsing)">
+				IS_USING =
+				#{model.isUsing},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.addTime)">
+				ADD_TIME =
+				#{model.addTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.lastUpdateTime)">
+				LAST_UPDATE_TIME =
+				#{model.lastUpdateTime},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		BASE_HOSPITAL_PROVINCE WHERE HOSPITAL_ID = #{value}
+	</delete>
+</mapper>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.MiddleDistributeDao">
+	<resultMap type="com.trade.model.MiddleDistribute" id="BaseResultMap">
+		<result property="companyDistributeId" column="COMPANY_DISTRIBUTE_ID" javaType="String" />
+		<result property="orderDetailId" column="ORDER_DETAIL_ID" javaType="String" />
+		<result property="disTime" column="DIS_TIME" javaType="Date" />
+		<result property="disCount" column="DIS_COUNT" javaType="String" />
+		<result property="distributeId" column="DISTRIBUTE_ID" javaType="String" />
+		<result property="responseState" column="RESPONSE_STATE" javaType="String" />
+		<result property="responseInfo" column="RESPONSE_INFO" javaType="String" />
+		<result property="responseTime" column="RESPONSE_TIME" javaType="Date" />
+		<result property="checkResult" column="CHECK_RESULT" javaType="String" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.COMPANY_DISTRIBUTE_ID,
+		t.ORDER_DETAIL_ID,
+		t.DIS_TIME,
+		t.DIS_COUNT,
+		t.DISTRIBUTE_ID,
+		t.RESPONSE_STATE,
+		t.RESPONSE_INFO,
+		t.RESPONSE_TIME,
+		t.CHECK_RESULT
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@OGNL@isNotEmpty(companyDistributeId)">
+				AND t.COMPANY_DISTRIBUTE_ID = #{companyDistributeId}
+			</if>
+			<if test="@OGNL@isNotEmpty(orderDetailId)">
+				AND t.ORDER_DETAIL_ID = #{orderDetailId}
+			</if>
+			<if test="@OGNL@isNotEmpty(disTime)">
+				AND t.DIS_TIME = #{disTime}
+			</if>
+			<if test="@OGNL@isNotEmpty(disCount)">
+				AND t.DIS_COUNT = #{disCount}
+			</if>
+			<if test="@OGNL@isNotEmpty(distributeId)">
+				AND t.DISTRIBUTE_ID = #{distributeId}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseState)">
+				AND t.RESPONSE_STATE = #{responseState}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseInfo)">
+				AND t.RESPONSE_INFO = #{responseInfo}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseTime)">
+				AND t.RESPONSE_TIME = #{responseTime}
+			</if>
+			<if test="@OGNL@isNotEmpty(checkResult)">
+				AND t.CHECK_RESULT = #{checkResult}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.MiddleDistribute">
+		INSERT INTO MIDDLE_DISTRIBUTE(
+		COMPANY_DISTRIBUTE_ID ,
+		ORDER_DETAIL_ID ,
+		DIS_TIME ,
+		DIS_COUNT ,
+		DISTRIBUTE_ID ,
+		RESPONSE_STATE ,
+		RESPONSE_INFO ,
+		RESPONSE_TIME ,
+		CHECK_RESULT 
+		)
+		VALUES (
+		#{companyDistributeId} ,
+		#{orderDetailId} ,
+		#{disTime} ,
+		#{disCount} ,
+		#{distributeId} ,
+		#{responseState} ,
+		#{responseInfo} ,
+		#{responseTime} ,
+		#{checkResult} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO MIDDLE_DISTRIBUTE (
+		COMPANY_DISTRIBUTE_ID ,
+		ORDER_DETAIL_ID ,
+		DIS_TIME ,
+		DIS_COUNT ,
+		DISTRIBUTE_ID ,
+		RESPONSE_STATE ,
+		RESPONSE_INFO ,
+		RESPONSE_TIME ,
+		CHECK_RESULT 
+		) VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			#{item.companyDistributeId},
+			#{item.orderDetailId},
+			#{item.disTime},
+			#{item.disCount},
+			#{item.distributeId},
+			#{item.responseState},
+			#{item.responseInfo},
+			#{item.responseTime},
+			#{item.checkResult}
+			)
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_DISTRIBUTE t
+		WHERE t.COMPANY_DISTRIBUTE_ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_DISTRIBUTE t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM MIDDLE_DISTRIBUTE t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.MiddleDistribute">
+		UPDATE MIDDLE_DISTRIBUTE
+		<set>
+			ORDER_DETAIL_ID =
+			#{orderDetailId},
+			DIS_TIME =
+			#{disTime},
+			DIS_COUNT =
+			#{disCount},
+			DISTRIBUTE_ID =
+			#{distributeId},
+			RESPONSE_STATE =
+			#{responseState},
+			RESPONSE_INFO =
+			#{responseInfo},
+			RESPONSE_TIME =
+			#{responseTime},
+			CHECK_RESULT =
+			#{checkResult},
+		</set>
+		WHERE COMPANY_DISTRIBUTE_ID =
+		#{companyDistributeId}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.MiddleDistribute">
+		UPDATE MIDDLE_DISTRIBUTE
+		<set>
+			<if test="@OGNL@isNotEmpty(orderDetailId)">
+				ORDER_DETAIL_ID =
+				#{orderDetailId},
+			</if>
+			<if test="@OGNL@isNotEmpty(disTime)">
+				DIS_TIME =
+				#{disTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(disCount)">
+				DIS_COUNT =
+				#{disCount},
+			</if>
+			<if test="@OGNL@isNotEmpty(distributeId)">
+				DISTRIBUTE_ID =
+				#{distributeId},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseState)">
+				RESPONSE_STATE =
+				#{responseState},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseInfo)">
+				RESPONSE_INFO =
+				#{responseInfo},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseTime)">
+				RESPONSE_TIME =
+				#{responseTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(checkResult)">
+				CHECK_RESULT =
+				#{checkResult},
+			</if>
+		</set>
+		WHERE COMPANY_DISTRIBUTE_ID =
+		#{companyDistributeId}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE MIDDLE_DISTRIBUTE t
+		<set>
+			<if test="@OGNL@isNotEmpty(model.orderDetailId)">
+				ORDER_DETAIL_ID =
+				#{model.orderDetailId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.disTime)">
+				DIS_TIME =
+				#{model.disTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.disCount)">
+				DIS_COUNT =
+				#{model.disCount},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.distributeId)">
+				DISTRIBUTE_ID =
+				#{model.distributeId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseState)">
+				RESPONSE_STATE =
+				#{model.responseState},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseInfo)">
+				RESPONSE_INFO =
+				#{model.responseInfo},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseTime)">
+				RESPONSE_TIME =
+				#{model.responseTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.checkResult)">
+				CHECK_RESULT =
+				#{model.checkResult},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		MIDDLE_DISTRIBUTE WHERE COMPANY_DISTRIBUTE_ID = #{value}
+	</delete>
+</mapper>

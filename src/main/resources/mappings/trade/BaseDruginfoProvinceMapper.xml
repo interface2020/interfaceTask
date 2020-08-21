@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.BaseDruginfoProvinceDao">
+	<resultMap type="com.trade.model.BaseDruginfoProvince" id="BaseResultMap">
+		<result property="procureCatalogId" column="PROCURE_CATALOG_ID" javaType="String" />
+		<result property="goodsId" column="GOODS_ID" javaType="String" />
+		<result property="productName" column="PRODUCT_NAME" javaType="String" />
+		<result property="goodsName" column="GOODS_NAME" javaType="String" />
+		<result property="medicineModel" column="MEDICINE_MODEL" javaType="String" />
+		<result property="outLook" column="OUT_LOOK" javaType="String" />
+		<result property="factor" column="FACTOR" javaType="String" />
+		<result property="materialName" column="MATERIAL_NAME" javaType="String" />
+		<result property="unit" column="UNIT" javaType="String" />
+		<result property="companyIdSc" column="COMPANY_ID_SC" javaType="String" />
+		<result property="companyNameSc" column="COMPANY_NAME_SC" javaType="String" />
+		<result property="companyIdTb" column="COMPANY_ID_TB" javaType="String" />
+		<result property="companyNameTb" column="COMPANY_NAME_TB" javaType="String" />
+		<result property="purchaseType" column="PURCHASE_TYPE" javaType="String" />
+		<result property="sourceName" column="SOURCE_NAME" javaType="String" />
+		<result property="middlePack" column="MIDDLE_PACK" javaType="String" />
+		<result property="maxPack" column="MAX_PACK" javaType="String" />
+		<result property="bidPrice" column="BID_PRICE" javaType="BigDecimal" />
+		<result property="comPrice" column="COM_PRICE" javaType="BigDecimal" />
+		<result property="isurbmi" column="ISURBMI" javaType="String" />
+		<result property="medicalinsuranceType" column="MEDICALINSURANCE_TYPE" javaType="String" />
+		<result property="isbasicdrug" column="ISBASICDRUG" javaType="String" />
+		<result property="isUsing" column="IS_USING" javaType="String" />
+		<result property="ispilot" column="ISPILOT" javaType="String" />
+		<result property="id" column="ID" javaType="String" />
+		<result property="addTime" column="ADD_TIME" javaType="Date" />
+		<result property="lastUpdateTime" column="LAST_UPDATE_TIME" javaType="Date" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.PROCURE_CATALOG_ID,
+		t.GOODS_ID,
+		t.PRODUCT_NAME,
+		t.GOODS_NAME,
+		t.MEDICINE_MODEL,
+		t.OUT_LOOK,
+		t.FACTOR,
+		t.MATERIAL_NAME,
+		t.UNIT,
+		t.COMPANY_ID_SC,
+		t.COMPANY_NAME_SC,
+		t.COMPANY_ID_TB,
+		t.COMPANY_NAME_TB,
+		t.PURCHASE_TYPE,
+		t.SOURCE_NAME,
+		t.MIDDLE_PACK,
+		t.MAX_PACK,
+		t.BID_PRICE,
+		t.COM_PRICE,
+		t.ISURBMI,
+		t.MEDICALINSURANCE_TYPE,
+		t.ISBASICDRUG,
+		t.IS_USING,
+		t.ISPILOT,
+		t.ID,
+		t.ADD_TIME,
+		t.LAST_UPDATE_TIME
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@OGNL@isNotEmpty(procureCatalogId)">
+				AND t.PROCURE_CATALOG_ID = #{procureCatalogId}
+			</if>
+			<if test="@OGNL@isNotEmpty(goodsId)">
+				AND t.GOODS_ID = #{goodsId}
+			</if>
+			<if test="@OGNL@isNotEmpty(productName)">
+				AND t.PRODUCT_NAME = #{productName}
+			</if>
+			<if test="@OGNL@isNotEmpty(goodsName)">
+				AND t.GOODS_NAME = #{goodsName}
+			</if>
+			<if test="@OGNL@isNotEmpty(medicineModel)">
+				AND t.MEDICINE_MODEL = #{medicineModel}
+			</if>
+			<if test="@OGNL@isNotEmpty(outLook)">
+				AND t.OUT_LOOK = #{outLook}
+			</if>
+			<if test="@OGNL@isNotEmpty(factor)">
+				AND t.FACTOR = #{factor}
+			</if>
+			<if test="@OGNL@isNotEmpty(materialName)">
+				AND t.MATERIAL_NAME = #{materialName}
+			</if>
+			<if test="@OGNL@isNotEmpty(unit)">
+				AND t.UNIT = #{unit}
+			</if>
+			<if test="@OGNL@isNotEmpty(companyIdSc)">
+				AND t.COMPANY_ID_SC = #{companyIdSc}
+			</if>
+			<if test="@OGNL@isNotEmpty(companyNameSc)">
+				AND t.COMPANY_NAME_SC = #{companyNameSc}
+			</if>
+			<if test="@OGNL@isNotEmpty(companyIdTb)">
+				AND t.COMPANY_ID_TB = #{companyIdTb}
+			</if>
+			<if test="@OGNL@isNotEmpty(companyNameTb)">
+				AND t.COMPANY_NAME_TB = #{companyNameTb}
+			</if>
+			<if test="@OGNL@isNotEmpty(purchaseType)">
+				AND t.PURCHASE_TYPE = #{purchaseType}
+			</if>
+			<if test="@OGNL@isNotEmpty(sourceName)">
+				AND t.SOURCE_NAME = #{sourceName}
+			</if>
+			<if test="@OGNL@isNotEmpty(middlePack)">
+				AND t.MIDDLE_PACK = #{middlePack}
+			</if>
+			<if test="@OGNL@isNotEmpty(maxPack)">
+				AND t.MAX_PACK = #{maxPack}
+			</if>
+			<if test="@OGNL@isNotEmpty(bidPrice)">
+				AND t.BID_PRICE = #{bidPrice}
+			</if>
+			<if test="@OGNL@isNotEmpty(comPrice)">
+				AND t.COM_PRICE = #{comPrice}
+			</if>
+			<if test="@OGNL@isNotEmpty(isurbmi)">
+				AND t.ISURBMI = #{isurbmi}
+			</if>
+			<if test="@OGNL@isNotEmpty(medicalinsuranceType)">
+				AND t.MEDICALINSURANCE_TYPE = #{medicalinsuranceType}
+			</if>
+			<if test="@OGNL@isNotEmpty(isbasicdrug)">
+				AND t.ISBASICDRUG = #{isbasicdrug}
+			</if>
+			<if test="@OGNL@isNotEmpty(isUsing)">
+				AND t.IS_USING = #{isUsing}
+			</if>
+			<if test="@OGNL@isNotEmpty(ispilot)">
+				AND t.ISPILOT = #{ispilot}
+			</if>
+			<if test="@OGNL@isNotEmpty(id)">
+				AND t.ID = #{id}
+			</if>
+			<if test="@OGNL@isNotEmpty(addTime)">
+				AND t.ADD_TIME = #{addTime}
+			</if>
+			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+				AND t.LAST_UPDATE_TIME = #{lastUpdateTime}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.BaseDruginfoProvince">
+		INSERT INTO BASE_DRUGINFO_PROVINCE(
+		PROCURE_CATALOG_ID ,
+		GOODS_ID ,
+		PRODUCT_NAME ,
+		GOODS_NAME ,
+		MEDICINE_MODEL ,
+		OUT_LOOK ,
+		FACTOR ,
+		MATERIAL_NAME ,
+		UNIT ,
+		COMPANY_ID_SC ,
+		COMPANY_NAME_SC ,
+		COMPANY_ID_TB ,
+		COMPANY_NAME_TB ,
+		PURCHASE_TYPE ,
+		SOURCE_NAME ,
+		MIDDLE_PACK ,
+		MAX_PACK ,
+		BID_PRICE ,
+		COM_PRICE ,
+		ISURBMI ,
+		MEDICALINSURANCE_TYPE ,
+		ISBASICDRUG ,
+		IS_USING ,
+		ISPILOT ,
+		ID ,
+		ADD_TIME ,
+		LAST_UPDATE_TIME 
+		)
+		VALUES (
+		#{procureCatalogId} ,
+		#{goodsId} ,
+		#{productName} ,
+		#{goodsName} ,
+		#{medicineModel} ,
+		#{outLook} ,
+		#{factor} ,
+		#{materialName} ,
+		#{unit} ,
+		#{companyIdSc} ,
+		#{companyNameSc} ,
+		#{companyIdTb} ,
+		#{companyNameTb} ,
+		#{purchaseType} ,
+		#{sourceName} ,
+		#{middlePack} ,
+		#{maxPack} ,
+		#{bidPrice} ,
+		#{comPrice} ,
+		#{isurbmi} ,
+		#{medicalinsuranceType} ,
+		#{isbasicdrug} ,
+		#{isUsing} ,
+		#{ispilot} ,
+		#{id} ,
+		#{addTime} ,
+		#{lastUpdateTime} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO BASE_DRUGINFO_PROVINCE (
+		PROCURE_CATALOG_ID ,
+		GOODS_ID ,
+		PRODUCT_NAME ,
+		GOODS_NAME ,
+		MEDICINE_MODEL ,
+		OUT_LOOK ,
+		FACTOR ,
+		MATERIAL_NAME ,
+		UNIT ,
+		COMPANY_ID_SC ,
+		COMPANY_NAME_SC ,
+		COMPANY_ID_TB ,
+		COMPANY_NAME_TB ,
+		PURCHASE_TYPE ,
+		SOURCE_NAME ,
+		MIDDLE_PACK ,
+		MAX_PACK ,
+		BID_PRICE ,
+		COM_PRICE ,
+		ISURBMI ,
+		MEDICALINSURANCE_TYPE ,
+		ISBASICDRUG ,
+		IS_USING ,
+		ISPILOT ,
+		ID ,
+		ADD_TIME ,
+		LAST_UPDATE_TIME 
+		)
+		<foreach collection="list" item="item" index="index"
+					  separator=" UNION ALL ">
+			SELECT
+			#{item.procureCatalogId},
+			#{item.goodsId},
+			#{item.productName},
+			#{item.goodsName},
+			#{item.medicineModel},
+			#{item.outLook},
+			#{item.factor},
+			#{item.materialName},
+			#{item.unit},
+			#{item.companyIdSc},
+			#{item.companyNameSc},
+			#{item.companyIdTb},
+			#{item.companyNameTb},
+			#{item.purchaseType},
+			#{item.sourceName},
+			#{item.middlePack},
+			#{item.maxPack},
+			#{item.bidPrice},
+			#{item.comPrice},
+			#{item.isurbmi},
+			#{item.medicalinsuranceType},
+			#{item.isbasicdrug},
+			#{item.isUsing},
+			#{item.ispilot},
+			#{item.id},
+			#{item.addTime},
+			#{item.lastUpdateTime}
+			FROM DUAL
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM BASE_DRUGINFO_PROVINCE t
+		WHERE t.PROCURE_CATALOG_ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM BASE_DRUGINFO_PROVINCE t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM BASE_DRUGINFO_PROVINCE t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.BaseDruginfoProvince">
+		UPDATE BASE_DRUGINFO_PROVINCE
+		<set>
+			GOODS_ID =
+			#{goodsId},
+			PRODUCT_NAME =
+			#{productName},
+			GOODS_NAME =
+			#{goodsName},
+			MEDICINE_MODEL =
+			#{medicineModel},
+			OUT_LOOK =
+			#{outLook},
+			FACTOR =
+			#{factor},
+			MATERIAL_NAME =
+			#{materialName},
+			UNIT =
+			#{unit},
+			COMPANY_ID_SC =
+			#{companyIdSc},
+			COMPANY_NAME_SC =
+			#{companyNameSc},
+			COMPANY_ID_TB =
+			#{companyIdTb},
+			COMPANY_NAME_TB =
+			#{companyNameTb},
+			PURCHASE_TYPE =
+			#{purchaseType},
+			SOURCE_NAME =
+			#{sourceName},
+			MIDDLE_PACK =
+			#{middlePack},
+			MAX_PACK =
+			#{maxPack},
+			BID_PRICE =
+			#{bidPrice},
+			COM_PRICE =
+			#{comPrice},
+			ISURBMI =
+			#{isurbmi},
+			MEDICALINSURANCE_TYPE =
+			#{medicalinsuranceType},
+			ISBASICDRUG =
+			#{isbasicdrug},
+			IS_USING =
+			#{isUsing},
+			ISPILOT =
+			#{ispilot},
+			ID =
+			#{id},
+			ADD_TIME =
+			#{addTime},
+			LAST_UPDATE_TIME =
+			#{lastUpdateTime},
+		</set>
+		WHERE PROCURE_CATALOG_ID =
+		#{procureCatalogId}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.BaseDruginfoProvince">
+		UPDATE BASE_DRUGINFO_PROVINCE
+		<set>
+			<if test="@OGNL@isNotEmpty(goodsId)">
+				GOODS_ID =
+				#{goodsId},
+			</if>
+			<if test="@OGNL@isNotEmpty(productName)">
+				PRODUCT_NAME =
+				#{productName},
+			</if>
+			<if test="@OGNL@isNotEmpty(goodsName)">
+				GOODS_NAME =
+				#{goodsName},
+			</if>
+			<if test="@OGNL@isNotEmpty(medicineModel)">
+				MEDICINE_MODEL =
+				#{medicineModel},
+			</if>
+			<if test="@OGNL@isNotEmpty(outLook)">
+				OUT_LOOK =
+				#{outLook},
+			</if>
+			<if test="@OGNL@isNotEmpty(factor)">
+				FACTOR =
+				#{factor},
+			</if>
+			<if test="@OGNL@isNotEmpty(materialName)">
+				MATERIAL_NAME =
+				#{materialName},
+			</if>
+			<if test="@OGNL@isNotEmpty(unit)">
+				UNIT =
+				#{unit},
+			</if>
+			<if test="@OGNL@isNotEmpty(companyIdSc)">
+				COMPANY_ID_SC =
+				#{companyIdSc},
+			</if>
+			<if test="@OGNL@isNotEmpty(companyNameSc)">
+				COMPANY_NAME_SC =
+				#{companyNameSc},
+			</if>
+			<if test="@OGNL@isNotEmpty(companyIdTb)">
+				COMPANY_ID_TB =
+				#{companyIdTb},
+			</if>
+			<if test="@OGNL@isNotEmpty(companyNameTb)">
+				COMPANY_NAME_TB =
+				#{companyNameTb},
+			</if>
+			<if test="@OGNL@isNotEmpty(purchaseType)">
+				PURCHASE_TYPE =
+				#{purchaseType},
+			</if>
+			<if test="@OGNL@isNotEmpty(sourceName)">
+				SOURCE_NAME =
+				#{sourceName},
+			</if>
+			<if test="@OGNL@isNotEmpty(middlePack)">
+				MIDDLE_PACK =
+				#{middlePack},
+			</if>
+			<if test="@OGNL@isNotEmpty(maxPack)">
+				MAX_PACK =
+				#{maxPack},
+			</if>
+			<if test="@OGNL@isNotEmpty(bidPrice)">
+				BID_PRICE =
+				#{bidPrice},
+			</if>
+			<if test="@OGNL@isNotEmpty(comPrice)">
+				COM_PRICE =
+				#{comPrice},
+			</if>
+			<if test="@OGNL@isNotEmpty(isurbmi)">
+				ISURBMI =
+				#{isurbmi},
+			</if>
+			<if test="@OGNL@isNotEmpty(medicalinsuranceType)">
+				MEDICALINSURANCE_TYPE =
+				#{medicalinsuranceType},
+			</if>
+			<if test="@OGNL@isNotEmpty(isbasicdrug)">
+				ISBASICDRUG =
+				#{isbasicdrug},
+			</if>
+			<if test="@OGNL@isNotEmpty(isUsing)">
+				IS_USING =
+				#{isUsing},
+			</if>
+			<if test="@OGNL@isNotEmpty(ispilot)">
+				ISPILOT =
+				#{ispilot},
+			</if>
+			<if test="@OGNL@isNotEmpty(id)">
+				ID =
+				#{id},
+			</if>
+			<if test="@OGNL@isNotEmpty(addTime)">
+				ADD_TIME =
+				#{addTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+				LAST_UPDATE_TIME =
+				#{lastUpdateTime},
+			</if>
+		</set>
+		WHERE PROCURE_CATALOG_ID =
+		#{procureCatalogId}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE BASE_DRUGINFO_PROVINCE t
+		<set>
+			<if test="@OGNL@isNotEmpty(model.goodsId)">
+				GOODS_ID =
+				#{model.goodsId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.productName)">
+				PRODUCT_NAME =
+				#{model.productName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.goodsName)">
+				GOODS_NAME =
+				#{model.goodsName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.medicineModel)">
+				MEDICINE_MODEL =
+				#{model.medicineModel},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.outLook)">
+				OUT_LOOK =
+				#{model.outLook},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.factor)">
+				FACTOR =
+				#{model.factor},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.materialName)">
+				MATERIAL_NAME =
+				#{model.materialName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.unit)">
+				UNIT =
+				#{model.unit},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.companyIdSc)">
+				COMPANY_ID_SC =
+				#{model.companyIdSc},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.companyNameSc)">
+				COMPANY_NAME_SC =
+				#{model.companyNameSc},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.companyIdTb)">
+				COMPANY_ID_TB =
+				#{model.companyIdTb},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.companyNameTb)">
+				COMPANY_NAME_TB =
+				#{model.companyNameTb},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.purchaseType)">
+				PURCHASE_TYPE =
+				#{model.purchaseType},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.sourceName)">
+				SOURCE_NAME =
+				#{model.sourceName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.middlePack)">
+				MIDDLE_PACK =
+				#{model.middlePack},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.maxPack)">
+				MAX_PACK =
+				#{model.maxPack},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.bidPrice)">
+				BID_PRICE =
+				#{model.bidPrice},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.comPrice)">
+				COM_PRICE =
+				#{model.comPrice},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.isurbmi)">
+				ISURBMI =
+				#{model.isurbmi},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.medicalinsuranceType)">
+				MEDICALINSURANCE_TYPE =
+				#{model.medicalinsuranceType},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.isbasicdrug)">
+				ISBASICDRUG =
+				#{model.isbasicdrug},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.isUsing)">
+				IS_USING =
+				#{model.isUsing},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.ispilot)">
+				ISPILOT =
+				#{model.ispilot},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.id)">
+				ID =
+				#{model.id},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.addTime)">
+				ADD_TIME =
+				#{model.addTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.lastUpdateTime)">
+				LAST_UPDATE_TIME =
+				#{model.lastUpdateTime},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		BASE_DRUGINFO_PROVINCE WHERE PROCURE_CATALOG_ID = #{value}
+	</delete>
+</mapper>

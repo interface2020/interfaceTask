@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.MiddleInvoiceInfoDao">
+	<resultMap type="com.trade.model.MiddleInvoiceInfo" id="BaseResultMap">
+		<result property="companyPrimaryKey" column="COMPANY_PRIMARY_KEY" javaType="String" />
+		<result property="invoiceCode" column="INVOICE_CODE" javaType="String" />
+		<result property="invoiceId" column="INVOICE_ID" javaType="String" />
+		<result property="invoiceDate" column="INVOICE_DATE" javaType="Date" />
+		<result property="invoiceType" column="INVOICE_TYPE" javaType="String" />
+		<result property="saleId" column="SALE_ID" javaType="String" />
+		<result property="saleName" column="SALE_NAME" javaType="String" />
+		<result property="saleRemark" column="SALE_REMARK" javaType="String" />
+		<result property="saleTaxpayerNumber" column="SALE_TAXPAYER_NUMBER" javaType="String" />
+		<result property="buyId" column="BUY_ID" javaType="String" />
+		<result property="buyName" column="BUY_NAME" javaType="String" />
+		<result property="buyRemarks" column="BUY_REMARKS" javaType="String" />
+		<result property="buyTaxpayerNumber" column="BUY_TAXPAYER_NUMBER" javaType="String" />
+		<result property="totalTaxPrice" column="TOTAL_TAX_PRICE" javaType="BigDecimal" />
+		<result property="orgId" column="ORG_ID" javaType="String" />
+		<result property="invoiceImgId" column="INVOICE_IMG_ID" javaType="String" />
+		<result property="id" column="ID" javaType="String" />
+		<result property="responseState" column="RESPONSE_STATE" javaType="String" />
+		<result property="responseInfo" column="RESPONSE_INFO" javaType="String" />
+		<result property="responseTime" column="RESPONSE_TIME" javaType="Date" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.COMPANY_PRIMARY_KEY,
+		t.INVOICE_CODE,
+		t.INVOICE_ID,
+		t.INVOICE_DATE,
+		t.INVOICE_TYPE,
+		t.SALE_ID,
+		t.SALE_NAME,
+		t.SALE_REMARK,
+		t.SALE_TAXPAYER_NUMBER,
+		t.BUY_ID,
+		t.BUY_NAME,
+		t.BUY_REMARKS,
+		t.BUY_TAXPAYER_NUMBER,
+		t.TOTAL_TAX_PRICE,
+		t.ORG_ID,
+		t.INVOICE_IMG_ID,
+		t.ID,
+		t.RESPONSE_STATE,
+		t.RESPONSE_INFO,
+		t.RESPONSE_TIME
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@OGNL@isNotEmpty(companyPrimaryKey)">
+				AND t.COMPANY_PRIMARY_KEY = #{companyPrimaryKey}
+			</if>
+			<if test="@OGNL@isNotEmpty(invoiceCode)">
+				AND t.INVOICE_CODE = #{invoiceCode}
+			</if>
+			<if test="@OGNL@isNotEmpty(invoiceId)">
+				AND t.INVOICE_ID = #{invoiceId}
+			</if>
+			<if test="@OGNL@isNotEmpty(invoiceDate)">
+				AND t.INVOICE_DATE = #{invoiceDate}
+			</if>
+			<if test="@OGNL@isNotEmpty(invoiceType)">
+				AND t.INVOICE_TYPE = #{invoiceType}
+			</if>
+			<if test="@OGNL@isNotEmpty(saleId)">
+				AND t.SALE_ID = #{saleId}
+			</if>
+			<if test="@OGNL@isNotEmpty(saleName)">
+				AND t.SALE_NAME = #{saleName}
+			</if>
+			<if test="@OGNL@isNotEmpty(saleRemark)">
+				AND t.SALE_REMARK = #{saleRemark}
+			</if>
+			<if test="@OGNL@isNotEmpty(saleTaxpayerNumber)">
+				AND t.SALE_TAXPAYER_NUMBER = #{saleTaxpayerNumber}
+			</if>
+			<if test="@OGNL@isNotEmpty(buyId)">
+				AND t.BUY_ID = #{buyId}
+			</if>
+			<if test="@OGNL@isNotEmpty(buyName)">
+				AND t.BUY_NAME = #{buyName}
+			</if>
+			<if test="@OGNL@isNotEmpty(buyRemarks)">
+				AND t.BUY_REMARKS = #{buyRemarks}
+			</if>
+			<if test="@OGNL@isNotEmpty(buyTaxpayerNumber)">
+				AND t.BUY_TAXPAYER_NUMBER = #{buyTaxpayerNumber}
+			</if>
+			<if test="@OGNL@isNotEmpty(totalTaxPrice)">
+				AND t.TOTAL_TAX_PRICE = #{totalTaxPrice}
+			</if>
+			<if test="@OGNL@isNotEmpty(orgId)">
+				AND t.ORG_ID = #{orgId}
+			</if>
+			<if test="@OGNL@isNotEmpty(invoiceImgId)">
+				AND t.INVOICE_IMG_ID = #{invoiceImgId}
+			</if>
+			<if test="@OGNL@isNotEmpty(id)">
+				AND t.ID = #{id}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseState)">
+				AND t.RESPONSE_STATE = #{responseState}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseInfo)">
+				AND t.RESPONSE_INFO = #{responseInfo}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseTime)">
+				AND t.RESPONSE_TIME = #{responseTime}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.MiddleInvoiceInfo">
+		INSERT INTO MIDDLE_INVOICE_INFO(
+		COMPANY_PRIMARY_KEY ,
+		INVOICE_CODE ,
+		INVOICE_ID ,
+		INVOICE_DATE ,
+		INVOICE_TYPE ,
+		SALE_ID ,
+		SALE_NAME ,
+		SALE_REMARK ,
+		SALE_TAXPAYER_NUMBER ,
+		BUY_ID ,
+		BUY_NAME ,
+		BUY_REMARKS ,
+		BUY_TAXPAYER_NUMBER ,
+		TOTAL_TAX_PRICE ,
+		ORG_ID ,
+		INVOICE_IMG_ID ,
+		ID ,
+		RESPONSE_STATE ,
+		RESPONSE_INFO ,
+		RESPONSE_TIME 
+		)
+		VALUES (
+		#{companyPrimaryKey} ,
+		#{invoiceCode} ,
+		#{invoiceId} ,
+		#{invoiceDate} ,
+		#{invoiceType} ,
+		#{saleId} ,
+		#{saleName} ,
+		#{saleRemark} ,
+		#{saleTaxpayerNumber} ,
+		#{buyId} ,
+		#{buyName} ,
+		#{buyRemarks} ,
+		#{buyTaxpayerNumber} ,
+		#{totalTaxPrice} ,
+		#{orgId} ,
+		#{invoiceImgId} ,
+		#{id} ,
+		#{responseState} ,
+		#{responseInfo} ,
+		#{responseTime} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO MIDDLE_INVOICE_INFO (
+		COMPANY_PRIMARY_KEY ,
+		INVOICE_CODE ,
+		INVOICE_ID ,
+		INVOICE_DATE ,
+		INVOICE_TYPE ,
+		SALE_ID ,
+		SALE_NAME ,
+		SALE_REMARK ,
+		SALE_TAXPAYER_NUMBER ,
+		BUY_ID ,
+		BUY_NAME ,
+		BUY_REMARKS ,
+		BUY_TAXPAYER_NUMBER ,
+		TOTAL_TAX_PRICE ,
+		ORG_ID ,
+		INVOICE_IMG_ID ,
+		ID ,
+		RESPONSE_STATE ,
+		RESPONSE_INFO ,
+		RESPONSE_TIME 
+		) VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			#{item.companyPrimaryKey},
+			#{item.invoiceCode},
+			#{item.invoiceId},
+			#{item.invoiceDate},
+			#{item.invoiceType},
+			#{item.saleId},
+			#{item.saleName},
+			#{item.saleRemark},
+			#{item.saleTaxpayerNumber},
+			#{item.buyId},
+			#{item.buyName},
+			#{item.buyRemarks},
+			#{item.buyTaxpayerNumber},
+			#{item.totalTaxPrice},
+			#{item.orgId},
+			#{item.invoiceImgId},
+			#{item.id},
+			#{item.responseState},
+			#{item.responseInfo},
+			#{item.responseTime}
+			)
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_INVOICE_INFO t
+		WHERE t.COMPANY_PRIMARY_KEY = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_INVOICE_INFO t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM MIDDLE_INVOICE_INFO t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.MiddleInvoiceInfo">
+		UPDATE MIDDLE_INVOICE_INFO
+		<set>
+			INVOICE_CODE =
+			#{invoiceCode},
+			INVOICE_ID =
+			#{invoiceId},
+			INVOICE_DATE =
+			#{invoiceDate},
+			INVOICE_TYPE =
+			#{invoiceType},
+			SALE_ID =
+			#{saleId},
+			SALE_NAME =
+			#{saleName},
+			SALE_REMARK =
+			#{saleRemark},
+			SALE_TAXPAYER_NUMBER =
+			#{saleTaxpayerNumber},
+			BUY_ID =
+			#{buyId},
+			BUY_NAME =
+			#{buyName},
+			BUY_REMARKS =
+			#{buyRemarks},
+			BUY_TAXPAYER_NUMBER =
+			#{buyTaxpayerNumber},
+			TOTAL_TAX_PRICE =
+			#{totalTaxPrice},
+			ORG_ID =
+			#{orgId},
+			INVOICE_IMG_ID =
+			#{invoiceImgId},
+			ID =
+			#{id},
+			RESPONSE_STATE =
+			#{responseState},
+			RESPONSE_INFO =
+			#{responseInfo},
+			RESPONSE_TIME =
+			#{responseTime},
+		</set>
+		WHERE COMPANY_PRIMARY_KEY =
+		#{companyPrimaryKey}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.MiddleInvoiceInfo">
+		UPDATE MIDDLE_INVOICE_INFO
+		<set>
+			<if test="@OGNL@isNotEmpty(invoiceCode)">
+				INVOICE_CODE =
+				#{invoiceCode},
+			</if>
+			<if test="@OGNL@isNotEmpty(invoiceId)">
+				INVOICE_ID =
+				#{invoiceId},
+			</if>
+			<if test="@OGNL@isNotEmpty(invoiceDate)">
+				INVOICE_DATE =
+				#{invoiceDate},
+			</if>
+			<if test="@OGNL@isNotEmpty(invoiceType)">
+				INVOICE_TYPE =
+				#{invoiceType},
+			</if>
+			<if test="@OGNL@isNotEmpty(saleId)">
+				SALE_ID =
+				#{saleId},
+			</if>
+			<if test="@OGNL@isNotEmpty(saleName)">
+				SALE_NAME =
+				#{saleName},
+			</if>
+			<if test="@OGNL@isNotEmpty(saleRemark)">
+				SALE_REMARK =
+				#{saleRemark},
+			</if>
+			<if test="@OGNL@isNotEmpty(saleTaxpayerNumber)">
+				SALE_TAXPAYER_NUMBER =
+				#{saleTaxpayerNumber},
+			</if>
+			<if test="@OGNL@isNotEmpty(buyId)">
+				BUY_ID =
+				#{buyId},
+			</if>
+			<if test="@OGNL@isNotEmpty(buyName)">
+				BUY_NAME =
+				#{buyName},
+			</if>
+			<if test="@OGNL@isNotEmpty(buyRemarks)">
+				BUY_REMARKS =
+				#{buyRemarks},
+			</if>
+			<if test="@OGNL@isNotEmpty(buyTaxpayerNumber)">
+				BUY_TAXPAYER_NUMBER =
+				#{buyTaxpayerNumber},
+			</if>
+			<if test="@OGNL@isNotEmpty(totalTaxPrice)">
+				TOTAL_TAX_PRICE =
+				#{totalTaxPrice},
+			</if>
+			<if test="@OGNL@isNotEmpty(orgId)">
+				ORG_ID =
+				#{orgId},
+			</if>
+			<if test="@OGNL@isNotEmpty(invoiceImgId)">
+				INVOICE_IMG_ID =
+				#{invoiceImgId},
+			</if>
+			<if test="@OGNL@isNotEmpty(id)">
+				ID =
+				#{id},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseState)">
+				RESPONSE_STATE =
+				#{responseState},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseInfo)">
+				RESPONSE_INFO =
+				#{responseInfo},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseTime)">
+				RESPONSE_TIME =
+				#{responseTime},
+			</if>
+		</set>
+		WHERE COMPANY_PRIMARY_KEY =
+		#{companyPrimaryKey}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE MIDDLE_INVOICE_INFO t
+		<set>
+			<if test="@OGNL@isNotEmpty(model.invoiceCode)">
+				INVOICE_CODE =
+				#{model.invoiceCode},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.invoiceId)">
+				INVOICE_ID =
+				#{model.invoiceId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.invoiceDate)">
+				INVOICE_DATE =
+				#{model.invoiceDate},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.invoiceType)">
+				INVOICE_TYPE =
+				#{model.invoiceType},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.saleId)">
+				SALE_ID =
+				#{model.saleId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.saleName)">
+				SALE_NAME =
+				#{model.saleName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.saleRemark)">
+				SALE_REMARK =
+				#{model.saleRemark},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.saleTaxpayerNumber)">
+				SALE_TAXPAYER_NUMBER =
+				#{model.saleTaxpayerNumber},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.buyId)">
+				BUY_ID =
+				#{model.buyId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.buyName)">
+				BUY_NAME =
+				#{model.buyName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.buyRemarks)">
+				BUY_REMARKS =
+				#{model.buyRemarks},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.buyTaxpayerNumber)">
+				BUY_TAXPAYER_NUMBER =
+				#{model.buyTaxpayerNumber},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.totalTaxPrice)">
+				TOTAL_TAX_PRICE =
+				#{model.totalTaxPrice},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.orgId)">
+				ORG_ID =
+				#{model.orgId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.invoiceImgId)">
+				INVOICE_IMG_ID =
+				#{model.invoiceImgId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.id)">
+				ID =
+				#{model.id},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseState)">
+				RESPONSE_STATE =
+				#{model.responseState},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseInfo)">
+				RESPONSE_INFO =
+				#{model.responseInfo},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseTime)">
+				RESPONSE_TIME =
+				#{model.responseTime},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		MIDDLE_INVOICE_INFO WHERE COMPANY_PRIMARY_KEY = #{value}
+	</delete>
+</mapper>

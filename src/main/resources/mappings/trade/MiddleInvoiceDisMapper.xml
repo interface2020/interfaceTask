@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.MiddleInvoiceDisDao">
+	<resultMap type="com.trade.model.MiddleInvoiceDis" id="BaseResultMap">
+		<result property="companyDistributeId" column="COMPANY_DISTRIBUTE_ID" javaType="String" />
+		<result property="distributeId" column="DISTRIBUTE_ID" javaType="String" />
+		<result property="invoicePrimaryId" column="INVOICE_PRIMARY_ID" javaType="String" />
+		<result property="responseState" column="RESPONSE_STATE" javaType="String" />
+		<result property="responseInfo" column="RESPONSE_INFO" javaType="String" />
+		<result property="responseTime" column="RESPONSE_TIME" javaType="Date" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.COMPANY_DISTRIBUTE_ID,
+		t.DISTRIBUTE_ID,
+		t.INVOICE_PRIMARY_ID,
+		t.RESPONSE_STATE,
+		t.RESPONSE_INFO,
+		t.RESPONSE_TIME
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@OGNL@isNotEmpty(companyDistributeId)">
+				AND t.COMPANY_DISTRIBUTE_ID = #{companyDistributeId}
+			</if>
+			<if test="@OGNL@isNotEmpty(distributeId)">
+				AND t.DISTRIBUTE_ID = #{distributeId}
+			</if>
+			<if test="@OGNL@isNotEmpty(invoicePrimaryId)">
+				AND t.INVOICE_PRIMARY_ID = #{invoicePrimaryId}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseState)">
+				AND t.RESPONSE_STATE = #{responseState}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseInfo)">
+				AND t.RESPONSE_INFO = #{responseInfo}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseTime)">
+				AND t.RESPONSE_TIME = #{responseTime}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.MiddleInvoiceDis">
+		INSERT INTO MIDDLE_INVOICE_DIS(
+		COMPANY_DISTRIBUTE_ID ,
+		DISTRIBUTE_ID ,
+		INVOICE_PRIMARY_ID ,
+		RESPONSE_STATE ,
+		RESPONSE_INFO ,
+		RESPONSE_TIME 
+		)
+		VALUES (
+		#{companyDistributeId} ,
+		#{distributeId} ,
+		#{invoicePrimaryId} ,
+		#{responseState} ,
+		#{responseInfo} ,
+		#{responseTime} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO MIDDLE_INVOICE_DIS (
+		COMPANY_DISTRIBUTE_ID ,
+		DISTRIBUTE_ID ,
+		INVOICE_PRIMARY_ID ,
+		RESPONSE_STATE ,
+		RESPONSE_INFO ,
+		RESPONSE_TIME 
+		) VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			#{item.companyDistributeId},
+			#{item.distributeId},
+			#{item.invoicePrimaryId},
+			#{item.responseState},
+			#{item.responseInfo},
+			#{item.responseTime}
+			)
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_INVOICE_DIS t
+		WHERE t.COMPANY_DISTRIBUTE_ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_INVOICE_DIS t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM MIDDLE_INVOICE_DIS t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.MiddleInvoiceDis">
+		UPDATE MIDDLE_INVOICE_DIS
+		<set>
+			DISTRIBUTE_ID =
+			#{distributeId},
+			INVOICE_PRIMARY_ID =
+			#{invoicePrimaryId},
+			RESPONSE_STATE =
+			#{responseState},
+			RESPONSE_INFO =
+			#{responseInfo},
+			RESPONSE_TIME =
+			#{responseTime},
+		</set>
+		WHERE COMPANY_DISTRIBUTE_ID =
+		#{companyDistributeId}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.MiddleInvoiceDis">
+		UPDATE MIDDLE_INVOICE_DIS
+		<set>
+			<if test="@OGNL@isNotEmpty(distributeId)">
+				DISTRIBUTE_ID =
+				#{distributeId},
+			</if>
+			<if test="@OGNL@isNotEmpty(invoicePrimaryId)">
+				INVOICE_PRIMARY_ID =
+				#{invoicePrimaryId},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseState)">
+				RESPONSE_STATE =
+				#{responseState},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseInfo)">
+				RESPONSE_INFO =
+				#{responseInfo},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseTime)">
+				RESPONSE_TIME =
+				#{responseTime},
+			</if>
+		</set>
+		WHERE COMPANY_DISTRIBUTE_ID =
+		#{companyDistributeId}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE MIDDLE_INVOICE_DIS t
+		<set>
+			<if test="@OGNL@isNotEmpty(model.distributeId)">
+				DISTRIBUTE_ID =
+				#{model.distributeId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.invoicePrimaryId)">
+				INVOICE_PRIMARY_ID =
+				#{model.invoicePrimaryId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseState)">
+				RESPONSE_STATE =
+				#{model.responseState},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseInfo)">
+				RESPONSE_INFO =
+				#{model.responseInfo},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseTime)">
+				RESPONSE_TIME =
+				#{model.responseTime},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		MIDDLE_INVOICE_DIS WHERE COMPANY_DISTRIBUTE_ID = #{value}
+	</delete>
+</mapper>

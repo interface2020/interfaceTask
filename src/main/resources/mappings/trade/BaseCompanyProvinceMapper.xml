@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.BaseCompanyProvinceDao">
+	<resultMap type="com.trade.model.BaseCompanyProvince" id="BaseResultMap">
+		<result property="companyId" column="COMPANY_ID" javaType="String" />
+		<result property="id" column="ID" javaType="String" />
+		<result property="companyType" column="COMPANY_TYPE" javaType="String" />
+		<result property="companyName" column="COMPANY_NAME" javaType="String" />
+		<result property="address" column="ADDRESS" javaType="String" />
+		<result property="companyContactTel" column="COMPANY_CONTACT_TEL" javaType="String" />
+		<result property="companyContactFax" column="COMPANY_CONTACT_FAX" javaType="String" />
+		<result property="zipCode" column="ZIP_CODE" javaType="String" />
+		<result property="email" column="EMAIL" javaType="String" />
+		<result property="addTime" column="ADD_TIME" javaType="Date" />
+		<result property="lastUpdateTime" column="LAST_UPDATE_TIME" javaType="Date" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.COMPANY_ID,
+		t.ID,
+		t.COMPANY_TYPE,
+		t.COMPANY_NAME,
+		t.ADDRESS,
+		t.COMPANY_CONTACT_TEL,
+		t.COMPANY_CONTACT_FAX,
+		t.ZIP_CODE,
+		t.EMAIL,
+		t.ADD_TIME,
+		t.LAST_UPDATE_TIME
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@OGNL@isNotEmpty(companyId)">
+				AND t.COMPANY_ID = #{companyId}
+			</if>
+			<if test="@OGNL@isNotEmpty(id)">
+				AND t.ID = #{id}
+			</if>
+			<if test="@OGNL@isNotEmpty(companyType)">
+				AND t.COMPANY_TYPE = #{companyType}
+			</if>
+			<if test="@OGNL@isNotEmpty(companyName)">
+				AND t.COMPANY_NAME = #{companyName}
+			</if>
+			<if test="@OGNL@isNotEmpty(address)">
+				AND t.ADDRESS = #{address}
+			</if>
+			<if test="@OGNL@isNotEmpty(companyContactTel)">
+				AND t.COMPANY_CONTACT_TEL = #{companyContactTel}
+			</if>
+			<if test="@OGNL@isNotEmpty(companyContactFax)">
+				AND t.COMPANY_CONTACT_FAX = #{companyContactFax}
+			</if>
+			<if test="@OGNL@isNotEmpty(zipCode)">
+				AND t.ZIP_CODE = #{zipCode}
+			</if>
+			<if test="@OGNL@isNotEmpty(email)">
+				AND t.EMAIL = #{email}
+			</if>
+			<if test="@OGNL@isNotEmpty(addTime)">
+				AND t.ADD_TIME = #{addTime}
+			</if>
+			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+				AND t.LAST_UPDATE_TIME = #{lastUpdateTime}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.BaseCompanyProvince">
+		INSERT INTO BASE_COMPANY_PROVINCE(
+		COMPANY_ID ,
+		ID ,
+		COMPANY_TYPE ,
+		COMPANY_NAME ,
+		ADDRESS ,
+		COMPANY_CONTACT_TEL ,
+		COMPANY_CONTACT_FAX ,
+		ZIP_CODE ,
+		EMAIL ,
+		ADD_TIME ,
+		LAST_UPDATE_TIME 
+		)
+		VALUES (
+		#{companyId} ,
+		#{id} ,
+		#{companyType} ,
+		#{companyName} ,
+		#{address} ,
+		#{companyContactTel} ,
+		#{companyContactFax} ,
+		#{zipCode} ,
+		#{email} ,
+		#{addTime} ,
+		#{lastUpdateTime} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO BASE_COMPANY_PROVINCE (
+		COMPANY_ID ,
+		ID ,
+		COMPANY_TYPE ,
+		COMPANY_NAME ,
+		ADDRESS ,
+		COMPANY_CONTACT_TEL ,
+		COMPANY_CONTACT_FAX ,
+		ZIP_CODE ,
+		EMAIL ,
+		ADD_TIME ,
+		LAST_UPDATE_TIME 
+		)
+		<foreach collection="list" item="item" index="index"
+			separator=" UNION ALL ">
+			SELECT
+			#{item.companyId},
+			#{item.id},
+			#{item.companyType},
+			#{item.companyName},
+			#{item.address},
+			#{item.companyContactTel},
+			#{item.companyContactFax},
+			#{item.zipCode},
+			#{item.email},
+			#{item.addTime},
+			#{item.lastUpdateTime}
+			FROM DUAL
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM BASE_COMPANY_PROVINCE t
+		WHERE t.COMPANY_ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM BASE_COMPANY_PROVINCE t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM BASE_COMPANY_PROVINCE t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.BaseCompanyProvince">
+		UPDATE BASE_COMPANY_PROVINCE
+		<set>
+			ID =
+			#{id},
+			COMPANY_TYPE =
+			#{companyType},
+			COMPANY_NAME =
+			#{companyName},
+			ADDRESS =
+			#{address},
+			COMPANY_CONTACT_TEL =
+			#{companyContactTel},
+			COMPANY_CONTACT_FAX =
+			#{companyContactFax},
+			ZIP_CODE =
+			#{zipCode},
+			EMAIL =
+			#{email},
+			ADD_TIME =
+			#{addTime},
+			LAST_UPDATE_TIME =
+			#{lastUpdateTime},
+		</set>
+		WHERE COMPANY_ID =
+		#{companyId}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.BaseCompanyProvince">
+		UPDATE BASE_COMPANY_PROVINCE
+		<set>
+			<if test="@OGNL@isNotEmpty(id)">
+				ID =
+				#{id},
+			</if>
+			<if test="@OGNL@isNotEmpty(companyType)">
+				COMPANY_TYPE =
+				#{companyType},
+			</if>
+			<if test="@OGNL@isNotEmpty(companyName)">
+				COMPANY_NAME =
+				#{companyName},
+			</if>
+			<if test="@OGNL@isNotEmpty(address)">
+				ADDRESS =
+				#{address},
+			</if>
+			<if test="@OGNL@isNotEmpty(companyContactTel)">
+				COMPANY_CONTACT_TEL =
+				#{companyContactTel},
+			</if>
+			<if test="@OGNL@isNotEmpty(companyContactFax)">
+				COMPANY_CONTACT_FAX =
+				#{companyContactFax},
+			</if>
+			<if test="@OGNL@isNotEmpty(zipCode)">
+				ZIP_CODE =
+				#{zipCode},
+			</if>
+			<if test="@OGNL@isNotEmpty(email)">
+				EMAIL =
+				#{email},
+			</if>
+			<if test="@OGNL@isNotEmpty(addTime)">
+				ADD_TIME =
+				#{addTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+				LAST_UPDATE_TIME =
+				#{lastUpdateTime},
+			</if>
+		</set>
+		WHERE COMPANY_ID =
+		#{companyId}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE BASE_COMPANY_PROVINCE t
+		<set>
+			<if test="@OGNL@isNotEmpty(model.id)">
+				ID =
+				#{model.id},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.companyType)">
+				COMPANY_TYPE =
+				#{model.companyType},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.companyName)">
+				COMPANY_NAME =
+				#{model.companyName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.address)">
+				ADDRESS =
+				#{model.address},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.companyContactTel)">
+				COMPANY_CONTACT_TEL =
+				#{model.companyContactTel},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.companyContactFax)">
+				COMPANY_CONTACT_FAX =
+				#{model.companyContactFax},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.zipCode)">
+				ZIP_CODE =
+				#{model.zipCode},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.email)">
+				EMAIL =
+				#{model.email},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.addTime)">
+				ADD_TIME =
+				#{model.addTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.lastUpdateTime)">
+				LAST_UPDATE_TIME =
+				#{model.lastUpdateTime},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		BASE_COMPANY_PROVINCE WHERE COMPANY_ID = #{value}
+	</delete>
+</mapper>

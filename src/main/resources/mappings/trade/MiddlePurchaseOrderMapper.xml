@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.MiddlePurchaseOrderDao">
+	<resultMap type="com.trade.model.MiddlePurchaseOrder" id="BaseResultMap">
+		<result property="orderDetailState" column="ORDER_DETAIL_STATE" javaType="String" />
+		<result property="orderId" column="ORDER_ID" javaType="String" />
+		<result property="orderCode" column="ORDER_CODE" javaType="String" />
+		<result property="orderDetailId" column="ORDER_DETAIL_ID" javaType="String" />
+		<result property="purchaseCount" column="PURCHASE_COUNT" javaType="String" />
+		<result property="purchasePrice" column="PURCHASE_PRICE" javaType="BigDecimal" />
+		<result property="purchaseAmount" column="PURCHASE_AMOUNT" javaType="BigDecimal" />
+		<result property="totalDetailCount" column="TOTAL_DETAIL_COUNT" javaType="String" />
+		<result property="procureCatalogId" column="PROCURE_CATALOG_ID" javaType="String" />
+		<result property="submitTime" column="SUBMIT_TIME" javaType="Date" />
+		<result property="hospitalId" column="HOSPITAL_ID" javaType="String" />
+		<result property="hospitalName" column="HOSPITAL_NAME" javaType="String" />
+		<result property="companyNamePs" column="COMPANY_NAME_PS" javaType="String" />
+		<result property="companyIdPs" column="COMPANY_ID_PS" javaType="String" />
+		<result property="orderName" column="ORDER_NAME" javaType="String" />
+		<result property="orderRemarks" column="ORDER_REMARKS" javaType="String" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.ORDER_DETAIL_STATE,
+		t.ORDER_ID,
+		t.ORDER_CODE,
+		t.ORDER_DETAIL_ID,
+		t.PURCHASE_COUNT,
+		t.PURCHASE_PRICE,
+		t.PURCHASE_AMOUNT,
+		t.TOTAL_DETAIL_COUNT,
+		t.PROCURE_CATALOG_ID,
+		t.SUBMIT_TIME,
+		t.HOSPITAL_ID,
+		t.HOSPITAL_NAME,
+		t.COMPANY_NAME_PS,
+		t.COMPANY_ID_PS,
+		t.ORDER_NAME,
+		t.ORDER_REMARKS
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@OGNL@isNotEmpty(orderDetailState)">
+				AND t.ORDER_DETAIL_STATE = #{orderDetailState}
+			</if>
+			<if test="@OGNL@isNotEmpty(orderId)">
+				AND t.ORDER_ID = #{orderId}
+			</if>
+			<if test="@OGNL@isNotEmpty(orderCode)">
+				AND t.ORDER_CODE = #{orderCode}
+			</if>
+			<if test="@OGNL@isNotEmpty(orderDetailId)">
+				AND t.ORDER_DETAIL_ID = #{orderDetailId}
+			</if>
+			<if test="@OGNL@isNotEmpty(purchaseCount)">
+				AND t.PURCHASE_COUNT = #{purchaseCount}
+			</if>
+			<if test="@OGNL@isNotEmpty(purchasePrice)">
+				AND t.PURCHASE_PRICE = #{purchasePrice}
+			</if>
+			<if test="@OGNL@isNotEmpty(purchaseAmount)">
+				AND t.PURCHASE_AMOUNT = #{purchaseAmount}
+			</if>
+			<if test="@OGNL@isNotEmpty(totalDetailCount)">
+				AND t.TOTAL_DETAIL_COUNT = #{totalDetailCount}
+			</if>
+			<if test="@OGNL@isNotEmpty(procureCatalogId)">
+				AND t.PROCURE_CATALOG_ID = #{procureCatalogId}
+			</if>
+			<if test="@OGNL@isNotEmpty(submitTime)">
+				AND t.SUBMIT_TIME = #{submitTime}
+			</if>
+			<if test="@OGNL@isNotEmpty(hospitalId)">
+				AND t.HOSPITAL_ID = #{hospitalId}
+			</if>
+			<if test="@OGNL@isNotEmpty(hospitalName)">
+				AND t.HOSPITAL_NAME = #{hospitalName}
+			</if>
+			<if test="@OGNL@isNotEmpty(companyNamePs)">
+				AND t.COMPANY_NAME_PS = #{companyNamePs}
+			</if>
+			<if test="@OGNL@isNotEmpty(companyIdPs)">
+				AND t.COMPANY_ID_PS = #{companyIdPs}
+			</if>
+			<if test="@OGNL@isNotEmpty(orderName)">
+				AND t.ORDER_NAME = #{orderName}
+			</if>
+			<if test="@OGNL@isNotEmpty(orderRemarks)">
+				AND t.ORDER_REMARKS = #{orderRemarks}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.MiddlePurchaseOrder">
+		INSERT INTO MIDDLE_PURCHASE_ORDER(
+		ORDER_DETAIL_STATE ,
+		ORDER_ID ,
+		ORDER_CODE ,
+		ORDER_DETAIL_ID ,
+		PURCHASE_COUNT ,
+		PURCHASE_PRICE ,
+		PURCHASE_AMOUNT ,
+		TOTAL_DETAIL_COUNT ,
+		PROCURE_CATALOG_ID ,
+		SUBMIT_TIME ,
+		HOSPITAL_ID ,
+		HOSPITAL_NAME ,
+		COMPANY_NAME_PS ,
+		COMPANY_ID_PS ,
+		ORDER_NAME ,
+		ORDER_REMARKS 
+		)
+		VALUES (
+		#{orderDetailState} ,
+		#{orderId} ,
+		#{orderCode} ,
+		#{orderDetailId} ,
+		#{purchaseCount} ,
+		#{purchasePrice} ,
+		#{purchaseAmount} ,
+		#{totalDetailCount} ,
+		#{procureCatalogId} ,
+		#{submitTime} ,
+		#{hospitalId} ,
+		#{hospitalName} ,
+		#{companyNamePs} ,
+		#{companyIdPs} ,
+		#{orderName} ,
+		#{orderRemarks} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO MIDDLE_PURCHASE_ORDER (
+		ORDER_DETAIL_STATE ,
+		ORDER_ID ,
+		ORDER_CODE ,
+		ORDER_DETAIL_ID ,
+		PURCHASE_COUNT ,
+		PURCHASE_PRICE ,
+		PURCHASE_AMOUNT ,
+		TOTAL_DETAIL_COUNT ,
+		PROCURE_CATALOG_ID ,
+		SUBMIT_TIME ,
+		HOSPITAL_ID ,
+		HOSPITAL_NAME ,
+		COMPANY_NAME_PS ,
+		COMPANY_ID_PS ,
+		ORDER_NAME ,
+		ORDER_REMARKS 
+		)
+		<foreach collection="list" item="item" index="index"
+				 separator=" UNION ALL ">
+			SELECT
+			#{item.orderDetailState},
+			#{item.orderId},
+			#{item.orderCode},
+			#{item.orderDetailId},
+			#{item.purchaseCount},
+			#{item.purchasePrice},
+			#{item.purchaseAmount},
+			#{item.totalDetailCount},
+			#{item.procureCatalogId},
+			#{item.submitTime},
+			#{item.hospitalId},
+			#{item.hospitalName},
+			#{item.companyNamePs},
+			#{item.companyIdPs},
+			#{item.orderName},
+			#{item.orderRemarks}
+			FROM DUAL
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_PURCHASE_ORDER t
+		WHERE t.ORDER_ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_PURCHASE_ORDER t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM MIDDLE_PURCHASE_ORDER t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.MiddlePurchaseOrder">
+		UPDATE MIDDLE_PURCHASE_ORDER
+		<set>
+			ORDER_DETAIL_STATE =
+			#{orderDetailState},
+			ORDER_CODE =
+			#{orderCode},
+			ORDER_DETAIL_ID =
+			#{orderDetailId},
+			PURCHASE_COUNT =
+			#{purchaseCount},
+			PURCHASE_PRICE =
+			#{purchasePrice},
+			PURCHASE_AMOUNT =
+			#{purchaseAmount},
+			TOTAL_DETAIL_COUNT =
+			#{totalDetailCount},
+			PROCURE_CATALOG_ID =
+			#{procureCatalogId},
+			SUBMIT_TIME =
+			#{submitTime},
+			HOSPITAL_ID =
+			#{hospitalId},
+			HOSPITAL_NAME =
+			#{hospitalName},
+			COMPANY_NAME_PS =
+			#{companyNamePs},
+			COMPANY_ID_PS =
+			#{companyIdPs},
+			ORDER_NAME =
+			#{orderName},
+			ORDER_REMARKS =
+			#{orderRemarks},
+		</set>
+		WHERE ORDER_ID =
+		#{orderId}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.MiddlePurchaseOrder">
+		UPDATE MIDDLE_PURCHASE_ORDER
+		<set>
+			<if test="@OGNL@isNotEmpty(orderDetailState)">
+				ORDER_DETAIL_STATE =
+				#{orderDetailState},
+			</if>
+			<if test="@OGNL@isNotEmpty(orderCode)">
+				ORDER_CODE =
+				#{orderCode},
+			</if>
+			<if test="@OGNL@isNotEmpty(orderDetailId)">
+				ORDER_DETAIL_ID =
+				#{orderDetailId},
+			</if>
+			<if test="@OGNL@isNotEmpty(purchaseCount)">
+				PURCHASE_COUNT =
+				#{purchaseCount},
+			</if>
+			<if test="@OGNL@isNotEmpty(purchasePrice)">
+				PURCHASE_PRICE =
+				#{purchasePrice},
+			</if>
+			<if test="@OGNL@isNotEmpty(purchaseAmount)">
+				PURCHASE_AMOUNT =
+				#{purchaseAmount},
+			</if>
+			<if test="@OGNL@isNotEmpty(totalDetailCount)">
+				TOTAL_DETAIL_COUNT =
+				#{totalDetailCount},
+			</if>
+			<if test="@OGNL@isNotEmpty(procureCatalogId)">
+				PROCURE_CATALOG_ID =
+				#{procureCatalogId},
+			</if>
+			<if test="@OGNL@isNotEmpty(submitTime)">
+				SUBMIT_TIME =
+				#{submitTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(hospitalId)">
+				HOSPITAL_ID =
+				#{hospitalId},
+			</if>
+			<if test="@OGNL@isNotEmpty(hospitalName)">
+				HOSPITAL_NAME =
+				#{hospitalName},
+			</if>
+			<if test="@OGNL@isNotEmpty(companyNamePs)">
+				COMPANY_NAME_PS =
+				#{companyNamePs},
+			</if>
+			<if test="@OGNL@isNotEmpty(companyIdPs)">
+				COMPANY_ID_PS =
+				#{companyIdPs},
+			</if>
+			<if test="@OGNL@isNotEmpty(orderName)">
+				ORDER_NAME =
+				#{orderName},
+			</if>
+			<if test="@OGNL@isNotEmpty(orderRemarks)">
+				ORDER_REMARKS =
+				#{orderRemarks},
+			</if>
+		</set>
+		WHERE ORDER_ID =
+		#{orderId}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE MIDDLE_PURCHASE_ORDER t
+		<set>
+			<if test="@OGNL@isNotEmpty(model.orderDetailState)">
+				ORDER_DETAIL_STATE =
+				#{model.orderDetailState},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.orderCode)">
+				ORDER_CODE =
+				#{model.orderCode},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.orderDetailId)">
+				ORDER_DETAIL_ID =
+				#{model.orderDetailId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.purchaseCount)">
+				PURCHASE_COUNT =
+				#{model.purchaseCount},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.purchasePrice)">
+				PURCHASE_PRICE =
+				#{model.purchasePrice},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.purchaseAmount)">
+				PURCHASE_AMOUNT =
+				#{model.purchaseAmount},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.totalDetailCount)">
+				TOTAL_DETAIL_COUNT =
+				#{model.totalDetailCount},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.procureCatalogId)">
+				PROCURE_CATALOG_ID =
+				#{model.procureCatalogId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.submitTime)">
+				SUBMIT_TIME =
+				#{model.submitTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.hospitalId)">
+				HOSPITAL_ID =
+				#{model.hospitalId},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.hospitalName)">
+				HOSPITAL_NAME =
+				#{model.hospitalName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.companyNamePs)">
+				COMPANY_NAME_PS =
+				#{model.companyNamePs},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.companyIdPs)">
+				COMPANY_ID_PS =
+				#{model.companyIdPs},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.orderName)">
+				ORDER_NAME =
+				#{model.orderName},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.orderRemarks)">
+				ORDER_REMARKS =
+				#{model.orderRemarks},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		MIDDLE_PURCHASE_ORDER WHERE ORDER_ID = #{value}
+	</delete>
+</mapper>

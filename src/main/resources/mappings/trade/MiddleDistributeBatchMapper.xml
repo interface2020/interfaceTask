@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.MiddleDistributeBatchDao">
+	<resultMap type="com.trade.model.MiddleDistributeBatch" id="BaseResultMap">
+		<result property="companyDistributeId" column="COMPANY_DISTRIBUTE_ID" javaType="String" />
+		<result property="batchCode" column="BATCH_CODE" javaType="String" />
+		<result property="responseState" column="RESPONSE_STATE" javaType="String" />
+		<result property="responseInfo" column="RESPONSE_INFO" javaType="String" />
+		<result property="responseTime" column="RESPONSE_TIME" javaType="Date" />
+		<result property="batchCount" column="BATCH_COUNT" javaType="String" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.COMPANY_DISTRIBUTE_ID,
+		t.BATCH_CODE,
+		t.RESPONSE_STATE,
+		t.RESPONSE_INFO,
+		t.RESPONSE_TIME,
+		t.BATCH_COUNT
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@OGNL@isNotEmpty(companyDistributeId)">
+				AND t.COMPANY_DISTRIBUTE_ID = #{companyDistributeId}
+			</if>
+			<if test="@OGNL@isNotEmpty(batchCode)">
+				AND t.BATCH_CODE = #{batchCode}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseState)">
+				AND t.RESPONSE_STATE = #{responseState}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseInfo)">
+				AND t.RESPONSE_INFO = #{responseInfo}
+			</if>
+			<if test="@OGNL@isNotEmpty(responseTime)">
+				AND t.RESPONSE_TIME = #{responseTime}
+			</if>
+			<if test="@OGNL@isNotEmpty(batchCount)">
+				AND t.BATCH_COUNT = #{batchCount}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.MiddleDistributeBatch">
+		INSERT INTO MIDDLE_DISTRIBUTE_BATCH(
+		COMPANY_DISTRIBUTE_ID ,
+		BATCH_CODE ,
+		RESPONSE_STATE ,
+		RESPONSE_INFO ,
+		RESPONSE_TIME ,
+		BATCH_COUNT 
+		)
+		VALUES (
+		#{companyDistributeId} ,
+		#{batchCode} ,
+		#{responseState} ,
+		#{responseInfo} ,
+		#{responseTime} ,
+		#{batchCount} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO MIDDLE_DISTRIBUTE_BATCH (
+		COMPANY_DISTRIBUTE_ID ,
+		BATCH_CODE ,
+		RESPONSE_STATE ,
+		RESPONSE_INFO ,
+		RESPONSE_TIME ,
+		BATCH_COUNT 
+		) VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			#{item.companyDistributeId},
+			#{item.batchCode},
+			#{item.responseState},
+			#{item.responseInfo},
+			#{item.responseTime},
+			#{item.batchCount}
+			)
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_DISTRIBUTE_BATCH t
+		WHERE t.COMPANY_DISTRIBUTE_ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_DISTRIBUTE_BATCH t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM MIDDLE_DISTRIBUTE_BATCH t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.MiddleDistributeBatch">
+		UPDATE MIDDLE_DISTRIBUTE_BATCH
+		<set>
+			BATCH_CODE =
+			#{batchCode},
+			RESPONSE_STATE =
+			#{responseState},
+			RESPONSE_INFO =
+			#{responseInfo},
+			RESPONSE_TIME =
+			#{responseTime},
+			BATCH_COUNT =
+			#{batchCount},
+		</set>
+		WHERE COMPANY_DISTRIBUTE_ID =
+		#{companyDistributeId}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.MiddleDistributeBatch">
+		UPDATE MIDDLE_DISTRIBUTE_BATCH
+		<set>
+			<if test="@OGNL@isNotEmpty(batchCode)">
+				BATCH_CODE =
+				#{batchCode},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseState)">
+				RESPONSE_STATE =
+				#{responseState},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseInfo)">
+				RESPONSE_INFO =
+				#{responseInfo},
+			</if>
+			<if test="@OGNL@isNotEmpty(responseTime)">
+				RESPONSE_TIME =
+				#{responseTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(batchCount)">
+				BATCH_COUNT =
+				#{batchCount},
+			</if>
+		</set>
+		WHERE COMPANY_DISTRIBUTE_ID =
+		#{companyDistributeId}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE MIDDLE_DISTRIBUTE_BATCH t
+		<set>
+			<if test="@OGNL@isNotEmpty(model.batchCode)">
+				BATCH_CODE =
+				#{model.batchCode},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseState)">
+				RESPONSE_STATE =
+				#{model.responseState},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseInfo)">
+				RESPONSE_INFO =
+				#{model.responseInfo},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.responseTime)">
+				RESPONSE_TIME =
+				#{model.responseTime},
+			</if>
+			<if test="@OGNL@isNotEmpty(model.batchCount)">
+				BATCH_COUNT =
+				#{model.batchCount},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		MIDDLE_DISTRIBUTE_BATCH WHERE COMPANY_DISTRIBUTE_ID = #{value}
+	</delete>
+</mapper>
