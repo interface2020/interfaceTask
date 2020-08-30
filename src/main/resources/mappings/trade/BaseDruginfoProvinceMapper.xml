@@ -584,4 +584,8 @@
 		DELETE FROM
 		BASE_DRUGINFO_PROVINCE WHERE PROCURE_CATALOG_ID = #{value}
 	</delete>
+
+	<delete id="deleteAllDatas">
+		DELETE FROM BASE_DRUGINFO_PROVINCE
+	</delete>
 </mapper>

@@ -375,4 +375,15 @@
 		DELETE FROM
 		MIDDLE_PURCHASE_ORDER WHERE ORDER_ID = #{value}
 	</delete>
+
+	<delete id="deleteByIds" parameterType="java.util.List">
+		DELETE FROM
+		MIDDLE_PURCHASE_ORDER WHERE ORDER_ID IN(
+		<foreach collection="list" item="item" index="index"
+				 separator=",">
+			#{item.orderDetailId}
+		</foreach>)
+	</delete>
+
+
 </mapper>

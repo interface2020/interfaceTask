@@ -242,4 +242,8 @@
 		DELETE FROM
 		BASE_HOSPITAL_PROVINCE WHERE HOSPITAL_ID = #{value}
 	</delete>
+
+	<delete id="deleteAllDatas">
+		DELETE FROM BASE_HOSPITAL_PROVINCE
+	</delete>
 </mapper>

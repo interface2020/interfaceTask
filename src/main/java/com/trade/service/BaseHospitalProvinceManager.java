@@ -5,4 +5,5 @@ import com.trade.model.BaseHospitalProvince;
 
 public interface BaseHospitalProvinceManager extends GenericManager<BaseHospitalProvince, String> {
 	// 扩展接口
+    boolean deleteAllDatas();
 }

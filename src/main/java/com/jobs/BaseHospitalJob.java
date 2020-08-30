@@ -3,8 +3,8 @@ package com.jobs;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.common.utils.HttpClientUtil;
-import com.trade.model.BaseCompanyProvince;
-import com.trade.service.BaseCompanyProvinceManager;
+import com.trade.model.BaseHospitalProvince;
+import com.trade.service.BaseHospitalProvinceManager;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
@@ -15,14 +15,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BaseCompanyJob implements BaseJob {
+public class BaseHospitalJob implements BaseJob {
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    private BaseCompanyProvinceManager companyProvinceManager= QuartzConfig.getBean(BaseCompanyProvinceManager.class);
+    private BaseHospitalProvinceManager hospitalProvinceManager= QuartzConfig.getBean(BaseHospitalProvinceManager.class);
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        String url="http://localhost:8089/springboot-demo/compInterface/company/getCompany";
+        String url="http://localhost:8089/springboot-demo/compInterface/hospital/getHospital";
         try {
             syncDatas(url,1);
         } catch (Exception e) {
@@ -48,10 +48,10 @@ public class BaseCompanyJob implements BaseJob {
         JSONObject resultData = JSONObject.parseObject(resultStr);
         if(resultData.getInteger("resultCode")==1){
             if(page==1){
-                companyProvinceManager.deleteAllDatas();
+                hospitalProvinceManager.deleteAllDatas();
             }
-            List<BaseCompanyProvince> companys = JSONArray.parseArray(resultData.getString("dataList"), BaseCompanyProvince.class);
-            companyProvinceManager.saveBatch(companys);
+            List<BaseHospitalProvince> hospitals = JSONArray.parseArray(resultData.getString("dataList"), BaseHospitalProvince.class);
+            hospitalProvinceManager.saveBatch(hospitals);
             if(page<resultData.getInteger("totalPageCount")){
                 syncDatas(url, ++page);
             }

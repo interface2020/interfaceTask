@@ -5,4 +5,5 @@ import com.trade.model.BaseCompanyProvince;
 
 public interface BaseCompanyProvinceManager extends GenericManager<BaseCompanyProvince, String> {
 	// 扩展接口
+    boolean deleteAllDatas();
 }

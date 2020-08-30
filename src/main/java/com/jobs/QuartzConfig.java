@@ -33,8 +33,8 @@ public class QuartzConfig implements ApplicationContextAware {
         job.setJobName("syn");// 任务名称
         job.setJobStatus("1"); // 任务发布状态
         job.setIsConcurrent("1"); // 运行状态
-        job.setCronExpression("0 38 10 * * ?");
-        job.setBeanClass("com.jobs.BaseCompanyJob");// 一个以所给名字注册的bean的实例
+        job.setCronExpression("0 26 20 * * ?");
+        job.setBeanClass("com.jobs.MiddlePurchaseOrderJob");// 一个以所给名字注册的bean的实例
         addOrUpdateJob(job);
     }
 

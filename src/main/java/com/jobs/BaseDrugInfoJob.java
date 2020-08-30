@@ -3,8 +3,8 @@ package com.jobs;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.common.utils.HttpClientUtil;
-import com.trade.model.BaseCompanyProvince;
-import com.trade.service.BaseCompanyProvinceManager;
+import com.trade.model.BaseDruginfoProvince;
+import com.trade.service.BaseDruginfoProvinceManager;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
@@ -15,14 +15,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BaseCompanyJob implements BaseJob {
+public class BaseDrugInfoJob implements BaseJob {
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    private BaseCompanyProvinceManager companyProvinceManager= QuartzConfig.getBean(BaseCompanyProvinceManager.class);
+    private BaseDruginfoProvinceManager druginfoProvinceManager= QuartzConfig.getBean(BaseDruginfoProvinceManager.class);
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        String url="http://localhost:8089/springboot-demo/compInterface/company/getCompany";
+        String url="http://localhost:8089/springboot-demo/compInterface/procurecatalog/getProcurecatalog";
         try {
             syncDatas(url,1);
         } catch (Exception e) {
@@ -48,10 +48,10 @@ public class BaseCompanyJob implements BaseJob {
         JSONObject resultData = JSONObject.parseObject(resultStr);
         if(resultData.getInteger("resultCode")==1){
             if(page==1){
-                companyProvinceManager.deleteAllDatas();
+                druginfoProvinceManager.deleteAllDatas();
             }
-            List<BaseCompanyProvince> companys = JSONArray.parseArray(resultData.getString("dataList"), BaseCompanyProvince.class);
-            companyProvinceManager.saveBatch(companys);
+            List<BaseDruginfoProvince> druginfos = JSONArray.parseArray(resultData.getString("dataList"), BaseDruginfoProvince.class);
+            druginfoProvinceManager.saveBatch(druginfos);
             if(page<resultData.getInteger("totalPageCount")){
                 syncDatas(url, ++page);
             }

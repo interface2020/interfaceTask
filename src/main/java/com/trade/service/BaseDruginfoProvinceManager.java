@@ -5,4 +5,5 @@ import com.trade.model.BaseDruginfoProvince;
 
 public interface BaseDruginfoProvinceManager extends GenericManager<BaseDruginfoProvince, String> {
 	// 扩展接口
+    boolean deleteAllDatas();
 }

@@ -280,4 +280,8 @@
 		DELETE FROM
 		BASE_COMPANY_PROVINCE WHERE COMPANY_ID = #{value}
 	</delete>
+
+	<delete id="deleteAllDatas">
+		DELETE FROM BASE_COMPANY_PROVINCE
+	</delete>
 </mapper>
