@@ -40,52 +40,52 @@
 	</sql>
 	
 	<sql id="common_where_if">
-			<if test="@OGNL@isNotEmpty(orderDetailState)">
+			<if test="@com.OGNL@isNotEmpty(orderDetailState)">
 				AND t.ORDER_DETAIL_STATE = #{orderDetailState}
 			</if>
-			<if test="@OGNL@isNotEmpty(orderId)">
+			<if test="@com.OGNL@isNotEmpty(orderId)">
 				AND t.ORDER_ID = #{orderId}
 			</if>
-			<if test="@OGNL@isNotEmpty(orderCode)">
+			<if test="@com.OGNL@isNotEmpty(orderCode)">
 				AND t.ORDER_CODE = #{orderCode}
 			</if>
-			<if test="@OGNL@isNotEmpty(orderDetailId)">
+			<if test="@com.OGNL@isNotEmpty(orderDetailId)">
 				AND t.ORDER_DETAIL_ID = #{orderDetailId}
 			</if>
-			<if test="@OGNL@isNotEmpty(purchaseCount)">
+			<if test="@com.OGNL@isNotEmpty(purchaseCount)">
 				AND t.PURCHASE_COUNT = #{purchaseCount}
 			</if>
-			<if test="@OGNL@isNotEmpty(purchasePrice)">
+			<if test="@com.OGNL@isNotEmpty(purchasePrice)">
 				AND t.PURCHASE_PRICE = #{purchasePrice}
 			</if>
-			<if test="@OGNL@isNotEmpty(purchaseAmount)">
+			<if test="@com.OGNL@isNotEmpty(purchaseAmount)">
 				AND t.PURCHASE_AMOUNT = #{purchaseAmount}
 			</if>
-			<if test="@OGNL@isNotEmpty(totalDetailCount)">
+			<if test="@com.OGNL@isNotEmpty(totalDetailCount)">
 				AND t.TOTAL_DETAIL_COUNT = #{totalDetailCount}
 			</if>
-			<if test="@OGNL@isNotEmpty(procureCatalogId)">
+			<if test="@com.OGNL@isNotEmpty(procureCatalogId)">
 				AND t.PROCURE_CATALOG_ID = #{procureCatalogId}
 			</if>
-			<if test="@OGNL@isNotEmpty(submitTime)">
+			<if test="@com.OGNL@isNotEmpty(submitTime)">
 				AND t.SUBMIT_TIME = #{submitTime}
 			</if>
-			<if test="@OGNL@isNotEmpty(hospitalId)">
+			<if test="@com.OGNL@isNotEmpty(hospitalId)">
 				AND t.HOSPITAL_ID = #{hospitalId}
 			</if>
-			<if test="@OGNL@isNotEmpty(hospitalName)">
+			<if test="@com.OGNL@isNotEmpty(hospitalName)">
 				AND t.HOSPITAL_NAME = #{hospitalName}
 			</if>
-			<if test="@OGNL@isNotEmpty(companyNamePs)">
+			<if test="@com.OGNL@isNotEmpty(companyNamePs)">
 				AND t.COMPANY_NAME_PS = #{companyNamePs}
 			</if>
-			<if test="@OGNL@isNotEmpty(companyIdPs)">
+			<if test="@com.OGNL@isNotEmpty(companyIdPs)">
 				AND t.COMPANY_ID_PS = #{companyIdPs}
 			</if>
-			<if test="@OGNL@isNotEmpty(orderName)">
+			<if test="@com.OGNL@isNotEmpty(orderName)">
 				AND t.ORDER_NAME = #{orderName}
 			</if>
-			<if test="@OGNL@isNotEmpty(orderRemarks)">
+			<if test="@com.OGNL@isNotEmpty(orderRemarks)">
 				AND t.ORDER_REMARKS = #{orderRemarks}
 			</if>
 	</sql>
@@ -237,63 +237,63 @@
 	<update id="updateBySelective" parameterType="com.trade.model.MiddlePurchaseOrder">
 		UPDATE MIDDLE_PURCHASE_ORDER
 		<set>
-			<if test="@OGNL@isNotEmpty(orderDetailState)">
+			<if test="@com.OGNL@isNotEmpty(orderDetailState)">
 				ORDER_DETAIL_STATE =
 				#{orderDetailState},
 			</if>
-			<if test="@OGNL@isNotEmpty(orderCode)">
+			<if test="@com.OGNL@isNotEmpty(orderCode)">
 				ORDER_CODE =
 				#{orderCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(orderDetailId)">
+			<if test="@com.OGNL@isNotEmpty(orderDetailId)">
 				ORDER_DETAIL_ID =
 				#{orderDetailId},
 			</if>
-			<if test="@OGNL@isNotEmpty(purchaseCount)">
+			<if test="@com.OGNL@isNotEmpty(purchaseCount)">
 				PURCHASE_COUNT =
 				#{purchaseCount},
 			</if>
-			<if test="@OGNL@isNotEmpty(purchasePrice)">
+			<if test="@com.OGNL@isNotEmpty(purchasePrice)">
 				PURCHASE_PRICE =
 				#{purchasePrice},
 			</if>
-			<if test="@OGNL@isNotEmpty(purchaseAmount)">
+			<if test="@com.OGNL@isNotEmpty(purchaseAmount)">
 				PURCHASE_AMOUNT =
 				#{purchaseAmount},
 			</if>
-			<if test="@OGNL@isNotEmpty(totalDetailCount)">
+			<if test="@com.OGNL@isNotEmpty(totalDetailCount)">
 				TOTAL_DETAIL_COUNT =
 				#{totalDetailCount},
 			</if>
-			<if test="@OGNL@isNotEmpty(procureCatalogId)">
+			<if test="@com.OGNL@isNotEmpty(procureCatalogId)">
 				PROCURE_CATALOG_ID =
 				#{procureCatalogId},
 			</if>
-			<if test="@OGNL@isNotEmpty(submitTime)">
+			<if test="@com.OGNL@isNotEmpty(submitTime)">
 				SUBMIT_TIME =
 				#{submitTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(hospitalId)">
+			<if test="@com.OGNL@isNotEmpty(hospitalId)">
 				HOSPITAL_ID =
 				#{hospitalId},
 			</if>
-			<if test="@OGNL@isNotEmpty(hospitalName)">
+			<if test="@com.OGNL@isNotEmpty(hospitalName)">
 				HOSPITAL_NAME =
 				#{hospitalName},
 			</if>
-			<if test="@OGNL@isNotEmpty(companyNamePs)">
+			<if test="@com.OGNL@isNotEmpty(companyNamePs)">
 				COMPANY_NAME_PS =
 				#{companyNamePs},
 			</if>
-			<if test="@OGNL@isNotEmpty(companyIdPs)">
+			<if test="@com.OGNL@isNotEmpty(companyIdPs)">
 				COMPANY_ID_PS =
 				#{companyIdPs},
 			</if>
-			<if test="@OGNL@isNotEmpty(orderName)">
+			<if test="@com.OGNL@isNotEmpty(orderName)">
 				ORDER_NAME =
 				#{orderName},
 			</if>
-			<if test="@OGNL@isNotEmpty(orderRemarks)">
+			<if test="@com.OGNL@isNotEmpty(orderRemarks)">
 				ORDER_REMARKS =
 				#{orderRemarks},
 			</if>
@@ -305,63 +305,63 @@
 	<update id="updateByParams">
 		UPDATE MIDDLE_PURCHASE_ORDER t
 		<set>
-			<if test="@OGNL@isNotEmpty(model.orderDetailState)">
+			<if test="@com.OGNL@isNotEmpty(model.orderDetailState)">
 				ORDER_DETAIL_STATE =
 				#{model.orderDetailState},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.orderCode)">
+			<if test="@com.OGNL@isNotEmpty(model.orderCode)">
 				ORDER_CODE =
 				#{model.orderCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.orderDetailId)">
+			<if test="@com.OGNL@isNotEmpty(model.orderDetailId)">
 				ORDER_DETAIL_ID =
 				#{model.orderDetailId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.purchaseCount)">
+			<if test="@com.OGNL@isNotEmpty(model.purchaseCount)">
 				PURCHASE_COUNT =
 				#{model.purchaseCount},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.purchasePrice)">
+			<if test="@com.OGNL@isNotEmpty(model.purchasePrice)">
 				PURCHASE_PRICE =
 				#{model.purchasePrice},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.purchaseAmount)">
+			<if test="@com.OGNL@isNotEmpty(model.purchaseAmount)">
 				PURCHASE_AMOUNT =
 				#{model.purchaseAmount},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.totalDetailCount)">
+			<if test="@com.OGNL@isNotEmpty(model.totalDetailCount)">
 				TOTAL_DETAIL_COUNT =
 				#{model.totalDetailCount},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.procureCatalogId)">
+			<if test="@com.OGNL@isNotEmpty(model.procureCatalogId)">
 				PROCURE_CATALOG_ID =
 				#{model.procureCatalogId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.submitTime)">
+			<if test="@com.OGNL@isNotEmpty(model.submitTime)">
 				SUBMIT_TIME =
 				#{model.submitTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.hospitalId)">
+			<if test="@com.OGNL@isNotEmpty(model.hospitalId)">
 				HOSPITAL_ID =
 				#{model.hospitalId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.hospitalName)">
+			<if test="@com.OGNL@isNotEmpty(model.hospitalName)">
 				HOSPITAL_NAME =
 				#{model.hospitalName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.companyNamePs)">
+			<if test="@com.OGNL@isNotEmpty(model.companyNamePs)">
 				COMPANY_NAME_PS =
 				#{model.companyNamePs},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.companyIdPs)">
+			<if test="@com.OGNL@isNotEmpty(model.companyIdPs)">
 				COMPANY_ID_PS =
 				#{model.companyIdPs},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.orderName)">
+			<if test="@com.OGNL@isNotEmpty(model.orderName)">
 				ORDER_NAME =
 				#{model.orderName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.orderRemarks)">
+			<if test="@com.OGNL@isNotEmpty(model.orderRemarks)">
 				ORDER_REMARKS =
 				#{model.orderRemarks},
 			</if>

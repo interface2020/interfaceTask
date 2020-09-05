@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.MiddleInvoicecheckResultDao">
+	<resultMap type="com.trade.model.MiddleInvoicecheckResult" id="BaseResultMap">
+		<result property="distributeId" column="DISTRIBUTE_ID" javaType="String" />
+		<result property="invoicePrimaryId" column="INVOICE_PRIMARY_ID" javaType="String" />
+		<result property="invoiceId" column="INVOICE_ID" javaType="String" />
+		<result property="invoiceCode" column="INVOICE_CODE" javaType="String" />
+		<result property="comidPs" column="COMID_PS" javaType="String" />
+		<result property="checkResult" column="CHECK_RESULT" javaType="String" />
+		<result property="submittime" column="SUBMITTIME" javaType="Date" />
+		<result property="addTime" column="ADD_TIME" javaType="Date" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.DISTRIBUTE_ID,
+		t.INVOICE_PRIMARY_ID,
+		t.INVOICE_ID,
+		t.INVOICE_CODE,
+		t.COMID_PS,
+		t.CHECK_RESULT,
+		t.SUBMITTIME,
+		t.ADD_TIME
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@com.OGNL@isNotEmpty(distributeId)">
+				AND t.DISTRIBUTE_ID = #{distributeId}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(invoicePrimaryId)">
+				AND t.INVOICE_PRIMARY_ID = #{invoicePrimaryId}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(invoiceId)">
+				AND t.INVOICE_ID = #{invoiceId}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(invoiceCode)">
+				AND t.INVOICE_CODE = #{invoiceCode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(comidPs)">
+				AND t.COMID_PS = #{comidPs}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(checkResult)">
+				AND t.CHECK_RESULT = #{checkResult}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(submittime)">
+				AND t.SUBMITTIME = #{submittime}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addTime)">
+				AND t.ADD_TIME = #{addTime}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.MiddleInvoicecheckResult">
+		INSERT INTO MIDDLE_INVOICECHECK_RESULT(
+		DISTRIBUTE_ID ,
+		INVOICE_PRIMARY_ID ,
+		INVOICE_ID ,
+		INVOICE_CODE ,
+		COMID_PS ,
+		CHECK_RESULT ,
+		SUBMITTIME ,
+		ADD_TIME 
+		)
+		VALUES (
+		#{distributeId} ,
+		#{invoicePrimaryId} ,
+		#{invoiceId} ,
+		#{invoiceCode} ,
+		#{comidPs} ,
+		#{checkResult} ,
+		#{submittime} ,
+		#{addTime} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO MIDDLE_INVOICECHECK_RESULT (
+		DISTRIBUTE_ID ,
+		INVOICE_PRIMARY_ID ,
+		INVOICE_ID ,
+		INVOICE_CODE ,
+		COMID_PS ,
+		CHECK_RESULT ,
+		SUBMITTIME ,
+		ADD_TIME 
+		)
+		<foreach collection="list" item="item" index="index"
+				 separator=" UNION ALL ">
+			SELECT
+			#{item.distributeId},
+			#{item.invoicePrimaryId},
+			#{item.invoiceId},
+			#{item.invoiceCode},
+			#{item.comidPs},
+			#{item.checkResult},
+			#{item.submittime},
+			sysdate
+			FROM DUAL
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_INVOICECHECK_RESULT t
+		WHERE t.DISTRIBUTE_ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_INVOICECHECK_RESULT t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM MIDDLE_INVOICECHECK_RESULT t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.MiddleInvoicecheckResult">
+		UPDATE MIDDLE_INVOICECHECK_RESULT
+		<set>
+			INVOICE_PRIMARY_ID =
+			#{invoicePrimaryId},
+			INVOICE_ID =
+			#{invoiceId},
+			INVOICE_CODE =
+			#{invoiceCode},
+			COMID_PS =
+			#{comidPs},
+			CHECK_RESULT =
+			#{checkResult},
+			SUBMITTIME =
+			#{submittime},
+			ADD_TIME =
+			#{addTime},
+		</set>
+		WHERE DISTRIBUTE_ID =
+		#{distributeId}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.MiddleInvoicecheckResult">
+		UPDATE MIDDLE_INVOICECHECK_RESULT
+		<set>
+			<if test="@com.OGNL@isNotEmpty(invoicePrimaryId)">
+				INVOICE_PRIMARY_ID =
+				#{invoicePrimaryId},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(invoiceId)">
+				INVOICE_ID =
+				#{invoiceId},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(invoiceCode)">
+				INVOICE_CODE =
+				#{invoiceCode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(comidPs)">
+				COMID_PS =
+				#{comidPs},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(checkResult)">
+				CHECK_RESULT =
+				#{checkResult},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(submittime)">
+				SUBMITTIME =
+				#{submittime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addTime)">
+				ADD_TIME =
+				#{addTime},
+			</if>
+		</set>
+		WHERE DISTRIBUTE_ID =
+		#{distributeId}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE MIDDLE_INVOICECHECK_RESULT t
+		<set>
+			<if test="@com.OGNL@isNotEmpty(model.invoicePrimaryId)">
+				INVOICE_PRIMARY_ID =
+				#{model.invoicePrimaryId},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.invoiceId)">
+				INVOICE_ID =
+				#{model.invoiceId},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.invoiceCode)">
+				INVOICE_CODE =
+				#{model.invoiceCode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.comidPs)">
+				COMID_PS =
+				#{model.comidPs},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.checkResult)">
+				CHECK_RESULT =
+				#{model.checkResult},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.submittime)">
+				SUBMITTIME =
+				#{model.submittime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.addTime)">
+				ADD_TIME =
+				#{model.addTime},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		MIDDLE_INVOICECHECK_RESULT WHERE DISTRIBUTE_ID = #{value}
+	</delete>
+</mapper>

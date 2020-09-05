@@ -30,37 +30,37 @@
 	</sql>
 	
 	<sql id="common_where_if">
-			<if test="@OGNL@isNotEmpty(companyId)">
+			<if test="@com.OGNL@isNotEmpty(companyId)">
 				AND t.COMPANY_ID = #{companyId}
 			</if>
-			<if test="@OGNL@isNotEmpty(id)">
+			<if test="@com.OGNL@isNotEmpty(id)">
 				AND t.ID = #{id}
 			</if>
-			<if test="@OGNL@isNotEmpty(companyType)">
+			<if test="@com.OGNL@isNotEmpty(companyType)">
 				AND t.COMPANY_TYPE = #{companyType}
 			</if>
-			<if test="@OGNL@isNotEmpty(companyName)">
+			<if test="@com.OGNL@isNotEmpty(companyName)">
 				AND t.COMPANY_NAME = #{companyName}
 			</if>
-			<if test="@OGNL@isNotEmpty(address)">
+			<if test="@com.OGNL@isNotEmpty(address)">
 				AND t.ADDRESS = #{address}
 			</if>
-			<if test="@OGNL@isNotEmpty(companyContactTel)">
+			<if test="@com.OGNL@isNotEmpty(companyContactTel)">
 				AND t.COMPANY_CONTACT_TEL = #{companyContactTel}
 			</if>
-			<if test="@OGNL@isNotEmpty(companyContactFax)">
+			<if test="@com.OGNL@isNotEmpty(companyContactFax)">
 				AND t.COMPANY_CONTACT_FAX = #{companyContactFax}
 			</if>
-			<if test="@OGNL@isNotEmpty(zipCode)">
+			<if test="@com.OGNL@isNotEmpty(zipCode)">
 				AND t.ZIP_CODE = #{zipCode}
 			</if>
-			<if test="@OGNL@isNotEmpty(email)">
+			<if test="@com.OGNL@isNotEmpty(email)">
 				AND t.EMAIL = #{email}
 			</if>
-			<if test="@OGNL@isNotEmpty(addTime)">
+			<if test="@com.OGNL@isNotEmpty(addTime)">
 				AND t.ADD_TIME = #{addTime}
 			</if>
-			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+			<if test="@com.OGNL@isNotEmpty(lastUpdateTime)">
 				AND t.LAST_UPDATE_TIME = #{lastUpdateTime}
 			</if>
 	</sql>
@@ -182,43 +182,43 @@
 	<update id="updateBySelective" parameterType="com.trade.model.BaseCompanyProvince">
 		UPDATE BASE_COMPANY_PROVINCE
 		<set>
-			<if test="@OGNL@isNotEmpty(id)">
+			<if test="@com.OGNL@isNotEmpty(id)">
 				ID =
 				#{id},
 			</if>
-			<if test="@OGNL@isNotEmpty(companyType)">
+			<if test="@com.OGNL@isNotEmpty(companyType)">
 				COMPANY_TYPE =
 				#{companyType},
 			</if>
-			<if test="@OGNL@isNotEmpty(companyName)">
+			<if test="@com.OGNL@isNotEmpty(companyName)">
 				COMPANY_NAME =
 				#{companyName},
 			</if>
-			<if test="@OGNL@isNotEmpty(address)">
+			<if test="@com.OGNL@isNotEmpty(address)">
 				ADDRESS =
 				#{address},
 			</if>
-			<if test="@OGNL@isNotEmpty(companyContactTel)">
+			<if test="@com.OGNL@isNotEmpty(companyContactTel)">
 				COMPANY_CONTACT_TEL =
 				#{companyContactTel},
 			</if>
-			<if test="@OGNL@isNotEmpty(companyContactFax)">
+			<if test="@com.OGNL@isNotEmpty(companyContactFax)">
 				COMPANY_CONTACT_FAX =
 				#{companyContactFax},
 			</if>
-			<if test="@OGNL@isNotEmpty(zipCode)">
+			<if test="@com.OGNL@isNotEmpty(zipCode)">
 				ZIP_CODE =
 				#{zipCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(email)">
+			<if test="@com.OGNL@isNotEmpty(email)">
 				EMAIL =
 				#{email},
 			</if>
-			<if test="@OGNL@isNotEmpty(addTime)">
+			<if test="@com.OGNL@isNotEmpty(addTime)">
 				ADD_TIME =
 				#{addTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+			<if test="@com.OGNL@isNotEmpty(lastUpdateTime)">
 				LAST_UPDATE_TIME =
 				#{lastUpdateTime},
 			</if>
@@ -230,43 +230,43 @@
 	<update id="updateByParams">
 		UPDATE BASE_COMPANY_PROVINCE t
 		<set>
-			<if test="@OGNL@isNotEmpty(model.id)">
+			<if test="@com.OGNL@isNotEmpty(model.id)">
 				ID =
 				#{model.id},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.companyType)">
+			<if test="@com.OGNL@isNotEmpty(model.companyType)">
 				COMPANY_TYPE =
 				#{model.companyType},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.companyName)">
+			<if test="@com.OGNL@isNotEmpty(model.companyName)">
 				COMPANY_NAME =
 				#{model.companyName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.address)">
+			<if test="@com.OGNL@isNotEmpty(model.address)">
 				ADDRESS =
 				#{model.address},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.companyContactTel)">
+			<if test="@com.OGNL@isNotEmpty(model.companyContactTel)">
 				COMPANY_CONTACT_TEL =
 				#{model.companyContactTel},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.companyContactFax)">
+			<if test="@com.OGNL@isNotEmpty(model.companyContactFax)">
 				COMPANY_CONTACT_FAX =
 				#{model.companyContactFax},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.zipCode)">
+			<if test="@com.OGNL@isNotEmpty(model.zipCode)">
 				ZIP_CODE =
 				#{model.zipCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.email)">
+			<if test="@com.OGNL@isNotEmpty(model.email)">
 				EMAIL =
 				#{model.email},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.addTime)">
+			<if test="@com.OGNL@isNotEmpty(model.addTime)">
 				ADD_TIME =
 				#{model.addTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.lastUpdateTime)">
+			<if test="@com.OGNL@isNotEmpty(model.lastUpdateTime)">
 				LAST_UPDATE_TIME =
 				#{model.lastUpdateTime},
 			</if>

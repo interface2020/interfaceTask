@@ -20,22 +20,22 @@
 	</sql>
 	
 	<sql id="common_where_if">
-			<if test="@OGNL@isNotEmpty(companyDistributeId)">
+			<if test="@com.OGNL@isNotEmpty(companyDistributeId)">
 				AND t.COMPANY_DISTRIBUTE_ID = #{companyDistributeId}
 			</if>
-			<if test="@OGNL@isNotEmpty(distributeId)">
+			<if test="@com.OGNL@isNotEmpty(distributeId)">
 				AND t.DISTRIBUTE_ID = #{distributeId}
 			</if>
-			<if test="@OGNL@isNotEmpty(invoicePrimaryId)">
+			<if test="@com.OGNL@isNotEmpty(invoicePrimaryId)">
 				AND t.INVOICE_PRIMARY_ID = #{invoicePrimaryId}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseState)">
+			<if test="@com.OGNL@isNotEmpty(responseState)">
 				AND t.RESPONSE_STATE = #{responseState}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(responseInfo)">
 				AND t.RESPONSE_INFO = #{responseInfo}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseTime)">
+			<if test="@com.OGNL@isNotEmpty(responseTime)">
 				AND t.RESPONSE_TIME = #{responseTime}
 			</if>
 	</sql>
@@ -127,23 +127,23 @@
 	<update id="updateBySelective" parameterType="com.trade.model.MiddleInvoiceDis">
 		UPDATE MIDDLE_INVOICE_DIS
 		<set>
-			<if test="@OGNL@isNotEmpty(distributeId)">
+			<if test="@com.OGNL@isNotEmpty(distributeId)">
 				DISTRIBUTE_ID =
 				#{distributeId},
 			</if>
-			<if test="@OGNL@isNotEmpty(invoicePrimaryId)">
+			<if test="@com.OGNL@isNotEmpty(invoicePrimaryId)">
 				INVOICE_PRIMARY_ID =
 				#{invoicePrimaryId},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseState)">
+			<if test="@com.OGNL@isNotEmpty(responseState)">
 				RESPONSE_STATE =
 				#{responseState},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(responseInfo)">
 				RESPONSE_INFO =
 				#{responseInfo},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseTime)">
+			<if test="@com.OGNL@isNotEmpty(responseTime)">
 				RESPONSE_TIME =
 				#{responseTime},
 			</if>
@@ -155,23 +155,23 @@
 	<update id="updateByParams">
 		UPDATE MIDDLE_INVOICE_DIS t
 		<set>
-			<if test="@OGNL@isNotEmpty(model.distributeId)">
+			<if test="@com.OGNL@isNotEmpty(model.distributeId)">
 				DISTRIBUTE_ID =
 				#{model.distributeId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.invoicePrimaryId)">
+			<if test="@com.OGNL@isNotEmpty(model.invoicePrimaryId)">
 				INVOICE_PRIMARY_ID =
 				#{model.invoicePrimaryId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseState)">
+			<if test="@com.OGNL@isNotEmpty(model.responseState)">
 				RESPONSE_STATE =
 				#{model.responseState},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(model.responseInfo)">
 				RESPONSE_INFO =
 				#{model.responseInfo},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseTime)">
+			<if test="@com.OGNL@isNotEmpty(model.responseTime)">
 				RESPONSE_TIME =
 				#{model.responseTime},
 			</if>

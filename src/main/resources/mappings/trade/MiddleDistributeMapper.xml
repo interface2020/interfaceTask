@@ -26,31 +26,31 @@
 	</sql>
 	
 	<sql id="common_where_if">
-			<if test="@OGNL@isNotEmpty(companyDistributeId)">
+			<if test="@com.OGNL@isNotEmpty(companyDistributeId)">
 				AND t.COMPANY_DISTRIBUTE_ID = #{companyDistributeId}
 			</if>
-			<if test="@OGNL@isNotEmpty(orderDetailId)">
+			<if test="@com.OGNL@isNotEmpty(orderDetailId)">
 				AND t.ORDER_DETAIL_ID = #{orderDetailId}
 			</if>
-			<if test="@OGNL@isNotEmpty(disTime)">
+			<if test="@com.OGNL@isNotEmpty(disTime)">
 				AND t.DIS_TIME = #{disTime}
 			</if>
-			<if test="@OGNL@isNotEmpty(disCount)">
+			<if test="@com.OGNL@isNotEmpty(disCount)">
 				AND t.DIS_COUNT = #{disCount}
 			</if>
-			<if test="@OGNL@isNotEmpty(distributeId)">
+			<if test="@com.OGNL@isNotEmpty(distributeId)">
 				AND t.DISTRIBUTE_ID = #{distributeId}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseState)">
+			<if test="@com.OGNL@isNotEmpty(responseState)">
 				AND t.RESPONSE_STATE = #{responseState}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(responseInfo)">
 				AND t.RESPONSE_INFO = #{responseInfo}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseTime)">
+			<if test="@com.OGNL@isNotEmpty(responseTime)">
 				AND t.RESPONSE_TIME = #{responseTime}
 			</if>
-			<if test="@OGNL@isNotEmpty(checkResult)">
+			<if test="@com.OGNL@isNotEmpty(checkResult)">
 				AND t.CHECK_RESULT = #{checkResult}
 			</if>
 	</sql>
@@ -160,35 +160,35 @@
 	<update id="updateBySelective" parameterType="com.trade.model.MiddleDistribute">
 		UPDATE MIDDLE_DISTRIBUTE
 		<set>
-			<if test="@OGNL@isNotEmpty(orderDetailId)">
+			<if test="@com.OGNL@isNotEmpty(orderDetailId)">
 				ORDER_DETAIL_ID =
 				#{orderDetailId},
 			</if>
-			<if test="@OGNL@isNotEmpty(disTime)">
+			<if test="@com.OGNL@isNotEmpty(disTime)">
 				DIS_TIME =
 				#{disTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(disCount)">
+			<if test="@com.OGNL@isNotEmpty(disCount)">
 				DIS_COUNT =
 				#{disCount},
 			</if>
-			<if test="@OGNL@isNotEmpty(distributeId)">
+			<if test="@com.OGNL@isNotEmpty(distributeId)">
 				DISTRIBUTE_ID =
 				#{distributeId},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseState)">
+			<if test="@com.OGNL@isNotEmpty(responseState)">
 				RESPONSE_STATE =
 				#{responseState},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(responseInfo)">
 				RESPONSE_INFO =
 				#{responseInfo},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseTime)">
+			<if test="@com.OGNL@isNotEmpty(responseTime)">
 				RESPONSE_TIME =
 				#{responseTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(checkResult)">
+			<if test="@com.OGNL@isNotEmpty(checkResult)">
 				CHECK_RESULT =
 				#{checkResult},
 			</if>
@@ -200,35 +200,35 @@
 	<update id="updateByParams">
 		UPDATE MIDDLE_DISTRIBUTE t
 		<set>
-			<if test="@OGNL@isNotEmpty(model.orderDetailId)">
+			<if test="@com.OGNL@isNotEmpty(model.orderDetailId)">
 				ORDER_DETAIL_ID =
 				#{model.orderDetailId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.disTime)">
+			<if test="@com.OGNL@isNotEmpty(model.disTime)">
 				DIS_TIME =
 				#{model.disTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.disCount)">
+			<if test="@com.OGNL@isNotEmpty(model.disCount)">
 				DIS_COUNT =
 				#{model.disCount},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.distributeId)">
+			<if test="@com.OGNL@isNotEmpty(model.distributeId)">
 				DISTRIBUTE_ID =
 				#{model.distributeId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseState)">
+			<if test="@com.OGNL@isNotEmpty(model.responseState)">
 				RESPONSE_STATE =
 				#{model.responseState},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(model.responseInfo)">
 				RESPONSE_INFO =
 				#{model.responseInfo},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseTime)">
+			<if test="@com.OGNL@isNotEmpty(model.responseTime)">
 				RESPONSE_TIME =
 				#{model.responseTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.checkResult)">
+			<if test="@com.OGNL@isNotEmpty(model.checkResult)">
 				CHECK_RESULT =
 				#{model.checkResult},
 			</if>

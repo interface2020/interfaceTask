@@ -20,22 +20,22 @@
 	</sql>
 	
 	<sql id="common_where_if">
-			<if test="@OGNL@isNotEmpty(companyDistributeId)">
+			<if test="@com.OGNL@isNotEmpty(companyDistributeId)">
 				AND t.COMPANY_DISTRIBUTE_ID = #{companyDistributeId}
 			</if>
-			<if test="@OGNL@isNotEmpty(batchCode)">
+			<if test="@com.OGNL@isNotEmpty(batchCode)">
 				AND t.BATCH_CODE = #{batchCode}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseState)">
+			<if test="@com.OGNL@isNotEmpty(responseState)">
 				AND t.RESPONSE_STATE = #{responseState}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(responseInfo)">
 				AND t.RESPONSE_INFO = #{responseInfo}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseTime)">
+			<if test="@com.OGNL@isNotEmpty(responseTime)">
 				AND t.RESPONSE_TIME = #{responseTime}
 			</if>
-			<if test="@OGNL@isNotEmpty(batchCount)">
+			<if test="@com.OGNL@isNotEmpty(batchCount)">
 				AND t.BATCH_COUNT = #{batchCount}
 			</if>
 	</sql>
@@ -127,23 +127,23 @@
 	<update id="updateBySelective" parameterType="com.trade.model.MiddleDistributeBatch">
 		UPDATE MIDDLE_DISTRIBUTE_BATCH
 		<set>
-			<if test="@OGNL@isNotEmpty(batchCode)">
+			<if test="@com.OGNL@isNotEmpty(batchCode)">
 				BATCH_CODE =
 				#{batchCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseState)">
+			<if test="@com.OGNL@isNotEmpty(responseState)">
 				RESPONSE_STATE =
 				#{responseState},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(responseInfo)">
 				RESPONSE_INFO =
 				#{responseInfo},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseTime)">
+			<if test="@com.OGNL@isNotEmpty(responseTime)">
 				RESPONSE_TIME =
 				#{responseTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(batchCount)">
+			<if test="@com.OGNL@isNotEmpty(batchCount)">
 				BATCH_COUNT =
 				#{batchCount},
 			</if>
@@ -155,23 +155,23 @@
 	<update id="updateByParams">
 		UPDATE MIDDLE_DISTRIBUTE_BATCH t
 		<set>
-			<if test="@OGNL@isNotEmpty(model.batchCode)">
+			<if test="@com.OGNL@isNotEmpty(model.batchCode)">
 				BATCH_CODE =
 				#{model.batchCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseState)">
+			<if test="@com.OGNL@isNotEmpty(model.responseState)">
 				RESPONSE_STATE =
 				#{model.responseState},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(model.responseInfo)">
 				RESPONSE_INFO =
 				#{model.responseInfo},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseTime)">
+			<if test="@com.OGNL@isNotEmpty(model.responseTime)">
 				RESPONSE_TIME =
 				#{model.responseTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.batchCount)">
+			<if test="@com.OGNL@isNotEmpty(model.batchCount)">
 				BATCH_COUNT =
 				#{model.batchCount},
 			</if>

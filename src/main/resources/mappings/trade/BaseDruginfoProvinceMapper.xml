@@ -62,85 +62,85 @@
 	</sql>
 	
 	<sql id="common_where_if">
-			<if test="@OGNL@isNotEmpty(procureCatalogId)">
+			<if test="@com.OGNL@isNotEmpty(procureCatalogId)">
 				AND t.PROCURE_CATALOG_ID = #{procureCatalogId}
 			</if>
-			<if test="@OGNL@isNotEmpty(goodsId)">
+			<if test="@com.OGNL@isNotEmpty(goodsId)">
 				AND t.GOODS_ID = #{goodsId}
 			</if>
-			<if test="@OGNL@isNotEmpty(productName)">
+			<if test="@com.OGNL@isNotEmpty(productName)">
 				AND t.PRODUCT_NAME = #{productName}
 			</if>
-			<if test="@OGNL@isNotEmpty(goodsName)">
+			<if test="@com.OGNL@isNotEmpty(goodsName)">
 				AND t.GOODS_NAME = #{goodsName}
 			</if>
-			<if test="@OGNL@isNotEmpty(medicineModel)">
+			<if test="@com.OGNL@isNotEmpty(medicineModel)">
 				AND t.MEDICINE_MODEL = #{medicineModel}
 			</if>
-			<if test="@OGNL@isNotEmpty(outLook)">
+			<if test="@com.OGNL@isNotEmpty(outLook)">
 				AND t.OUT_LOOK = #{outLook}
 			</if>
-			<if test="@OGNL@isNotEmpty(factor)">
+			<if test="@com.OGNL@isNotEmpty(factor)">
 				AND t.FACTOR = #{factor}
 			</if>
-			<if test="@OGNL@isNotEmpty(materialName)">
+			<if test="@com.OGNL@isNotEmpty(materialName)">
 				AND t.MATERIAL_NAME = #{materialName}
 			</if>
-			<if test="@OGNL@isNotEmpty(unit)">
+			<if test="@com.OGNL@isNotEmpty(unit)">
 				AND t.UNIT = #{unit}
 			</if>
-			<if test="@OGNL@isNotEmpty(companyIdSc)">
+			<if test="@com.OGNL@isNotEmpty(companyIdSc)">
 				AND t.COMPANY_ID_SC = #{companyIdSc}
 			</if>
-			<if test="@OGNL@isNotEmpty(companyNameSc)">
+			<if test="@com.OGNL@isNotEmpty(companyNameSc)">
 				AND t.COMPANY_NAME_SC = #{companyNameSc}
 			</if>
-			<if test="@OGNL@isNotEmpty(companyIdTb)">
+			<if test="@com.OGNL@isNotEmpty(companyIdTb)">
 				AND t.COMPANY_ID_TB = #{companyIdTb}
 			</if>
-			<if test="@OGNL@isNotEmpty(companyNameTb)">
+			<if test="@com.OGNL@isNotEmpty(companyNameTb)">
 				AND t.COMPANY_NAME_TB = #{companyNameTb}
 			</if>
-			<if test="@OGNL@isNotEmpty(purchaseType)">
+			<if test="@com.OGNL@isNotEmpty(purchaseType)">
 				AND t.PURCHASE_TYPE = #{purchaseType}
 			</if>
-			<if test="@OGNL@isNotEmpty(sourceName)">
+			<if test="@com.OGNL@isNotEmpty(sourceName)">
 				AND t.SOURCE_NAME = #{sourceName}
 			</if>
-			<if test="@OGNL@isNotEmpty(middlePack)">
+			<if test="@com.OGNL@isNotEmpty(middlePack)">
 				AND t.MIDDLE_PACK = #{middlePack}
 			</if>
-			<if test="@OGNL@isNotEmpty(maxPack)">
+			<if test="@com.OGNL@isNotEmpty(maxPack)">
 				AND t.MAX_PACK = #{maxPack}
 			</if>
-			<if test="@OGNL@isNotEmpty(bidPrice)">
+			<if test="@com.OGNL@isNotEmpty(bidPrice)">
 				AND t.BID_PRICE = #{bidPrice}
 			</if>
-			<if test="@OGNL@isNotEmpty(comPrice)">
+			<if test="@com.OGNL@isNotEmpty(comPrice)">
 				AND t.COM_PRICE = #{comPrice}
 			</if>
-			<if test="@OGNL@isNotEmpty(isurbmi)">
+			<if test="@com.OGNL@isNotEmpty(isurbmi)">
 				AND t.ISURBMI = #{isurbmi}
 			</if>
-			<if test="@OGNL@isNotEmpty(medicalinsuranceType)">
+			<if test="@com.OGNL@isNotEmpty(medicalinsuranceType)">
 				AND t.MEDICALINSURANCE_TYPE = #{medicalinsuranceType}
 			</if>
-			<if test="@OGNL@isNotEmpty(isbasicdrug)">
+			<if test="@com.OGNL@isNotEmpty(isbasicdrug)">
 				AND t.ISBASICDRUG = #{isbasicdrug}
 			</if>
-			<if test="@OGNL@isNotEmpty(isUsing)">
+			<if test="@com.OGNL@isNotEmpty(isUsing)">
 				AND t.IS_USING = #{isUsing}
 			</if>
-			<if test="@OGNL@isNotEmpty(ispilot)">
+			<if test="@com.OGNL@isNotEmpty(ispilot)">
 				AND t.ISPILOT = #{ispilot}
 			</if>
-			<if test="@OGNL@isNotEmpty(id)">
+			<if test="@com.OGNL@isNotEmpty(id)">
 				AND t.ID = #{id}
 			</if>
-			<if test="@OGNL@isNotEmpty(addTime)">
+			<if test="@com.OGNL@isNotEmpty(addTime)">
 				AND t.ADD_TIME = #{addTime}
 			</if>
-			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+			<if test="@com.OGNL@isNotEmpty(lastUpdateTime)">
 				AND t.LAST_UPDATE_TIME = #{lastUpdateTime}
 			</if>
 	</sql>
@@ -358,107 +358,107 @@
 	<update id="updateBySelective" parameterType="com.trade.model.BaseDruginfoProvince">
 		UPDATE BASE_DRUGINFO_PROVINCE
 		<set>
-			<if test="@OGNL@isNotEmpty(goodsId)">
+			<if test="@com.OGNL@isNotEmpty(goodsId)">
 				GOODS_ID =
 				#{goodsId},
 			</if>
-			<if test="@OGNL@isNotEmpty(productName)">
+			<if test="@com.OGNL@isNotEmpty(productName)">
 				PRODUCT_NAME =
 				#{productName},
 			</if>
-			<if test="@OGNL@isNotEmpty(goodsName)">
+			<if test="@com.OGNL@isNotEmpty(goodsName)">
 				GOODS_NAME =
 				#{goodsName},
 			</if>
-			<if test="@OGNL@isNotEmpty(medicineModel)">
+			<if test="@com.OGNL@isNotEmpty(medicineModel)">
 				MEDICINE_MODEL =
 				#{medicineModel},
 			</if>
-			<if test="@OGNL@isNotEmpty(outLook)">
+			<if test="@com.OGNL@isNotEmpty(outLook)">
 				OUT_LOOK =
 				#{outLook},
 			</if>
-			<if test="@OGNL@isNotEmpty(factor)">
+			<if test="@com.OGNL@isNotEmpty(factor)">
 				FACTOR =
 				#{factor},
 			</if>
-			<if test="@OGNL@isNotEmpty(materialName)">
+			<if test="@com.OGNL@isNotEmpty(materialName)">
 				MATERIAL_NAME =
 				#{materialName},
 			</if>
-			<if test="@OGNL@isNotEmpty(unit)">
+			<if test="@com.OGNL@isNotEmpty(unit)">
 				UNIT =
 				#{unit},
 			</if>
-			<if test="@OGNL@isNotEmpty(companyIdSc)">
+			<if test="@com.OGNL@isNotEmpty(companyIdSc)">
 				COMPANY_ID_SC =
 				#{companyIdSc},
 			</if>
-			<if test="@OGNL@isNotEmpty(companyNameSc)">
+			<if test="@com.OGNL@isNotEmpty(companyNameSc)">
 				COMPANY_NAME_SC =
 				#{companyNameSc},
 			</if>
-			<if test="@OGNL@isNotEmpty(companyIdTb)">
+			<if test="@com.OGNL@isNotEmpty(companyIdTb)">
 				COMPANY_ID_TB =
 				#{companyIdTb},
 			</if>
-			<if test="@OGNL@isNotEmpty(companyNameTb)">
+			<if test="@com.OGNL@isNotEmpty(companyNameTb)">
 				COMPANY_NAME_TB =
 				#{companyNameTb},
 			</if>
-			<if test="@OGNL@isNotEmpty(purchaseType)">
+			<if test="@com.OGNL@isNotEmpty(purchaseType)">
 				PURCHASE_TYPE =
 				#{purchaseType},
 			</if>
-			<if test="@OGNL@isNotEmpty(sourceName)">
+			<if test="@com.OGNL@isNotEmpty(sourceName)">
 				SOURCE_NAME =
 				#{sourceName},
 			</if>
-			<if test="@OGNL@isNotEmpty(middlePack)">
+			<if test="@com.OGNL@isNotEmpty(middlePack)">
 				MIDDLE_PACK =
 				#{middlePack},
 			</if>
-			<if test="@OGNL@isNotEmpty(maxPack)">
+			<if test="@com.OGNL@isNotEmpty(maxPack)">
 				MAX_PACK =
 				#{maxPack},
 			</if>
-			<if test="@OGNL@isNotEmpty(bidPrice)">
+			<if test="@com.OGNL@isNotEmpty(bidPrice)">
 				BID_PRICE =
 				#{bidPrice},
 			</if>
-			<if test="@OGNL@isNotEmpty(comPrice)">
+			<if test="@com.OGNL@isNotEmpty(comPrice)">
 				COM_PRICE =
 				#{comPrice},
 			</if>
-			<if test="@OGNL@isNotEmpty(isurbmi)">
+			<if test="@com.OGNL@isNotEmpty(isurbmi)">
 				ISURBMI =
 				#{isurbmi},
 			</if>
-			<if test="@OGNL@isNotEmpty(medicalinsuranceType)">
+			<if test="@com.OGNL@isNotEmpty(medicalinsuranceType)">
 				MEDICALINSURANCE_TYPE =
 				#{medicalinsuranceType},
 			</if>
-			<if test="@OGNL@isNotEmpty(isbasicdrug)">
+			<if test="@com.OGNL@isNotEmpty(isbasicdrug)">
 				ISBASICDRUG =
 				#{isbasicdrug},
 			</if>
-			<if test="@OGNL@isNotEmpty(isUsing)">
+			<if test="@com.OGNL@isNotEmpty(isUsing)">
 				IS_USING =
 				#{isUsing},
 			</if>
-			<if test="@OGNL@isNotEmpty(ispilot)">
+			<if test="@com.OGNL@isNotEmpty(ispilot)">
 				ISPILOT =
 				#{ispilot},
 			</if>
-			<if test="@OGNL@isNotEmpty(id)">
+			<if test="@com.OGNL@isNotEmpty(id)">
 				ID =
 				#{id},
 			</if>
-			<if test="@OGNL@isNotEmpty(addTime)">
+			<if test="@com.OGNL@isNotEmpty(addTime)">
 				ADD_TIME =
 				#{addTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+			<if test="@com.OGNL@isNotEmpty(lastUpdateTime)">
 				LAST_UPDATE_TIME =
 				#{lastUpdateTime},
 			</if>
@@ -470,107 +470,107 @@
 	<update id="updateByParams">
 		UPDATE BASE_DRUGINFO_PROVINCE t
 		<set>
-			<if test="@OGNL@isNotEmpty(model.goodsId)">
+			<if test="@com.OGNL@isNotEmpty(model.goodsId)">
 				GOODS_ID =
 				#{model.goodsId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.productName)">
+			<if test="@com.OGNL@isNotEmpty(model.productName)">
 				PRODUCT_NAME =
 				#{model.productName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.goodsName)">
+			<if test="@com.OGNL@isNotEmpty(model.goodsName)">
 				GOODS_NAME =
 				#{model.goodsName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.medicineModel)">
+			<if test="@com.OGNL@isNotEmpty(model.medicineModel)">
 				MEDICINE_MODEL =
 				#{model.medicineModel},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.outLook)">
+			<if test="@com.OGNL@isNotEmpty(model.outLook)">
 				OUT_LOOK =
 				#{model.outLook},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.factor)">
+			<if test="@com.OGNL@isNotEmpty(model.factor)">
 				FACTOR =
 				#{model.factor},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.materialName)">
+			<if test="@com.OGNL@isNotEmpty(model.materialName)">
 				MATERIAL_NAME =
 				#{model.materialName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.unit)">
+			<if test="@com.OGNL@isNotEmpty(model.unit)">
 				UNIT =
 				#{model.unit},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.companyIdSc)">
+			<if test="@com.OGNL@isNotEmpty(model.companyIdSc)">
 				COMPANY_ID_SC =
 				#{model.companyIdSc},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.companyNameSc)">
+			<if test="@com.OGNL@isNotEmpty(model.companyNameSc)">
 				COMPANY_NAME_SC =
 				#{model.companyNameSc},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.companyIdTb)">
+			<if test="@com.OGNL@isNotEmpty(model.companyIdTb)">
 				COMPANY_ID_TB =
 				#{model.companyIdTb},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.companyNameTb)">
+			<if test="@com.OGNL@isNotEmpty(model.companyNameTb)">
 				COMPANY_NAME_TB =
 				#{model.companyNameTb},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.purchaseType)">
+			<if test="@com.OGNL@isNotEmpty(model.purchaseType)">
 				PURCHASE_TYPE =
 				#{model.purchaseType},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.sourceName)">
+			<if test="@com.OGNL@isNotEmpty(model.sourceName)">
 				SOURCE_NAME =
 				#{model.sourceName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.middlePack)">
+			<if test="@com.OGNL@isNotEmpty(model.middlePack)">
 				MIDDLE_PACK =
 				#{model.middlePack},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.maxPack)">
+			<if test="@com.OGNL@isNotEmpty(model.maxPack)">
 				MAX_PACK =
 				#{model.maxPack},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.bidPrice)">
+			<if test="@com.OGNL@isNotEmpty(model.bidPrice)">
 				BID_PRICE =
 				#{model.bidPrice},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.comPrice)">
+			<if test="@com.OGNL@isNotEmpty(model.comPrice)">
 				COM_PRICE =
 				#{model.comPrice},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.isurbmi)">
+			<if test="@com.OGNL@isNotEmpty(model.isurbmi)">
 				ISURBMI =
 				#{model.isurbmi},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.medicalinsuranceType)">
+			<if test="@com.OGNL@isNotEmpty(model.medicalinsuranceType)">
 				MEDICALINSURANCE_TYPE =
 				#{model.medicalinsuranceType},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.isbasicdrug)">
+			<if test="@com.OGNL@isNotEmpty(model.isbasicdrug)">
 				ISBASICDRUG =
 				#{model.isbasicdrug},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.isUsing)">
+			<if test="@com.OGNL@isNotEmpty(model.isUsing)">
 				IS_USING =
 				#{model.isUsing},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.ispilot)">
+			<if test="@com.OGNL@isNotEmpty(model.ispilot)">
 				ISPILOT =
 				#{model.ispilot},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.id)">
+			<if test="@com.OGNL@isNotEmpty(model.id)">
 				ID =
 				#{model.id},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.addTime)">
+			<if test="@com.OGNL@isNotEmpty(model.addTime)">
 				ADD_TIME =
 				#{model.addTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.lastUpdateTime)">
+			<if test="@com.OGNL@isNotEmpty(model.lastUpdateTime)">
 				LAST_UPDATE_TIME =
 				#{model.lastUpdateTime},
 			</if>

@@ -1,6 +1,8 @@
 package com.jobs;
 
 import com.common.model.ScheduleJob;
+import com.trade.model.SysTasks;
+import com.trade.service.SysTasksManager;
 import org.quartz.*;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -8,6 +10,10 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Configuration
 public class QuartzConfig implements ApplicationContextAware {
@@ -28,14 +34,21 @@ public class QuartzConfig implements ApplicationContextAware {
     public static void init()throws Exception{
         schedulerFactoryBean = appCtx.getBean(SchedulerFactoryBean.class);
         schedulerFactoryBean.setOverwriteExistingJobs(true);
-        ScheduleJob job=new ScheduleJob();
-        job.setJobGroup("synTasks"); // 任务组
-        job.setJobName("syn");// 任务名称
-        job.setJobStatus("1"); // 任务发布状态
-        job.setIsConcurrent("1"); // 运行状态
-        job.setCronExpression("0 26 20 * * ?");
-        job.setBeanClass("com.jobs.MiddlePurchaseOrderJob");// 一个以所给名字注册的bean的实例
-        addOrUpdateJob(job);
+        SysTasksManager tasksManager=appCtx.getBean(SysTasksManager.class);
+        Map<String,Object> params=new HashMap<>();
+        params.put("isusing","1");
+        List<SysTasks> tasks = tasksManager.getListByParams(params);
+        for (SysTasks task : tasks) {
+            ScheduleJob job=new ScheduleJob();
+            job.setJobGroup("synTasks"); // 任务组
+            job.setJobName("syn");// 任务名称
+            job.setJobStatus("1"); // 任务发布状态
+            job.setIsConcurrent("1"); // 运行状态
+            job.setCronExpression(task.getTaskCron());
+            job.setBeanClass(task.getTaskClass());// 一个以所给名字注册的bean的实例
+            addOrUpdateJob(job);
+        }
+
     }
 
     public static void addOrUpdateJob(ScheduleJob job) throws Exception {

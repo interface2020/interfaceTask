@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.SysTasksDao">
+	<resultMap type="com.trade.model.SysTasks" id="BaseResultMap">
+		<result property="taskId" column="TASK_ID" javaType="String" />
+		<result property="taskName" column="TASK_NAME" javaType="String" />
+		<result property="taskCron" column="TASK_CRON" javaType="String" />
+		<result property="taskClass" column="TASK_CLASS" javaType="String" />
+		<result property="isusing" column="ISUSING" javaType="String" />
+		<result property="addTime" column="ADD_TIME" javaType="Date" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.TASK_ID,
+		t.TASK_NAME,
+		t.TASK_CRON,
+		t.TASK_CLASS,
+		t.ISUSING,
+		t.ADD_TIME
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@com.OGNL@isNotEmpty(taskId)">
+				AND t.TASK_ID = #{taskId}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(taskName)">
+				AND t.TASK_NAME = #{taskName}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(taskCron)">
+				AND t.TASK_CRON = #{taskCron}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(taskClass)">
+				AND t.TASK_CLASS = #{taskClass}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusing)">
+				AND t.ISUSING = #{isusing}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addTime)">
+				AND t.ADD_TIME = #{addTime}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.SysTasks">
+		INSERT INTO SYS_TASKS(
+		TASK_ID ,
+		TASK_NAME ,
+		TASK_CRON ,
+		TASK_CLASS ,
+		ISUSING ,
+		ADD_TIME 
+		)
+		VALUES (
+		#{taskId} ,
+		#{taskName} ,
+		#{taskCron} ,
+		#{taskClass} ,
+		#{isusing} ,
+		#{addTime} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO SYS_TASKS (
+		TASK_ID ,
+		TASK_NAME ,
+		TASK_CRON ,
+		TASK_CLASS ,
+		ISUSING ,
+		ADD_TIME 
+		) VALUES
+		<foreach collection="list" item="item" index="index"
+			separator=",">
+			(
+			#{item.taskId},
+			#{item.taskName},
+			#{item.taskCron},
+			#{item.taskClass},
+			#{item.isusing},
+			#{item.addTime}
+			)
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM SYS_TASKS t
+		WHERE t.TASK_ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM SYS_TASKS t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM SYS_TASKS t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.SysTasks">
+		UPDATE SYS_TASKS
+		<set>
+			TASK_NAME =
+			#{taskName},
+			TASK_CRON =
+			#{taskCron},
+			TASK_CLASS =
+			#{taskClass},
+			ISUSING =
+			#{isusing},
+			ADD_TIME =
+			#{addTime},
+		</set>
+		WHERE TASK_ID =
+		#{taskId}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.SysTasks">
+		UPDATE SYS_TASKS
+		<set>
+			<if test="@com.OGNL@isNotEmpty(taskName)">
+				TASK_NAME =
+				#{taskName},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(taskCron)">
+				TASK_CRON =
+				#{taskCron},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(taskClass)">
+				TASK_CLASS =
+				#{taskClass},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(isusing)">
+				ISUSING =
+				#{isusing},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addTime)">
+				ADD_TIME =
+				#{addTime},
+			</if>
+		</set>
+		WHERE TASK_ID =
+		#{taskId}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE SYS_TASKS t
+		<set>
+			<if test="@com.OGNL@isNotEmpty(model.taskName)">
+				TASK_NAME =
+				#{model.taskName},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.taskCron)">
+				TASK_CRON =
+				#{model.taskCron},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.taskClass)">
+				TASK_CLASS =
+				#{model.taskClass},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.isusing)">
+				ISUSING =
+				#{model.isusing},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.addTime)">
+				ADD_TIME =
+				#{model.addTime},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		SYS_TASKS WHERE TASK_ID = #{value}
+	</delete>
+</mapper>

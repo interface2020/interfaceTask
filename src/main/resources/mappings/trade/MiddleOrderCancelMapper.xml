@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.trade.dao.MiddleOrderCancelDao">
+	<resultMap type="com.trade.model.MiddleOrderCancel" id="BaseResultMap">
+		<result property="orderId" column="ORDER_ID" javaType="String" />
+		<result property="orderCode" column="ORDER_NAME" javaType="String" />
+		<result property="hospitalId" column="HOSPITAL_ID" javaType="String" />
+		<result property="cancelTime" column="CANCEL_TIME" javaType="String" />
+		<result property="addTime" column="ADD_TIME" javaType="Date" />
+		<result property="lastUpdateTime" column="LAST_UPDATE_TIME" javaType="Date" />
+	</resultMap>
+
+	<sql id="full-columns">
+		t.ORDER_ID,
+		t.ORDER_NAME,
+		t.HOSPITAL_ID,
+		t.CANCEL_TIME,
+		t.ADD_TIME,
+		t.LAST_UPDATE_TIME
+	</sql>
+	
+	<sql id="common_where_if">
+			<if test="@com.OGNL@isNotEmpty(orderId)">
+				AND t.ORDER_ID = #{orderId}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(orderCode)">
+				AND t.ORDER_NAME = #{orderCode}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitalId)">
+				AND t.HOSPITAL_ID = #{hospitalId}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(cancelTime)">
+				AND t.CANCEL_TIME = #{cancelTime}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addTime)">
+				AND t.ADD_TIME = #{addTime}
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lastUpdateTime)">
+				AND t.LAST_UPDATE_TIME = #{lastUpdateTime}
+			</if>
+	</sql>
+
+	<insert id="save" parameterType="com.trade.model.MiddleOrderCancel">
+		INSERT INTO MIDDLE_ORDER_CANCEL(
+		ORDER_ID ,
+		ORDER_NAME ,
+		HOSPITAL_ID ,
+		CANCEL_TIME ,
+		ADD_TIME ,
+		LAST_UPDATE_TIME 
+		)
+		VALUES (
+		#{orderId} ,
+		#{orderCode} ,
+		#{hospitalId} ,
+		#{cancelTime} ,
+		#{addTime} ,
+		#{lastUpdateTime} 
+		)
+	</insert>
+
+	<insert id="saveBatch" parameterType="java.util.List">
+		INSERT INTO MIDDLE_ORDER_CANCEL (
+		ORDER_ID ,
+		ORDER_NAME ,
+		HOSPITAL_ID ,
+		CANCEL_TIME ,
+		ADD_TIME ,
+		LAST_UPDATE_TIME 
+		)
+		<foreach collection="list" item="item" index="index"
+				   separator=" UNION ALL ">
+		SELECT
+			#{item.orderId},
+			#{item.orderCode},
+			#{item.hospitalId},
+			#{item.cancelTime},
+			sysdate,
+			sysdate
+			FROM DUAL
+		</foreach>
+	</insert>
+
+	<select id="getById" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_ORDER_CANCEL t
+		WHERE t.ORDER_ID = #{value}
+	</select>
+
+	<select id="getListByParams" parameterType="map" resultMap="BaseResultMap">
+		SELECT
+		<include refid="full-columns" />
+		FROM MIDDLE_ORDER_CANCEL t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<select id="countByParams" parameterType="map" resultType="int">
+		SELECT count(*)
+		FROM MIDDLE_ORDER_CANCEL t
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</select>
+
+	<update id="updateById" parameterType="com.trade.model.MiddleOrderCancel">
+		UPDATE MIDDLE_ORDER_CANCEL
+		<set>
+			ORDER_NAME =
+			#{orderCode},
+			HOSPITAL_ID =
+			#{hospitalId},
+			CANCEL_TIME =
+			#{cancelTime},
+			ADD_TIME =
+			#{addTime},
+			LAST_UPDATE_TIME =
+			#{lastUpdateTime},
+		</set>
+		WHERE ORDER_ID =
+		#{orderId}
+	</update>
+
+	<update id="updateBySelective" parameterType="com.trade.model.MiddleOrderCancel">
+		UPDATE MIDDLE_ORDER_CANCEL
+		<set>
+			<if test="@com.OGNL@isNotEmpty(orderCode)">
+				ORDER_NAME =
+				#{orderCode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(hospitalId)">
+				HOSPITAL_ID =
+				#{hospitalId},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(cancelTime)">
+				CANCEL_TIME =
+				#{cancelTime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(addTime)">
+				ADD_TIME =
+				#{addTime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(lastUpdateTime)">
+				LAST_UPDATE_TIME =
+				#{lastUpdateTime},
+			</if>
+		</set>
+		WHERE ORDER_ID =
+		#{orderId}
+	</update>
+
+	<update id="updateByParams">
+		UPDATE MIDDLE_ORDER_CANCEL t
+		<set>
+			<if test="@com.OGNL@isNotEmpty(model.orderCode)">
+				ORDER_NAME =
+				#{model.orderCode},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.hospitalId)">
+				HOSPITAL_ID =
+				#{model.hospitalId},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.cancelTime)">
+				CANCEL_TIME =
+				#{model.cancelTime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.addTime)">
+				ADD_TIME =
+				#{model.addTime},
+			</if>
+			<if test="@com.OGNL@isNotEmpty(model.lastUpdateTime)">
+				LAST_UPDATE_TIME =
+				#{model.lastUpdateTime},
+			</if>
+		</set>
+		<where>
+			<include refid="common_where_if"/>
+		</where>
+	</update>
+
+	<delete id="deleteById" parameterType="java.lang.String">
+		DELETE FROM
+		MIDDLE_ORDER_CANCEL WHERE ORDER_ID = #{value}
+	</delete>
+</mapper>

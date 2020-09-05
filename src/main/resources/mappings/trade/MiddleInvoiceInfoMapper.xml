@@ -48,64 +48,64 @@
 	</sql>
 	
 	<sql id="common_where_if">
-			<if test="@OGNL@isNotEmpty(companyPrimaryKey)">
+			<if test="@com.OGNL@isNotEmpty(companyPrimaryKey)">
 				AND t.COMPANY_PRIMARY_KEY = #{companyPrimaryKey}
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceCode)">
+			<if test="@com.OGNL@isNotEmpty(invoiceCode)">
 				AND t.INVOICE_CODE = #{invoiceCode}
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceId)">
+			<if test="@com.OGNL@isNotEmpty(invoiceId)">
 				AND t.INVOICE_ID = #{invoiceId}
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceDate)">
+			<if test="@com.OGNL@isNotEmpty(invoiceDate)">
 				AND t.INVOICE_DATE = #{invoiceDate}
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceType)">
+			<if test="@com.OGNL@isNotEmpty(invoiceType)">
 				AND t.INVOICE_TYPE = #{invoiceType}
 			</if>
-			<if test="@OGNL@isNotEmpty(saleId)">
+			<if test="@com.OGNL@isNotEmpty(saleId)">
 				AND t.SALE_ID = #{saleId}
 			</if>
-			<if test="@OGNL@isNotEmpty(saleName)">
+			<if test="@com.OGNL@isNotEmpty(saleName)">
 				AND t.SALE_NAME = #{saleName}
 			</if>
-			<if test="@OGNL@isNotEmpty(saleRemark)">
+			<if test="@com.OGNL@isNotEmpty(saleRemark)">
 				AND t.SALE_REMARK = #{saleRemark}
 			</if>
-			<if test="@OGNL@isNotEmpty(saleTaxpayerNumber)">
+			<if test="@com.OGNL@isNotEmpty(saleTaxpayerNumber)">
 				AND t.SALE_TAXPAYER_NUMBER = #{saleTaxpayerNumber}
 			</if>
-			<if test="@OGNL@isNotEmpty(buyId)">
+			<if test="@com.OGNL@isNotEmpty(buyId)">
 				AND t.BUY_ID = #{buyId}
 			</if>
-			<if test="@OGNL@isNotEmpty(buyName)">
+			<if test="@com.OGNL@isNotEmpty(buyName)">
 				AND t.BUY_NAME = #{buyName}
 			</if>
-			<if test="@OGNL@isNotEmpty(buyRemarks)">
+			<if test="@com.OGNL@isNotEmpty(buyRemarks)">
 				AND t.BUY_REMARKS = #{buyRemarks}
 			</if>
-			<if test="@OGNL@isNotEmpty(buyTaxpayerNumber)">
+			<if test="@com.OGNL@isNotEmpty(buyTaxpayerNumber)">
 				AND t.BUY_TAXPAYER_NUMBER = #{buyTaxpayerNumber}
 			</if>
-			<if test="@OGNL@isNotEmpty(totalTaxPrice)">
+			<if test="@com.OGNL@isNotEmpty(totalTaxPrice)">
 				AND t.TOTAL_TAX_PRICE = #{totalTaxPrice}
 			</if>
-			<if test="@OGNL@isNotEmpty(orgId)">
+			<if test="@com.OGNL@isNotEmpty(orgId)">
 				AND t.ORG_ID = #{orgId}
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceImgId)">
+			<if test="@com.OGNL@isNotEmpty(invoiceImgId)">
 				AND t.INVOICE_IMG_ID = #{invoiceImgId}
 			</if>
-			<if test="@OGNL@isNotEmpty(id)">
+			<if test="@com.OGNL@isNotEmpty(id)">
 				AND t.ID = #{id}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseState)">
+			<if test="@com.OGNL@isNotEmpty(responseState)">
 				AND t.RESPONSE_STATE = #{responseState}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(responseInfo)">
 				AND t.RESPONSE_INFO = #{responseInfo}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseTime)">
+			<if test="@com.OGNL@isNotEmpty(responseTime)">
 				AND t.RESPONSE_TIME = #{responseTime}
 			</if>
 	</sql>
@@ -281,79 +281,79 @@
 	<update id="updateBySelective" parameterType="com.trade.model.MiddleInvoiceInfo">
 		UPDATE MIDDLE_INVOICE_INFO
 		<set>
-			<if test="@OGNL@isNotEmpty(invoiceCode)">
+			<if test="@com.OGNL@isNotEmpty(invoiceCode)">
 				INVOICE_CODE =
 				#{invoiceCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceId)">
+			<if test="@com.OGNL@isNotEmpty(invoiceId)">
 				INVOICE_ID =
 				#{invoiceId},
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceDate)">
+			<if test="@com.OGNL@isNotEmpty(invoiceDate)">
 				INVOICE_DATE =
 				#{invoiceDate},
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceType)">
+			<if test="@com.OGNL@isNotEmpty(invoiceType)">
 				INVOICE_TYPE =
 				#{invoiceType},
 			</if>
-			<if test="@OGNL@isNotEmpty(saleId)">
+			<if test="@com.OGNL@isNotEmpty(saleId)">
 				SALE_ID =
 				#{saleId},
 			</if>
-			<if test="@OGNL@isNotEmpty(saleName)">
+			<if test="@com.OGNL@isNotEmpty(saleName)">
 				SALE_NAME =
 				#{saleName},
 			</if>
-			<if test="@OGNL@isNotEmpty(saleRemark)">
+			<if test="@com.OGNL@isNotEmpty(saleRemark)">
 				SALE_REMARK =
 				#{saleRemark},
 			</if>
-			<if test="@OGNL@isNotEmpty(saleTaxpayerNumber)">
+			<if test="@com.OGNL@isNotEmpty(saleTaxpayerNumber)">
 				SALE_TAXPAYER_NUMBER =
 				#{saleTaxpayerNumber},
 			</if>
-			<if test="@OGNL@isNotEmpty(buyId)">
+			<if test="@com.OGNL@isNotEmpty(buyId)">
 				BUY_ID =
 				#{buyId},
 			</if>
-			<if test="@OGNL@isNotEmpty(buyName)">
+			<if test="@com.OGNL@isNotEmpty(buyName)">
 				BUY_NAME =
 				#{buyName},
 			</if>
-			<if test="@OGNL@isNotEmpty(buyRemarks)">
+			<if test="@com.OGNL@isNotEmpty(buyRemarks)">
 				BUY_REMARKS =
 				#{buyRemarks},
 			</if>
-			<if test="@OGNL@isNotEmpty(buyTaxpayerNumber)">
+			<if test="@com.OGNL@isNotEmpty(buyTaxpayerNumber)">
 				BUY_TAXPAYER_NUMBER =
 				#{buyTaxpayerNumber},
 			</if>
-			<if test="@OGNL@isNotEmpty(totalTaxPrice)">
+			<if test="@com.OGNL@isNotEmpty(totalTaxPrice)">
 				TOTAL_TAX_PRICE =
 				#{totalTaxPrice},
 			</if>
-			<if test="@OGNL@isNotEmpty(orgId)">
+			<if test="@com.OGNL@isNotEmpty(orgId)">
 				ORG_ID =
 				#{orgId},
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceImgId)">
+			<if test="@com.OGNL@isNotEmpty(invoiceImgId)">
 				INVOICE_IMG_ID =
 				#{invoiceImgId},
 			</if>
-			<if test="@OGNL@isNotEmpty(id)">
+			<if test="@com.OGNL@isNotEmpty(id)">
 				ID =
 				#{id},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseState)">
+			<if test="@com.OGNL@isNotEmpty(responseState)">
 				RESPONSE_STATE =
 				#{responseState},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(responseInfo)">
 				RESPONSE_INFO =
 				#{responseInfo},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseTime)">
+			<if test="@com.OGNL@isNotEmpty(responseTime)">
 				RESPONSE_TIME =
 				#{responseTime},
 			</if>
@@ -365,79 +365,79 @@
 	<update id="updateByParams">
 		UPDATE MIDDLE_INVOICE_INFO t
 		<set>
-			<if test="@OGNL@isNotEmpty(model.invoiceCode)">
+			<if test="@com.OGNL@isNotEmpty(model.invoiceCode)">
 				INVOICE_CODE =
 				#{model.invoiceCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.invoiceId)">
+			<if test="@com.OGNL@isNotEmpty(model.invoiceId)">
 				INVOICE_ID =
 				#{model.invoiceId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.invoiceDate)">
+			<if test="@com.OGNL@isNotEmpty(model.invoiceDate)">
 				INVOICE_DATE =
 				#{model.invoiceDate},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.invoiceType)">
+			<if test="@com.OGNL@isNotEmpty(model.invoiceType)">
 				INVOICE_TYPE =
 				#{model.invoiceType},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.saleId)">
+			<if test="@com.OGNL@isNotEmpty(model.saleId)">
 				SALE_ID =
 				#{model.saleId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.saleName)">
+			<if test="@com.OGNL@isNotEmpty(model.saleName)">
 				SALE_NAME =
 				#{model.saleName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.saleRemark)">
+			<if test="@com.OGNL@isNotEmpty(model.saleRemark)">
 				SALE_REMARK =
 				#{model.saleRemark},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.saleTaxpayerNumber)">
+			<if test="@com.OGNL@isNotEmpty(model.saleTaxpayerNumber)">
 				SALE_TAXPAYER_NUMBER =
 				#{model.saleTaxpayerNumber},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.buyId)">
+			<if test="@com.OGNL@isNotEmpty(model.buyId)">
 				BUY_ID =
 				#{model.buyId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.buyName)">
+			<if test="@com.OGNL@isNotEmpty(model.buyName)">
 				BUY_NAME =
 				#{model.buyName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.buyRemarks)">
+			<if test="@com.OGNL@isNotEmpty(model.buyRemarks)">
 				BUY_REMARKS =
 				#{model.buyRemarks},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.buyTaxpayerNumber)">
+			<if test="@com.OGNL@isNotEmpty(model.buyTaxpayerNumber)">
 				BUY_TAXPAYER_NUMBER =
 				#{model.buyTaxpayerNumber},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.totalTaxPrice)">
+			<if test="@com.OGNL@isNotEmpty(model.totalTaxPrice)">
 				TOTAL_TAX_PRICE =
 				#{model.totalTaxPrice},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.orgId)">
+			<if test="@com.OGNL@isNotEmpty(model.orgId)">
 				ORG_ID =
 				#{model.orgId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.invoiceImgId)">
+			<if test="@com.OGNL@isNotEmpty(model.invoiceImgId)">
 				INVOICE_IMG_ID =
 				#{model.invoiceImgId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.id)">
+			<if test="@com.OGNL@isNotEmpty(model.id)">
 				ID =
 				#{model.id},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseState)">
+			<if test="@com.OGNL@isNotEmpty(model.responseState)">
 				RESPONSE_STATE =
 				#{model.responseState},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(model.responseInfo)">
 				RESPONSE_INFO =
 				#{model.responseInfo},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseTime)">
+			<if test="@com.OGNL@isNotEmpty(model.responseTime)">
 				RESPONSE_TIME =
 				#{model.responseTime},
 			</if>

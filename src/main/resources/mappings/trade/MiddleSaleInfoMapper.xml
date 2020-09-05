@@ -32,40 +32,40 @@
 	</sql>
 	
 	<sql id="common_where_if">
-			<if test="@OGNL@isNotEmpty(companyPrimaryKey)">
+			<if test="@com.OGNL@isNotEmpty(companyPrimaryKey)">
 				AND t.COMPANY_PRIMARY_KEY = #{companyPrimaryKey}
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceCode)">
+			<if test="@com.OGNL@isNotEmpty(invoiceCode)">
 				AND t.INVOICE_CODE = #{invoiceCode}
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceId)">
+			<if test="@com.OGNL@isNotEmpty(invoiceId)">
 				AND t.INVOICE_ID = #{invoiceId}
 			</if>
-			<if test="@OGNL@isNotEmpty(goodsId)">
+			<if test="@com.OGNL@isNotEmpty(goodsId)">
 				AND t.GOODS_ID = #{goodsId}
 			</if>
-			<if test="@OGNL@isNotEmpty(batchCode)">
+			<if test="@com.OGNL@isNotEmpty(batchCode)">
 				AND t.BATCH_CODE = #{batchCode}
 			</if>
-			<if test="@OGNL@isNotEmpty(periodDate)">
+			<if test="@com.OGNL@isNotEmpty(periodDate)">
 				AND t.PERIOD_DATE = #{periodDate}
 			</if>
-			<if test="@OGNL@isNotEmpty(saleNumber)">
+			<if test="@com.OGNL@isNotEmpty(saleNumber)">
 				AND t.SALE_NUMBER = #{saleNumber}
 			</if>
-			<if test="@OGNL@isNotEmpty(invoicePrimaryId)">
+			<if test="@com.OGNL@isNotEmpty(invoicePrimaryId)">
 				AND t.INVOICE_PRIMARY_ID = #{invoicePrimaryId}
 			</if>
-			<if test="@OGNL@isNotEmpty(orgId)">
+			<if test="@com.OGNL@isNotEmpty(orgId)">
 				AND t.ORG_ID = #{orgId}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseState)">
+			<if test="@com.OGNL@isNotEmpty(responseState)">
 				AND t.RESPONSE_STATE = #{responseState}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(responseInfo)">
 				AND t.RESPONSE_INFO = #{responseInfo}
 			</if>
-			<if test="@OGNL@isNotEmpty(responseTime)">
+			<if test="@com.OGNL@isNotEmpty(responseTime)">
 				AND t.RESPONSE_TIME = #{responseTime}
 			</if>
 	</sql>
@@ -193,47 +193,47 @@
 	<update id="updateBySelective" parameterType="com.trade.model.MiddleSaleInfo">
 		UPDATE MIDDLE_SALE_INFO
 		<set>
-			<if test="@OGNL@isNotEmpty(invoiceCode)">
+			<if test="@com.OGNL@isNotEmpty(invoiceCode)">
 				INVOICE_CODE =
 				#{invoiceCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(invoiceId)">
+			<if test="@com.OGNL@isNotEmpty(invoiceId)">
 				INVOICE_ID =
 				#{invoiceId},
 			</if>
-			<if test="@OGNL@isNotEmpty(goodsId)">
+			<if test="@com.OGNL@isNotEmpty(goodsId)">
 				GOODS_ID =
 				#{goodsId},
 			</if>
-			<if test="@OGNL@isNotEmpty(batchCode)">
+			<if test="@com.OGNL@isNotEmpty(batchCode)">
 				BATCH_CODE =
 				#{batchCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(periodDate)">
+			<if test="@com.OGNL@isNotEmpty(periodDate)">
 				PERIOD_DATE =
 				#{periodDate},
 			</if>
-			<if test="@OGNL@isNotEmpty(saleNumber)">
+			<if test="@com.OGNL@isNotEmpty(saleNumber)">
 				SALE_NUMBER =
 				#{saleNumber},
 			</if>
-			<if test="@OGNL@isNotEmpty(invoicePrimaryId)">
+			<if test="@com.OGNL@isNotEmpty(invoicePrimaryId)">
 				INVOICE_PRIMARY_ID =
 				#{invoicePrimaryId},
 			</if>
-			<if test="@OGNL@isNotEmpty(orgId)">
+			<if test="@com.OGNL@isNotEmpty(orgId)">
 				ORG_ID =
 				#{orgId},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseState)">
+			<if test="@com.OGNL@isNotEmpty(responseState)">
 				RESPONSE_STATE =
 				#{responseState},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(responseInfo)">
 				RESPONSE_INFO =
 				#{responseInfo},
 			</if>
-			<if test="@OGNL@isNotEmpty(responseTime)">
+			<if test="@com.OGNL@isNotEmpty(responseTime)">
 				RESPONSE_TIME =
 				#{responseTime},
 			</if>
@@ -245,47 +245,47 @@
 	<update id="updateByParams">
 		UPDATE MIDDLE_SALE_INFO t
 		<set>
-			<if test="@OGNL@isNotEmpty(model.invoiceCode)">
+			<if test="@com.OGNL@isNotEmpty(model.invoiceCode)">
 				INVOICE_CODE =
 				#{model.invoiceCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.invoiceId)">
+			<if test="@com.OGNL@isNotEmpty(model.invoiceId)">
 				INVOICE_ID =
 				#{model.invoiceId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.goodsId)">
+			<if test="@com.OGNL@isNotEmpty(model.goodsId)">
 				GOODS_ID =
 				#{model.goodsId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.batchCode)">
+			<if test="@com.OGNL@isNotEmpty(model.batchCode)">
 				BATCH_CODE =
 				#{model.batchCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.periodDate)">
+			<if test="@com.OGNL@isNotEmpty(model.periodDate)">
 				PERIOD_DATE =
 				#{model.periodDate},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.saleNumber)">
+			<if test="@com.OGNL@isNotEmpty(model.saleNumber)">
 				SALE_NUMBER =
 				#{model.saleNumber},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.invoicePrimaryId)">
+			<if test="@com.OGNL@isNotEmpty(model.invoicePrimaryId)">
 				INVOICE_PRIMARY_ID =
 				#{model.invoicePrimaryId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.orgId)">
+			<if test="@com.OGNL@isNotEmpty(model.orgId)">
 				ORG_ID =
 				#{model.orgId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseState)">
+			<if test="@com.OGNL@isNotEmpty(model.responseState)">
 				RESPONSE_STATE =
 				#{model.responseState},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseInfo)">
+			<if test="@com.OGNL@isNotEmpty(model.responseInfo)">
 				RESPONSE_INFO =
 				#{model.responseInfo},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.responseTime)">
+			<if test="@com.OGNL@isNotEmpty(model.responseTime)">
 				RESPONSE_TIME =
 				#{model.responseTime},
 			</if>

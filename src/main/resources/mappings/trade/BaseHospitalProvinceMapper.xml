@@ -26,31 +26,31 @@
 	</sql>
 	
 	<sql id="common_where_if">
-			<if test="@OGNL@isNotEmpty(hospitalId)">
+			<if test="@com.OGNL@isNotEmpty(hospitalId)">
 				AND t.HOSPITAL_ID = #{hospitalId}
 			</if>
-			<if test="@OGNL@isNotEmpty(hospitalCode)">
+			<if test="@com.OGNL@isNotEmpty(hospitalCode)">
 				AND t.HOSPITAL_CODE = #{hospitalCode}
 			</if>
-			<if test="@OGNL@isNotEmpty(hospitalName)">
+			<if test="@com.OGNL@isNotEmpty(hospitalName)">
 				AND t.HOSPITAL_NAME = #{hospitalName}
 			</if>
-			<if test="@OGNL@isNotEmpty(hospitalType)">
+			<if test="@com.OGNL@isNotEmpty(hospitalType)">
 				AND t.HOSPITAL_TYPE = #{hospitalType}
 			</if>
-			<if test="@OGNL@isNotEmpty(areaId)">
+			<if test="@com.OGNL@isNotEmpty(areaId)">
 				AND t.AREA_ID = #{areaId}
 			</if>
-			<if test="@OGNL@isNotEmpty(areaName)">
+			<if test="@com.OGNL@isNotEmpty(areaName)">
 				AND t.AREA_NAME = #{areaName}
 			</if>
-			<if test="@OGNL@isNotEmpty(isUsing)">
+			<if test="@com.OGNL@isNotEmpty(isUsing)">
 				AND t.IS_USING = #{isUsing}
 			</if>
-			<if test="@OGNL@isNotEmpty(addTime)">
+			<if test="@com.OGNL@isNotEmpty(addTime)">
 				AND t.ADD_TIME = #{addTime}
 			</if>
-			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+			<if test="@com.OGNL@isNotEmpty(lastUpdateTime)">
 				AND t.LAST_UPDATE_TIME = #{lastUpdateTime}
 			</if>
 	</sql>
@@ -160,35 +160,35 @@
 	<update id="updateBySelective" parameterType="com.trade.model.BaseHospitalProvince">
 		UPDATE BASE_HOSPITAL_PROVINCE
 		<set>
-			<if test="@OGNL@isNotEmpty(hospitalCode)">
+			<if test="@com.OGNL@isNotEmpty(hospitalCode)">
 				HOSPITAL_CODE =
 				#{hospitalCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(hospitalName)">
+			<if test="@com.OGNL@isNotEmpty(hospitalName)">
 				HOSPITAL_NAME =
 				#{hospitalName},
 			</if>
-			<if test="@OGNL@isNotEmpty(hospitalType)">
+			<if test="@com.OGNL@isNotEmpty(hospitalType)">
 				HOSPITAL_TYPE =
 				#{hospitalType},
 			</if>
-			<if test="@OGNL@isNotEmpty(areaId)">
+			<if test="@com.OGNL@isNotEmpty(areaId)">
 				AREA_ID =
 				#{areaId},
 			</if>
-			<if test="@OGNL@isNotEmpty(areaName)">
+			<if test="@com.OGNL@isNotEmpty(areaName)">
 				AREA_NAME =
 				#{areaName},
 			</if>
-			<if test="@OGNL@isNotEmpty(isUsing)">
+			<if test="@com.OGNL@isNotEmpty(isUsing)">
 				IS_USING =
 				#{isUsing},
 			</if>
-			<if test="@OGNL@isNotEmpty(addTime)">
+			<if test="@com.OGNL@isNotEmpty(addTime)">
 				ADD_TIME =
 				#{addTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(lastUpdateTime)">
+			<if test="@com.OGNL@isNotEmpty(lastUpdateTime)">
 				LAST_UPDATE_TIME =
 				#{lastUpdateTime},
 			</if>
@@ -200,35 +200,35 @@
 	<update id="updateByParams">
 		UPDATE BASE_HOSPITAL_PROVINCE t
 		<set>
-			<if test="@OGNL@isNotEmpty(model.hospitalCode)">
+			<if test="@com.OGNL@isNotEmpty(model.hospitalCode)">
 				HOSPITAL_CODE =
 				#{model.hospitalCode},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.hospitalName)">
+			<if test="@com.OGNL@isNotEmpty(model.hospitalName)">
 				HOSPITAL_NAME =
 				#{model.hospitalName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.hospitalType)">
+			<if test="@com.OGNL@isNotEmpty(model.hospitalType)">
 				HOSPITAL_TYPE =
 				#{model.hospitalType},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.areaId)">
+			<if test="@com.OGNL@isNotEmpty(model.areaId)">
 				AREA_ID =
 				#{model.areaId},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.areaName)">
+			<if test="@com.OGNL@isNotEmpty(model.areaName)">
 				AREA_NAME =
 				#{model.areaName},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.isUsing)">
+			<if test="@com.OGNL@isNotEmpty(model.isUsing)">
 				IS_USING =
 				#{model.isUsing},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.addTime)">
+			<if test="@com.OGNL@isNotEmpty(model.addTime)">
 				ADD_TIME =
 				#{model.addTime},
 			</if>
-			<if test="@OGNL@isNotEmpty(model.lastUpdateTime)">
+			<if test="@com.OGNL@isNotEmpty(model.lastUpdateTime)">
 				LAST_UPDATE_TIME =
 				#{model.lastUpdateTime},
 			</if>
