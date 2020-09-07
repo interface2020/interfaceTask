@@ -302,75 +302,6 @@
 		#{orderId}
 	</update>
 
-	<update id="updateByParams">
-		UPDATE MIDDLE_PURCHASE_ORDER t
-		<set>
-			<if test="@com.OGNL@isNotEmpty(model.orderDetailState)">
-				ORDER_DETAIL_STATE =
-				#{model.orderDetailState},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.orderCode)">
-				ORDER_CODE =
-				#{model.orderCode},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.orderDetailId)">
-				ORDER_DETAIL_ID =
-				#{model.orderDetailId},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.purchaseCount)">
-				PURCHASE_COUNT =
-				#{model.purchaseCount},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.purchasePrice)">
-				PURCHASE_PRICE =
-				#{model.purchasePrice},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.purchaseAmount)">
-				PURCHASE_AMOUNT =
-				#{model.purchaseAmount},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.totalDetailCount)">
-				TOTAL_DETAIL_COUNT =
-				#{model.totalDetailCount},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.procureCatalogId)">
-				PROCURE_CATALOG_ID =
-				#{model.procureCatalogId},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.submitTime)">
-				SUBMIT_TIME =
-				#{model.submitTime},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.hospitalId)">
-				HOSPITAL_ID =
-				#{model.hospitalId},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.hospitalName)">
-				HOSPITAL_NAME =
-				#{model.hospitalName},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.companyNamePs)">
-				COMPANY_NAME_PS =
-				#{model.companyNamePs},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.companyIdPs)">
-				COMPANY_ID_PS =
-				#{model.companyIdPs},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.orderName)">
-				ORDER_NAME =
-				#{model.orderName},
-			</if>
-			<if test="@com.OGNL@isNotEmpty(model.orderRemarks)">
-				ORDER_REMARKS =
-				#{model.orderRemarks},
-			</if>
-		</set>
-		<where>
-			<include refid="common_where_if"/>
-		</where>
-	</update>
-
 	<delete id="deleteById" parameterType="java.lang.String">
 		DELETE FROM
 		MIDDLE_PURCHASE_ORDER WHERE ORDER_ID = #{value}
@@ -378,12 +309,19 @@
 
 	<delete id="deleteByIds" parameterType="java.util.List">
 		DELETE FROM
-		MIDDLE_PURCHASE_ORDER WHERE ORDER_ID IN(
+		MIDDLE_PURCHASE_ORDER WHERE ORDER_DETAIL_ID IN(
 		<foreach collection="list" item="item" index="index"
 				 separator=",">
 			#{item.orderDetailId}
 		</foreach>)
 	</delete>
 
-
+	<delete id="deleteCancelOrders" parameterType="java.util.List">
+		DELETE FROM
+		MIDDLE_PURCHASE_ORDER WHERE ORDER_ID IN(
+		<foreach collection="list" item="item" index="index"
+				 separator=",">
+			#{item.orderId}
+		</foreach>)
+	</delete>
 </mapper>

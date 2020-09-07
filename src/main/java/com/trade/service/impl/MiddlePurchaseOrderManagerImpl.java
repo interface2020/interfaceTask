@@ -1,6 +1,7 @@
 package com.trade.service.impl;
 
 import com.trade.dao.MiddlePurchaseOrderDao;
+import com.trade.model.MiddleOrderCancel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.trade.service.MiddlePurchaseOrderManager;
@@ -20,5 +21,10 @@ public class MiddlePurchaseOrderManagerImpl extends GenericManagerImpl<MiddlePur
     @Override
     public boolean deleteByIds(List<MiddlePurchaseOrder> orders) {
         return purchaseOrderDao.deleteByIds(orders)>0;
+    }
+
+    @Override
+    public boolean deleteCancelOrders(List<MiddleOrderCancel> orders) {
+        return purchaseOrderDao.deleteCancelOrders(orders)>0;
     }
 }

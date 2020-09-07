@@ -1,6 +1,7 @@
 package com.trade.service;
 
 import com.common.service.GenericManager;
+import com.trade.model.MiddleOrderCancel;
 import com.trade.model.MiddlePurchaseOrder;
 
 import java.util.List;
@@ -9,4 +10,6 @@ public interface MiddlePurchaseOrderManager extends GenericManager<MiddlePurchas
 	// 扩展接口
 
     boolean deleteByIds(List<MiddlePurchaseOrder> orders);
+
+    boolean deleteCancelOrders(List<MiddleOrderCancel> orders);
 }
