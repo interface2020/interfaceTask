@@ -264,8 +264,8 @@
 			#{item.isUsing},
 			#{item.ispilot},
 			#{item.id},
-			#{item.addTime},
-			#{item.lastUpdateTime}
+			#{item.addTime,jdbcType=DATE},
+			#{item.lastUpdateTime,jdbcType=DATE}
 			FROM DUAL
 		</foreach>
 	</insert>

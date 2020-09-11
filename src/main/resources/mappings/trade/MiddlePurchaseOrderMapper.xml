@@ -160,7 +160,7 @@
 			#{item.purchaseAmount},
 			#{item.totalDetailCount},
 			#{item.procureCatalogId},
-			#{item.submitTime},
+			#{item.submitTime,jdbcType=DATE},
 			#{item.hospitalId},
 			#{item.hospitalName},
 			#{item.companyNamePs},

@@ -74,7 +74,7 @@
 			#{item.orderId},
 			#{item.orderCode},
 			#{item.hospitalId},
-			#{item.cancelTime},
+			#{item.cancelTime,jdbcType=DATE},
 			sysdate,
 			sysdate
 			FROM DUAL

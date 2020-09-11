@@ -120,8 +120,8 @@
 			#{item.companyContactFax},
 			#{item.zipCode},
 			#{item.email},
-			#{item.addTime},
-			#{item.lastUpdateTime}
+			#{item.addTime,jdbcType=DATE},
+			#{item.lastUpdateTime,jdbcType=DATE}
 			FROM DUAL
 		</foreach>
 	</insert>

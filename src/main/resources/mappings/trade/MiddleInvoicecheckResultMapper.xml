@@ -93,7 +93,7 @@
 			#{item.invoiceCode},
 			#{item.comidPs},
 			#{item.checkResult},
-			#{item.submittime},
+			#{item.submittime,jdbcType=DATE},
 			sysdate
 			FROM DUAL
 		</foreach>
