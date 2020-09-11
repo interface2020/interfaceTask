@@ -34,7 +34,7 @@ public class MiddleOrderCancelJob implements BaseJob {
     public void  syncDatas(String url, int page) throws Exception{
         Calendar cal=Calendar.getInstance();
         Date endTime=cal.getTime();
-        cal.add(Calendar.MINUTE,-15);
+        cal.add(Calendar.MINUTE,-2);
         Date startTime=cal.getTime();
         Map<String, String> params= new HashMap<>();
         params.put("token", AccessToken.accessToken);

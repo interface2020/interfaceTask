@@ -41,7 +41,7 @@ public class QuartzConfig implements ApplicationContextAware {
         for (SysTasks task : tasks) {
             ScheduleJob job=new ScheduleJob();
             job.setJobGroup("synTasks"); // 任务组
-            job.setJobName("syn");// 任务名称
+            job.setJobName(task.getTaskName());// 任务名称
             job.setJobStatus("1"); // 任务发布状态
             job.setIsConcurrent("1"); // 运行状态
             job.setCronExpression(task.getTaskCron());
