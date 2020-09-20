@@ -28,11 +28,10 @@ public class BaseDrugInfoJob implements BaseJob {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("任务执行的时间：" + dateFormat.format(new Date()));
+        System.out.println("获取产品信息任务执行的时间：" + dateFormat.format(new Date()));
     }
 
     public void  syncDatas(String url, int page) throws Exception{
-        System.out.println("接口查询");
         Map<String, String> params= new HashMap<>();
         params.put("token", AccessToken.accessToken);
         params.put("currentPageNumber", String.valueOf(page));

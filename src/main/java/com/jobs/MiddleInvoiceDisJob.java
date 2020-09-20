@@ -27,7 +27,7 @@ public class MiddleInvoiceDisJob implements BaseJob {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("任务执行的时间：" + dateFormat.format(new Date()));
+        System.out.println("配送发票补录任务执行的时间：" + dateFormat.format(new Date()));
     }
 
     public void  syncDatas(String url) throws Exception{
@@ -40,48 +40,51 @@ public class MiddleInvoiceDisJob implements BaseJob {
         List<Map<String, Object>> invoiceInfoList=new ArrayList<>();
         Map<String, Object> invoiceMap;
         List<MiddleInvoiceDis> invoiceDisList = invoiceDisManager.getListByParams(getParams);
-        for (MiddleInvoiceDis middleInvoiceDis : invoiceDisList) {
-            invoiceMap=new HashMap<>();
-            invoiceMap.put("companyDistributeId",middleInvoiceDis.getCompanyDistributeId());
-            invoiceMap.put("distributeId",middleInvoiceDis.getDistributeId());
-            invoiceMap.put("invoicePrimaryId",middleInvoiceDis.getInvoicePrimaryId());
+        if(invoiceDisList!=null&&invoiceDisList.size()>0){
+            for (MiddleInvoiceDis middleInvoiceDis : invoiceDisList) {
+                invoiceMap=new HashMap<>();
+                invoiceMap.put("companyDistributeId",middleInvoiceDis.getCompanyDistributeId());
+                invoiceMap.put("distributeId",middleInvoiceDis.getDistributeId());
+                invoiceMap.put("invoicePrimaryId",middleInvoiceDis.getInvoicePrimaryId());
 
-            invoiceInfoList.add(invoiceMap);
-        }
-        InvoiceInfo.put("list",invoiceInfoList);
-        params.put("distributeInfo", InvoiceInfo.toJSONString());
-        String resultStr = HttpClientUtil.doPost(url, params);
-        System.out.println(resultStr);
-        if (resultStr.contains("无效token")) {
+                invoiceInfoList.add(invoiceMap);
+            }
+            InvoiceInfo.put("list",invoiceInfoList);
+            params.put("distributeInfo", InvoiceInfo.toJSONString());
+            String resultStr = HttpClientUtil.doPost(url, params);
             System.out.println(resultStr);
-            AccessToken.getTokenData();
-            syncDatas(url);
-        }
-        //1.解析结果
-        JSONObject resultData = JSONObject.parseObject(resultStr);
-        MiddleInvoiceDis middleInvoiceDis;
-        if(resultData.getInteger("resultCode")==1){
-            JSONArray successList = JSONArray.parseArray(resultData.getString("successList"));
-            for (int i = 0; i < successList.size(); i++) {
-                JSONObject object=successList.getJSONObject(i);
-                middleInvoiceDis=new MiddleInvoiceDis();
-                middleInvoiceDis.setCompanyDistributeId(object.getString("companyDistributeId"));
-                middleInvoiceDis.setResponseState("2");
-                middleInvoiceDis.setResponseTime(new Date());
-                invoiceDisManager.updateBySelective(middleInvoiceDis);
+            if (resultStr.contains("无效token")) {
+                System.out.println(resultStr);
+                AccessToken.getTokenData();
+                syncDatas(url);
             }
-        }else if(resultData.getInteger("resultCode")==-1){
-            JSONArray errorList = JSONArray.parseArray(resultData.getString("errorList"));
-            for (int i = 0; i < errorList.size(); i++) {
-                JSONObject object=errorList.getJSONObject(i);
-                middleInvoiceDis=new MiddleInvoiceDis();
-                middleInvoiceDis.setCompanyDistributeId(object.getString("companyDistributeId"));
-                middleInvoiceDis.setResponseInfo(object.getString("errorReasonList"));
-                middleInvoiceDis.setResponseState("3");
-                middleInvoiceDis.setResponseTime(new Date());
-                invoiceDisManager.updateBySelective(middleInvoiceDis);
+            //1.解析结果
+            JSONObject resultData = JSONObject.parseObject(resultStr);
+            MiddleInvoiceDis middleInvoiceDis;
+            if(resultData.getInteger("resultCode")==1){
+                JSONArray successList = JSONArray.parseArray(resultData.getString("successList"));
+                for (int i = 0; i < successList.size(); i++) {
+                    JSONObject object=successList.getJSONObject(i);
+                    middleInvoiceDis=new MiddleInvoiceDis();
+                    middleInvoiceDis.setCompanyDistributeId(object.getString("companyDistributeId"));
+                    middleInvoiceDis.setResponseState("2");
+                    middleInvoiceDis.setResponseTime(new Date());
+                    invoiceDisManager.updateBySelective(middleInvoiceDis);
+                }
+            }else if(resultData.getInteger("resultCode")==-1){
+                JSONArray errorList = JSONArray.parseArray(resultData.getString("errorList"));
+                for (int i = 0; i < errorList.size(); i++) {
+                    JSONObject object=errorList.getJSONObject(i);
+                    middleInvoiceDis=new MiddleInvoiceDis();
+                    middleInvoiceDis.setCompanyDistributeId(object.getString("companyDistributeId"));
+                    middleInvoiceDis.setResponseInfo(object.getString("errorReasonList"));
+                    middleInvoiceDis.setResponseState("3");
+                    middleInvoiceDis.setResponseTime(new Date());
+                    invoiceDisManager.updateBySelective(middleInvoiceDis);
+                }
             }
         }
+
     }
 
 }

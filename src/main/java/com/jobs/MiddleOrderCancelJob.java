@@ -28,7 +28,7 @@ public class MiddleOrderCancelJob implements BaseJob {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("任务执行的时间：" + dateFormat.format(new Date()));
+        System.out.println("获取撤单任务执行的时间：" + dateFormat.format(new Date()));
     }
 
     public void  syncDatas(String url, int page) throws Exception{

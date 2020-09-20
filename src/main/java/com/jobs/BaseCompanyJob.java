@@ -28,7 +28,7 @@ public class BaseCompanyJob implements BaseJob {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("任务执行的时间：" + dateFormat.format(new Date()));
+        System.out.println("获取企业信息任务执行的时间：" + dateFormat.format(new Date()));
     }
 
     public void  syncDatas(String url, int page) throws Exception{

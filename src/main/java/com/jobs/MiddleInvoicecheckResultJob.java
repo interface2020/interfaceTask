@@ -25,13 +25,13 @@ public class MiddleInvoicecheckResultJob implements BaseJob {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("任务执行的时间：" + dateFormat.format(new Date()));
+        System.out.println("发票核验结果任务执行的时间：" + dateFormat.format(new Date()));
     }
 
     public void  syncDatas(String url, int page) throws Exception{
         Calendar cal=Calendar.getInstance();
         Date endTime=cal.getTime();
-        cal.add(Calendar.MINUTE,-15);
+        cal.add(Calendar.HOUR_OF_DAY,-12);
         Date startTime=cal.getTime();
         Map<String, String> params= new HashMap<>();
         params.put("token", AccessToken.accessToken);
