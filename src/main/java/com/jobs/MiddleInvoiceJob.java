@@ -43,7 +43,7 @@ public class MiddleInvoiceJob implements BaseJob {
 
         Map<String, Object> getParams= new HashMap<>();
         JSONObject InvoiceInfo=new JSONObject();
-        getParams.put("responseState","1");//查询待交互的配送数据
+        getParams.put("responseState","0");//查询待交互的发票
         List<Map<String, Object>> invoiceInfoList=new ArrayList<>();
         Map<String, Object> invoiceMap;
         List<MiddleInvoiceInfo> invoiceList = invoiceInfoManager.getListByParams(getParams);

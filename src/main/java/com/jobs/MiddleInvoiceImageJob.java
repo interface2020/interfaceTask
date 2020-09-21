@@ -24,6 +24,9 @@ public class MiddleInvoiceImageJob implements BaseJob {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         String url="http://localhost:8089/springboot-demo/compInterface/invoiceImage/addImage";
         try {
+            if(AccessToken.accessToken==""){
+                AccessToken.getTokenData();
+            }
             syncDatas(url);
         } catch (Exception e) {
             e.printStackTrace();
@@ -37,7 +40,7 @@ public class MiddleInvoiceImageJob implements BaseJob {
 
         Map<String, Object> getParams= new HashMap<>();
         JSONObject InvoiceImageInfo=new JSONObject();
-        getParams.put("responseState","1");//查询待交互的配送数据
+        getParams.put("responseState","0");//查询待交互的发票图片
         List<Map<String, Object>> invoiceImageList=new ArrayList<>();
         Map<String, Object> invoiceImageMap;
         List<MiddleInvoiceImage> imageList = invoiceImageManager.getListByParams(getParams);

@@ -40,7 +40,7 @@ public class MiddleSaleListJob implements BaseJob {
 
         Map<String, Object> getParams= new HashMap<>();
         JSONObject saleInfo=new JSONObject();
-        getParams.put("responseState","1");//查询待交互的配送数据
+        getParams.put("responseState","0");//查询待交互的发票清单
         List<Map<String, Object>> saleInfoList=new ArrayList<>();
         Map<String, Object> saleInfoMap;
         List<MiddleSaleInfo> saleInfos = saleInfoManager.getListByParams(getParams);
@@ -71,10 +71,9 @@ public class MiddleSaleListJob implements BaseJob {
                     saleInfoMap.put("invoicePrimaryID",middleSaleInfo.getInvoicePrimaryId());
                     saleInfoList.add(saleInfoMap);
                 }
-                saleInfoList.add(saleInfoMap);
             }
             saleInfo.put("list",saleInfoList);
-            params.put("invoiceInfo", saleInfo.toJSONString());
+            params.put("saleInfo", saleInfo.toJSONString());
             String resultStr = HttpClientUtil.doPost(url, params);
             System.out.println(resultStr);
             if (resultStr.contains("无效token")) {

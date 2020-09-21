@@ -24,6 +24,9 @@ public class BaseDrugInfoJob implements BaseJob {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         String url="http://localhost:8089/springboot-demo/compInterface/procurecatalog/getProcurecatalog";
         try {
+            if(AccessToken.accessToken==""){
+                AccessToken.getTokenData();
+            }
             syncDatas(url,1);
         } catch (Exception e) {
             e.printStackTrace();

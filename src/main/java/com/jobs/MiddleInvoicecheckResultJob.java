@@ -21,6 +21,10 @@ public class MiddleInvoicecheckResultJob implements BaseJob {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         String url="http://localhost:8089/springboot-demo/compInterface/distribution/invoiceInfo";
         try {
+            if(AccessToken.accessToken==""){
+                AccessToken.getTokenData();
+            }
+            System.out.println("token值：" + AccessToken.accessToken);
             syncDatas(url,1);
         } catch (Exception e) {
             e.printStackTrace();

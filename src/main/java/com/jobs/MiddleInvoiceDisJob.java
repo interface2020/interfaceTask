@@ -23,6 +23,9 @@ public class MiddleInvoiceDisJob implements BaseJob {
     public void execute(JobExecutionContext context) throws JobExecutionException {
         String url="http://localhost:8089/springboot-demo/compInterface/distribution/addDistributeInvoice";
         try {
+            if(AccessToken.accessToken==""){
+                AccessToken.getTokenData();
+            }
             syncDatas(url);
         } catch (Exception e) {
             e.printStackTrace();
@@ -36,7 +39,7 @@ public class MiddleInvoiceDisJob implements BaseJob {
 
         Map<String, Object> getParams= new HashMap<>();
         JSONObject InvoiceInfo=new JSONObject();
-        getParams.put("responseState","1");//查询待交互的配送数据
+        getParams.put("responseState","0");//查询待交互的配送发票补录数据
         List<Map<String, Object>> invoiceInfoList=new ArrayList<>();
         Map<String, Object> invoiceMap;
         List<MiddleInvoiceDis> invoiceDisList = invoiceDisManager.getListByParams(getParams);
