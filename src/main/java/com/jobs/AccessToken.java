@@ -3,13 +3,34 @@ package com.jobs;
 import com.alibaba.fastjson.JSONObject;
 import com.common.utils.HttpClientUtil;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 @Component
 public class AccessToken {
+
+    public static Properties systemProperties;
+    //读取文件的配置方法
+    static {
+        Resource resource = new ClassPathResource("application.properties");
+        try {
+            systemProperties = new Properties();
+            systemProperties.load(resource.getInputStream());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String userName = systemProperties.getProperty("userName");
+
+    public static String password = systemProperties.getProperty("password");
+
+    public static String interfaceUrl = systemProperties.getProperty("interface.url");
 
     public static String accessToken="";
 
@@ -19,10 +40,10 @@ public class AccessToken {
      * @return
      */
     public static void getTokenData() {
-        String url = "http://localhost:8089/springboot-demo/compInterface/getToken";
+        String url = interfaceUrl+"/compInterface/getToken";
         Map<String, String> params= new HashMap<>();
-        params.put("username", "P0017");
-        params.put("password", "1");
+        params.put("username", userName);
+        params.put("password", password);
         String resultStr = HttpClientUtil.doPost(url, params);
         System.out.println("获取token==="+resultStr);
         JSONObject resultMap = JSONObject.parseObject(resultStr);
