@@ -25,7 +25,7 @@ public class MiddleDistributeJob implements BaseJob {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        String url="http://localhost:8089/springboot-demo/compInterface/distribution/distribute";
+        String url=AccessToken.interfaceUrl+"/compInterface/distribution/distribute";
         try {
             if(AccessToken.accessToken==""){
                 AccessToken.getTokenData();
@@ -59,6 +59,7 @@ public class MiddleDistributeJob implements BaseJob {
                 disInfo.put("companyDistributeId",middleDistribute.getCompanyDistributeId());
                 disInfo.put("orderDetailId",middleDistribute.getOrderDetailId());
                 disInfo.put("disTime",disTime);
+                disInfo.put("discount",middleDistribute.getDisCount());
 
                 getParams.put("companyDistributeId",middleDistribute.getCompanyDistributeId());
                 List<MiddleDistributeBatch> distributeBatches = distributeBatchManager.getListByParams(getParams);
@@ -74,6 +75,7 @@ public class MiddleDistributeJob implements BaseJob {
             }
             distributeInfo.put("list",distributeInfoList);
             params.put("distributeInfo", distributeInfo.toJSONString());
+            System.out.println(params);
             String resultStr = HttpClientUtil.doPost(url, params);
             System.out.println(resultStr);
             if (resultStr.contains("无效token")) {
