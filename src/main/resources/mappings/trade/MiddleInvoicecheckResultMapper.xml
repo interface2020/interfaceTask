@@ -223,4 +223,9 @@
 		DELETE FROM
 		MIDDLE_INVOICECHECK_RESULT WHERE DISTRIBUTE_ID = #{value}
 	</delete>
+
+	<delete id="deleteAllDatas" >
+		DELETE FROM
+		MIDDLE_INVOICECHECK_RESULT
+	</delete>
 </mapper>

@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface MiddleInvoicecheckResultDao extends GenericDao<MiddleInvoicecheckResult, String> {
+
+    int deleteAllDatas();
 }

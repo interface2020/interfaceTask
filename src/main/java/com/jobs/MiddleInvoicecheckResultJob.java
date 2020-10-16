@@ -40,8 +40,9 @@ public class MiddleInvoicecheckResultJob implements BaseJob {
         Map<String, String> params= new HashMap<>();
         params.put("token", AccessToken.accessToken);
         params.put("currentPageNumber", String.valueOf(page));
-        params.put("startTime", dateFormat.format(startTime));
-        params.put("endTime", dateFormat.format(endTime));
+//        params.put("startTime", dateFormat.format(startTime));
+//        params.put("endTime", dateFormat.format(endTime));
+        params.put("perpage", "1000");
 //        params.put("startTime", "2019-06-21 16:00:00");
 //        params.put("endTime", "2019-06-21 16:30:00");
         String resultStr = HttpClientUtil.doPost(url, params);
@@ -54,6 +55,9 @@ public class MiddleInvoicecheckResultJob implements BaseJob {
         //1.解析结果
         JSONObject resultData = JSONObject.parseObject(resultStr);
         if(resultData.getInteger("resultCode")==1){
+            if(page==1){
+                invoicecheckResultManager.deleteAllDatas();
+            }
             List<MiddleInvoicecheckResult> invoicecheckResults = JSONArray.parseArray(resultData.getString("dataList"), MiddleInvoicecheckResult.class);
             if(invoicecheckResults.size()>0){
                 invoicecheckResultManager.saveBatch(invoicecheckResults);
