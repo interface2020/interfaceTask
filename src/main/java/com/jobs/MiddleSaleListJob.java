@@ -22,7 +22,7 @@ public class MiddleSaleListJob implements BaseJob {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        String url="http://localhost:8089/springboot-demo/compInterface/saleList/addSale";
+        String url=AccessToken.interfaceUrl+"/compInterface/saleList/addSale";
         try {
             if(AccessToken.accessToken==""){
                 AccessToken.getTokenData();
