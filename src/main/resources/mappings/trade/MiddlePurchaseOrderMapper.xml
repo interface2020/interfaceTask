@@ -146,7 +146,8 @@
 		COMPANY_NAME_PS ,
 		COMPANY_ID_PS ,
 		ORDER_NAME ,
-		ORDER_REMARKS 
+		ORDER_REMARKS ,
+		DOWNLOAD_STATE
 		)
 		<foreach collection="list" item="item" index="index"
 				 separator=" UNION ALL ">
@@ -166,7 +167,8 @@
 			#{item.companyNamePs},
 			#{item.companyIdPs},
 			#{item.orderName},
-			#{item.orderRemarks}
+			#{item.orderRemarks},
+			'0'
 			FROM DUAL
 		</foreach>
 	</insert>

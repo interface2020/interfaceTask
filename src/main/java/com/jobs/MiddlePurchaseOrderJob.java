@@ -43,8 +43,8 @@ public class MiddlePurchaseOrderJob implements BaseJob {
         params.put("currentPageNumber", String.valueOf(page));
         params.put("startTime", dateFormat.format(startTime));
         params.put("endTime", dateFormat.format(endTime));
-//        params.put("startTime", "2020-06-21 16:00:00");
-//        params.put("endTime", "2019-06-21 16:30:00");
+//        params.put("startTime", "2020-04-07 08:00:00");
+//        params.put("endTime", "2020-04-08 09:30:00");
         String resultStr = HttpClientUtil.doPost(url, params);
         System.out.println(resultStr);
         if (resultStr.contains("无效token")) {
