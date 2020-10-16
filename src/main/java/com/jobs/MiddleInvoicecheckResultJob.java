@@ -19,7 +19,7 @@ public class MiddleInvoicecheckResultJob implements BaseJob {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        String url="http://localhost:8089/springboot-demo/compInterface/distribution/invoiceInfo";
+        String url=AccessToken.interfaceUrl+"/compInterface/distribution/invoiceInfo";
         try {
             if(AccessToken.accessToken==""){
                 AccessToken.getTokenData();

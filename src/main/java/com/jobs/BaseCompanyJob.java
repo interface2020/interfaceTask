@@ -22,7 +22,7 @@ public class BaseCompanyJob implements BaseJob {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        String url="http://localhost:8089/springboot-demo/compInterface/company/getCompany";
+        String url=AccessToken.interfaceUrl+"/compInterface/company/getCompany";
         try {
             if(AccessToken.accessToken==""){
                 AccessToken.getTokenData();

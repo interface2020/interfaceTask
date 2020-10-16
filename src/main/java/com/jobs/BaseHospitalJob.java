@@ -22,7 +22,7 @@ public class BaseHospitalJob implements BaseJob {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        String url="http://localhost:8089/springboot-demo/compInterface/hospital/getHospital";
+        String url=AccessToken.interfaceUrl+"/compInterface/hospital/getHospital";
         try {
             if(AccessToken.accessToken==""){
                 AccessToken.getTokenData();

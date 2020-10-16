@@ -22,7 +22,7 @@ public class BaseDrugInfoJob implements BaseJob {
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        String url="http://localhost:8089/springboot-demo/compInterface/procurecatalog/getProcurecatalog";
+        String url=AccessToken.interfaceUrl+"/compInterface/procurecatalog/getProcurecatalog";
         try {
             if(AccessToken.accessToken==""){
                 AccessToken.getTokenData();
