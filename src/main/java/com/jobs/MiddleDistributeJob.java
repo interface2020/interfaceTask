@@ -11,12 +11,16 @@ import com.trade.service.MiddleDistributeManager;
 import com.trade.service.MiddlePurchaseOrderManager;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MiddleDistributeJob implements BaseJob {
+    private static final Logger log = LoggerFactory.getLogger(MiddleDistributeJob.class);
+
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private MiddleDistributeManager distributeManager= QuartzConfig.getBean(MiddleDistributeManager.class);
@@ -34,7 +38,7 @@ public class MiddleDistributeJob implements BaseJob {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("配送订单任务执行的时间：" + dateFormat.format(new Date()));
+        log.info("配送订单任务执行的时间：" + dateFormat.format(new Date()));
     }
 
     public void  syncDatas(String url) throws Exception{
@@ -75,11 +79,11 @@ public class MiddleDistributeJob implements BaseJob {
             }
             distributeInfo.put("list",distributeInfoList);
             params.put("distributeInfo", distributeInfo.toJSONString());
-            System.out.println(params);
+            log.info(String.valueOf(params));
             String resultStr = HttpClientUtil.doPost(url, params);
-            System.out.println(resultStr);
+            log.info(resultStr);
             if (resultStr.contains("无效token")) {
-                System.out.println(resultStr);
+                log.info(resultStr);
                 AccessToken.getTokenData();
                 syncDatas(url);
             }

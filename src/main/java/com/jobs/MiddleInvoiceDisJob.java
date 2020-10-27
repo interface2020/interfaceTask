@@ -9,12 +9,16 @@ import com.trade.service.MiddleInvoiceDisManager;
 import com.trade.service.MiddleInvoiceInfoManager;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MiddleInvoiceDisJob implements BaseJob {
+    private static final Logger log = LoggerFactory.getLogger(MiddleInvoiceDisJob.class);
+
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private MiddleInvoiceDisManager invoiceDisManager= QuartzConfig.getBean(MiddleInvoiceDisManager.class);
@@ -30,7 +34,7 @@ public class MiddleInvoiceDisJob implements BaseJob {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("配送发票补录任务执行的时间：" + dateFormat.format(new Date()));
+        log.info("配送发票补录任务执行的时间：" + dateFormat.format(new Date()));
     }
 
     public void  syncDatas(String url) throws Exception{
@@ -54,10 +58,11 @@ public class MiddleInvoiceDisJob implements BaseJob {
             }
             InvoiceInfo.put("list",invoiceInfoList);
             params.put("distributeInfo", InvoiceInfo.toJSONString());
+            log.info(String.valueOf(params));
             String resultStr = HttpClientUtil.doPost(url, params);
-            System.out.println(resultStr);
+            log.info(resultStr);
             if (resultStr.contains("无效token")) {
-                System.out.println(resultStr);
+                log.info(resultStr);
                 AccessToken.getTokenData();
                 syncDatas(url);
             }

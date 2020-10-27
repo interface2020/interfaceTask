@@ -9,12 +9,16 @@ import com.trade.service.BaseCompanyProvinceManager;
 import com.trade.service.MiddlePurchaseOrderManager;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MiddlePurchaseOrderJob implements BaseJob {
+    private static final Logger log = LoggerFactory.getLogger(MiddlePurchaseOrderJob.class);
+
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private MiddlePurchaseOrderManager purchaseOrderManager= QuartzConfig.getBean(MiddlePurchaseOrderManager.class);
@@ -30,7 +34,7 @@ public class MiddlePurchaseOrderJob implements BaseJob {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("获取订单任务执行的时间：" + dateFormat.format(new Date()));
+        log.info("获取订单任务执行的时间：" + dateFormat.format(new Date()));
     }
 
     public void  syncDatas(String url, int page) throws Exception{
@@ -46,9 +50,9 @@ public class MiddlePurchaseOrderJob implements BaseJob {
 //        params.put("startTime", "2020-04-07 08:00:00");
 //        params.put("endTime", "2020-04-08 09:30:00");
         String resultStr = HttpClientUtil.doPost(url, params);
-        System.out.println(resultStr);
+        log.info(resultStr);
         if (resultStr.contains("无效token")) {
-            System.out.println(resultStr);
+            log.info(resultStr);
             AccessToken.getTokenData();
             syncDatas(url,page);
         }

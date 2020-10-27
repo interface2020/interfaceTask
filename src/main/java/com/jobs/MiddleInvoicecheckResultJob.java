@@ -7,12 +7,15 @@ import com.trade.model.MiddleInvoicecheckResult;
 import com.trade.service.MiddleInvoicecheckResultManager;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MiddleInvoicecheckResultJob implements BaseJob {
+    private static final Logger log = LoggerFactory.getLogger(MiddleInvoicecheckResultJob.class);
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private MiddleInvoicecheckResultManager invoicecheckResultManager= QuartzConfig.getBean(MiddleInvoicecheckResultManager.class);
@@ -24,12 +27,12 @@ public class MiddleInvoicecheckResultJob implements BaseJob {
             if(AccessToken.accessToken==""){
                 AccessToken.getTokenData();
             }
-            System.out.println("token值：" + AccessToken.accessToken);
+            log.info("token值：" + AccessToken.accessToken);
             syncDatas(url,1);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("发票核验结果任务执行的时间：" + dateFormat.format(new Date()));
+        log.info("发票核验结果任务执行的时间：" + dateFormat.format(new Date()));
     }
 
     public void  syncDatas(String url, int page) throws Exception{
@@ -46,9 +49,9 @@ public class MiddleInvoicecheckResultJob implements BaseJob {
 //        params.put("startTime", "2019-06-21 16:00:00");
 //        params.put("endTime", "2019-06-21 16:30:00");
         String resultStr = HttpClientUtil.doPost(url, params);
-        System.out.println(resultStr);
+//        log.info(resultStr);
         if (resultStr.contains("无效token")) {
-            System.out.println(resultStr);
+            log.info(resultStr);
             AccessToken.getTokenData();
             syncDatas(url,page);
         }
