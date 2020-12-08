@@ -185,4 +185,14 @@
 		DELETE FROM
 		MIDDLE_ORDER_CANCEL WHERE ORDER_ID = #{value}
 	</delete>
+
+	<delete id="deleteByIds" parameterType="java.util.List">
+		DELETE FROM
+		MIDDLE_ORDER_CANCEL WHERE ORDER_ID IN(
+		<foreach collection="list" item="item" index="index"
+				 separator=",">
+			#{item.orderId}
+		</foreach>)
+	</delete>
+
 </mapper>

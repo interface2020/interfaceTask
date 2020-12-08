@@ -41,7 +41,7 @@ public class MiddleOrderCancelJob implements BaseJob {
     public void  syncDatas(String url, int page) throws Exception{
         Calendar cal=Calendar.getInstance();
         Date endTime=cal.getTime();
-        cal.add(Calendar.MINUTE,-2);
+        cal.add(Calendar.MINUTE,-3);
         Date startTime=cal.getTime();
         Map<String, String> params= new HashMap<>();
         params.put("token", AccessToken.accessToken);
@@ -62,13 +62,13 @@ public class MiddleOrderCancelJob implements BaseJob {
         if(resultData.getInteger("resultCode")==1){
             List<MiddleOrderCancel> orders = JSONArray.parseArray(resultData.getString("dataList"), MiddleOrderCancel.class);
             if(orders.size()>0){
+                orderCancelManager.deleteByIds(orders);
                 orderCancelManager.saveBatch(orders);
                 purchaseOrderManager.deleteCancelOrders(orders);
                 if(page<resultData.getInteger("totalPageCount")){
                     syncDatas(url, ++page);
                 }
             }
-
         }
     }
 
