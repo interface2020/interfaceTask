@@ -45,7 +45,7 @@ public class BaseDrugInfoJob implements BaseJob {
         params.put("perpage", "1000");
         String resultStr = HttpClientUtil.doPost(url, params);
 //        log.info(resultStr);
-        if (resultStr.contains("无效token")) {
+        if (resultStr.contains("无效token") || resultStr.contains("token已过期") || resultStr.contains("token未生效")) {
             log.info(resultStr);
             AccessToken.getTokenData();
             syncDatas(url,page);

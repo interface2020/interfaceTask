@@ -50,7 +50,7 @@ public class MiddleInvoicecheckResultJob implements BaseJob {
 //        params.put("endTime", "2019-06-21 16:30:00");
         String resultStr = HttpClientUtil.doPost(url, params);
 //        log.info(resultStr);
-        if (resultStr.contains("无效token")) {
+        if (resultStr.contains("无效token") || resultStr.contains("token已过期") || resultStr.contains("token未生效")) {
             log.info(resultStr);
             AccessToken.getTokenData();
             syncDatas(url,page);
